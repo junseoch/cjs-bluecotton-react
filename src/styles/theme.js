@@ -21,11 +21,11 @@ theme.PALLETE = {
         greyScale4: "#757575",
     },
     rank : {
-        rookie: "00C853",
-        silver: "B0BEC5",
-        gold: "DAB24C", 
-        diamond: "00E5FF",
-        master: "FF1744",
+        rookie: "#00C853",
+        silver: "#B0BEC5",
+        gold: "#DAB24C", 
+        diamond: "#00E5FF",
+        master: "#FF1744",
 
     },
     basic: "#111111",
