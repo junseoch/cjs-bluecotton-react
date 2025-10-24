@@ -65,9 +65,9 @@ theme.FONT_WEIGHT = {
     light: "300",
     regular: "400",
     medium: "500",
-    blod: "700",
+    bold: "700",
     extraBold: "800",
-}
+} 
 
 theme.FONT_LINE = {
     h1: "75px",
