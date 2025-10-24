@@ -7,14 +7,14 @@ export const flexCenter = css`
   align-items: center;
 `
 
-export const flexBeetweenRow = css`
+export const flexBetweenRow = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 `
 
-export const flexBeetweenColumn = css`
+export const flexBetweenColumn = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -123,7 +123,7 @@ export const smallText3Light = css`
 `
 export const smallText3Thin = css`
   font-size: ${({theme}) => theme.FONT_SIZE["smallText3"]};
-  font-weight: ${({theme}) => theme.FONT_WEIGHT["think"]};
+  font-weight: ${({theme}) => theme.FONT_WEIGHT["thin"]};
 `
 // smalltext2
 export const smallText2Bold = css`
@@ -132,7 +132,7 @@ export const smallText2Bold = css`
 `
 export const smallText2Regular = css`
   font-size: ${({theme}) => theme.FONT_SIZE["smallText2"]};
-  font-weight: ${({theme}) => theme.FONT_WEIGHT["reuglar"]};
+  font-weight: ${({theme}) => theme.FONT_WEIGHT["regular"]};
 `
 export const smallText2Light = css`
   font-size: ${({theme}) => theme.FONT_SIZE["smallText2"]};
@@ -203,7 +203,7 @@ export const secondary = css`
   color: ${({theme}) => theme.PALLETE.secondary.main};
 `
 export const secondaryLight = css`
-  color: ${({theme}) => theme.PALLETE.secondary.lgiht};
+  color: ${({theme}) => theme.PALLETE.secondary.light};
 `
 export const secondaryDark = css`
   color: ${({theme}) => theme.PALLETE.secondary.dark};
@@ -234,7 +234,7 @@ export const rankSilver = css`
 export const rankGold = css`
   color: ${({theme}) => theme.PALLETE.rank.gold};
 `
-export const rankDiamon = css`
+export const rankDiamond = css`
   color: ${({theme}) => theme.PALLETE.rank.diamond};
 `
 export const rankMaster = css`
