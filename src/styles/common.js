@@ -109,7 +109,7 @@ export const subtitleRegular = css`
   font-weight: ${({theme}) => theme.FONT_WEIGHT["regular"]};
 `
 // smalltext3
-export const samllText3Bold = css`
+export const smallText3Bold = css`
   font-size: ${({theme}) => theme.FONT_SIZE["smallText3"]};
   font-weight: ${({theme}) => theme.FONT_WEIGHT["bold"]};
 `
