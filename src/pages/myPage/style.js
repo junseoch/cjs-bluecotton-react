@@ -28,8 +28,8 @@ export const ProfileContainer = styled.div`
 
 export const ProfileImageWrapper = styled.div`
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 8px;
@@ -59,7 +59,7 @@ export const SomBadge = styled.div`
 `;
 
 export const UserName = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: ${({ theme }) => theme.PALLETE.basic};
 `;
@@ -68,7 +68,7 @@ export const NavigationList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 2px;
+  gap: 4px;
 `;
 
 export const NavLink = styled.div`
