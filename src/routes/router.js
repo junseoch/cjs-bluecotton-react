@@ -4,7 +4,7 @@ import Layout from "../pages/layout/Layout";
 import NotFound from "../pages/notFound/NotFound";
 import SignUp from "../pages/signUp/SignUp";
 import Intro from "../pages/intro/Intro";
-import Shop from "../pages/shop/Shop";
+import Shop from "../pages/shop/read/Shop";
 import Login from "../pages/login/Login";
 import ReadContent from "../pages/main/readcontent/ReadContent";
 import MapContainer from "../pages/map/MapContainer";

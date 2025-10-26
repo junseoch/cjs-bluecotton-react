@@ -3,15 +3,13 @@ import S from "./style";
 import ShopList from "./ShopList";
 
 const ShopContainer = () => {
-
   const [isOpen, setIsOpen] = useState(false);
-  const selected = "리뷰 많은 순";
+  const [selected, setSelected] = useState("리뷰 많은 순"); // 라벨만 바꿈
   const options = ["신상품순", "리뷰 많은 순", "낮은 가격 순", "높은 가격 순", "판매순"];
 
   return (
     <S.Page>
       <S.Container>
-        {/* 배너 */}
         <S.Banner>
           <img src="" alt="배너 이미지" />
           <S.BannerTextBox>
@@ -24,18 +22,24 @@ const ShopContainer = () => {
 
         <S.SortBar>
           <S.DropdownWrap>
-            <S.DropdownButton onClick={() => setIsOpen((prev) => !prev)}>
+            <S.DropdownButton onClick={() => setIsOpen((p) => !p)}>
               {selected}
               <S.ArrowIcon>
-                <img src="arrowIcon" />
+                <img src="/assets/icons/arrow_drop_down.png" alt="드롭다운 아이콘" />
               </S.ArrowIcon>
             </S.DropdownButton>
 
-            {/* 펼친 상태에서만 보임 */}
             {isOpen && (
               <S.DropdownList>
                 {options.map((option) => (
-                  <S.DropdownItem key={option} $active={option === selected}>
+                  <S.DropdownItem
+                    key={option}
+                    $active={option === selected}
+                    onClick={() => {
+                      setSelected(option); 
+                      setIsOpen(false);    
+                    }}
+                  >
                     {option}
                   </S.DropdownItem>
                 ))}
@@ -50,10 +54,9 @@ const ShopContainer = () => {
           </S.SortRight>
         </S.SortBar>
 
-        {/* 좌측 카테고리 상단 구분 바 */}
         <S.SortBottomLine />
 
-        {/* 좌측 카테고리 필터 */}
+        {/* 왼쪽 필터들 */}
         <S.LeftFilter>
           <S.FilterGroup>
             <S.CatagoryTopBar />
@@ -80,7 +83,8 @@ const ShopContainer = () => {
             <S.Label><S.Checkbox /> 일반</S.Label>
           </S.FilterGroup>
         </S.LeftFilter>
-          <ShopList />
+
+        <ShopList />
       </S.Container>
     </S.Page>
   );
