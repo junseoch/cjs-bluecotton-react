@@ -56,7 +56,7 @@ export const FilterBox = styled.div`
 
 /* === 드롭다운 셀렉트 === */
 export const FilterSelect = styled.select`
-  width: 90px;
+  min-width: 120px; /* ✅ 4글자 이상 텍스트 대응 */
   height: 30px;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale2};

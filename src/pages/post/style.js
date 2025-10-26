@@ -14,7 +14,7 @@ export const Banner = styled.div`
   width: 1160px;
   height: 250px;
   border-radius: 4px;
-  background: url("/postImages/banner.png") center/cover no-repeat;
+  background: url("/assets/postImages/post_banner.png") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,11 +72,6 @@ export const Card = styled.div`
   flex-direction: column;
   transition: all 0.2s ease;
   cursor: pointer;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
-  }
 
   .thumb {
     height: 210px;
