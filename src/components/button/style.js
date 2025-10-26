@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const sizeCSS = {
+export const sizeCSS = {
   small : css`
     width: 64px;
     height: 32px;
@@ -11,11 +11,24 @@ const sizeCSS = {
     height: 48px;
     padding: 16px 0;
   `,
+
+  mediumLogin: css`
+    width : 96px;
+    height: 48px;
+    padding: 5px 17px 5px 10px;
+  `,
   large: css`
     width: 128px;
     height: 64px;
     padding: 16px 0;
   `,
+
+  large2: css`
+    width: 140px;
+    height: 45px;
+    padding: 16px 0;
+  `,
+  
   full: css`
     width: 100%;
     aspect-ratio: 8 / 1;
@@ -24,7 +37,7 @@ const sizeCSS = {
 }
 
 // font-size
-const fontCSS = {
+export const fontCSS = {
   h1: css`
     font-size: ${({theme}) => theme.FONT_SIZE["h1"]};
     line-height: ${({theme}) => theme.FONT_LINE["h1"]};
@@ -64,7 +77,7 @@ const fontCSS = {
 }
 
 // color
-const colorCSS = {
+export const colorCSS = {
   primary : css`
     color: ${({theme}) => theme.PALLETE.primary["main"]};
   `,
@@ -74,14 +87,18 @@ const colorCSS = {
 }
  
 // border
-const borderCSS = {
+export const borderCSS = {
   primary: css`
     border: solid 1px ${({theme}) => theme.PALLETE.primary["main"]};
+  `,
+
+  primaryLight0: css`
+    border: solid 1px ${({theme}) => theme.PALLETE.primary["light0"]};  
   `,
 }
 
 // shape
-const shapeCSS = {
+export const shapeCSS = {
   small: css`
     border-radius: 4px;
   `,
