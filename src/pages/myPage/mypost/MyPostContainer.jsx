@@ -1,28 +1,50 @@
 import React from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { ContentTitle, ContentSubtitle, TabContainer, Tab } from './style';
 
 const MyPostContainer = () => {
-  const location = useLocation()
-  const path = location.pathname.replace("/main/my-page/my-post/", "");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const tabs = [
+    { id: 'write', label: '작성한 글', path: '/main/my-page/my-post/write' },
+    { id: 'like', label: '좋아요', path: '/main/my-page/my-post/like' },
+    { id: 'comment', label: '나의 댓글', path: '/main/my-page/my-post/comment' },
+    { id: 'save', label: '임시저장한 글', path: '/main/my-page/my-post/save' },
+    { id: 'recent', label: '최근에 본 글', path: '/main/my-page/my-post/recent' }
+  ];
+
+  const getActiveTab = () => {
+    if (location.pathname.includes('/write')) return 'write';
+    if (location.pathname.includes('/like')) return 'like';
+    if (location.pathname.includes('/comment')) return 'comment';
+    if (location.pathname.includes('/save')) return 'save';
+    if (location.pathname.includes('/recent')) return 'recent';
+    return 'write';
+  };
+
+  const handleTabClick = (path) => {
+    navigate(path);
+  };
+
   return (
-    <div> 
-      {path === "like" ? (<p>좋아요 현황</p>)
-        :path === "write" ? (<p>작성 현황</p>)
-          :path === "comment" ? (<p>댓글 현황</p>)
-            :path === "save" ? (<p>임시 저장 현황</p>)
-              :path === "recent" ? (<p>최근에 본 글</p>)
-                :(<p>잘못된경로</p>)
-      }
-      <div>
-        <Link to={'/main/my-page/my-post/like'}>좋아요</Link> | &nbsp;
-        <Link to={'/main/my-page/my-post/write'}>작성글</Link> | &nbsp;
-        <Link to={'/main/my-page/my-post/comment'}>댓글</Link> | &nbsp;
-        <Link to={'/main/my-page/my-post/save'}>임시 저장</Link> | &nbsp;
-        <Link to={'/main/my-page/my-post/recent'}>최근 글</Link>
-      </div>
-      <div>
-        <Outlet />
-      </div>
+    <div>
+      <ContentTitle>오늘의 솜 현황이 궁금하세요?</ContentTitle>
+      <ContentSubtitle>게시판 현황을 확인할 수 있어요.</ContentSubtitle>
+      
+      <TabContainer>
+        {tabs.map(tab => (
+          <Tab
+            key={tab.id}
+            active={getActiveTab() === tab.id}
+            onClick={() => handleTabClick(tab.path)}
+          >
+            {tab.label}
+          </Tab>
+        ))}
+      </TabContainer>
+      
+      <Outlet />
     </div>
   );
 };
