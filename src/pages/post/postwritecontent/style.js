@@ -90,7 +90,6 @@ export const FormGroup = styled.div`
     line-height: 1.6;
     color: ${({ theme }) => theme.PALLETE.basic};
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 
     &::placeholder {
       color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
@@ -98,8 +97,7 @@ export const FormGroup = styled.div`
 
     &:focus {
       border-color: ${({ theme }) => theme.PALLETE.primary.main};
-      color: ${({ theme }) => theme.PALLETE.primary.main};
-      box-shadow: 0 0 0 3px rgba(0, 81, 255, 0.15);
+      color: ${({ theme }) => theme.PALLETE.basic};
     }
   }
 
