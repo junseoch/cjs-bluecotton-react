@@ -1,9 +1,173 @@
 import React from 'react';
+import {
+  ContentTitle,
+  ContentSubtitle
+} from '../style';
+import styled from 'styled-components';
+
+const StatusBox = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  background-color: #F9F9F9;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  gap: 32px;
+`;
+
+const StatusText = styled.div`
+  flex: 1;
+`;
+
+const StatusTitle = styled.div`
+  font-size: 16px;
+  color: #757575;
+  margin-bottom: 8px;
+`;
+
+const StatusValue = styled.div`
+  font-size: 32px;
+  font-weight: 700;
+  color: #111111;
+`;
+
+const StatusLabel = styled.div`
+  font-size: 14px;
+  color: #757575;
+  margin-top: 4px;
+`;
+
+const RequirementBox = styled.div`
+  padding: 20px;
+  background-color: #0051FF;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+`;
+
+const TableHeader = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 16px;
+`;
+
+const InfoSection = styled.div`
+  margin-top: 40px;
+`;
+
+const InfoTitle = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 16px;
+`;
+
+const InfoList = styled.ol`
+  padding-left: 24px;
+  font-size: 14px;
+  color: #111111;
+  line-height: 1.8;
+  
+  li {
+    margin-bottom: 8px;
+  }
+`;
+
+const BulletList = styled.ul`
+  padding-left: 24px;
+  font-size: 14px;
+  color: #111111;
+  line-height: 1.8;
+  
+  li {
+    margin-bottom: 8px;
+  }
+`;
 
 const MySomRankContainer = () => {
   return (
     <div>
-      마이 솜 등급
+      <ContentTitle>솜 등급 현황이 궁금하세요?</ContentTitle>
+      <ContentSubtitle>솜 등급 현황을 확인할 수 있어요.</ContentSubtitle>
+      
+      <StatusBox>
+        <StatusText>
+          <StatusTitle>회원 등급 현황입니다.</StatusTitle>
+          <StatusValue>zl존준서 님의 등급은 Silver 입니다.</StatusValue>
+          <StatusLabel>현재 기준 6솜</StatusLabel>
+        </StatusText>
+        <RequirementBox>
+          Gold 등급이 되려면, 4 솜이 필요해요.
+        </RequirementBox>
+      </StatusBox>
+
+      <TableHeader>회원 레벨 기준</TableHeader>
+      <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '32px' }}>
+        <thead>
+          <tr style={{ backgroundColor: '#F9F9F9' }}>
+            <th style={{ padding: '12px', borderBottom: '2px solid #E0E0E0', textAlign: 'left', fontSize: '14px', fontWeight: '600' }}>솜등급</th>
+            <th style={{ padding: '12px', borderBottom: '2px solid #E0E0E0', textAlign: 'left', fontSize: '14px', fontWeight: '600' }}>필요솜</th>
+            <th style={{ padding: '12px', borderBottom: '2px solid #E0E0E0', textAlign: 'left', fontSize: '14px', fontWeight: '600' }}>솔로 보너스</th>
+            <th style={{ padding: '12px', borderBottom: '2px solid #E0E0E0', textAlign: 'left', fontSize: '14px', fontWeight: '600' }}>파티 보너스</th>
+            <th style={{ padding: '12px', borderBottom: '2px solid #E0E0E0', textAlign: 'left', fontSize: '14px', fontWeight: '600' }}>프로필 아이콘</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>Rookie</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>0솜</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>0%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>0%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>😊</td>
+          </tr>
+          <tr>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>Silver</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>10솜</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>10%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>5%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>😎</td>
+          </tr>
+          <tr>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>Gold</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>50솜</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>20%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>10%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>🧑‍💼</td>
+          </tr>
+          <tr>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>Diamond</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>100솜</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>30%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>15%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>👑</td>
+          </tr>
+          <tr>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>Master</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>200솜</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>50%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>25%</td>
+            <td style={{ padding: '12px', borderBottom: '1px solid #E0E0E0' }}>🎩</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <InfoSection>
+        <InfoTitle>솜 적립 방법</InfoTitle>
+        <InfoList>
+          <li>솔로 솜을 실천하고 사진 인증을 해주세요.</li>
+          <li>파티 솜을 실천하고 사진 인증을 해주세요.</li>
+          <li>이벤트에 참여하여 보너스 캔디를 받아보세요.</li>
+        </InfoList>
+      </InfoSection>
+
+      <InfoSection>
+        <InfoTitle>캔디 사용 방법</InfoTitle>
+        <BulletList>
+          <li>블루코튼 샵에서 다양한 굿즈들을 구매 할 수 있어요.</li>
+        </BulletList>
+      </InfoSection>
     </div>
   );
 };
