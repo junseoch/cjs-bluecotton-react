@@ -13,7 +13,7 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 280px;
-  padding: 24px 20px;
+  padding: 16px 20px;
   background-color: ${({ theme }) => theme.PALLETE.white};
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -23,16 +23,16 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 `;
 
 export const ProfileImageWrapper = styled.div`
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 `;
 
 export const ProfileImage = styled.div`
@@ -45,21 +45,21 @@ export const SomBadge = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.PALLETE.primary.main};
   color: ${({ theme }) => theme.PALLETE.white};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   border: 3px solid ${({ theme }) => theme.PALLETE.white};
 `;
 
 export const UserName = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: ${({ theme }) => theme.PALLETE.basic};
 `;
@@ -68,11 +68,11 @@ export const NavigationList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 4px;
+  gap: 2px;
 `;
 
 export const NavLink = styled.div`
-  padding: 12px 16px;
+  padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
   background-color: ${props => props.active ? props.theme.PALLETE.primary.main : 'transparent'};
