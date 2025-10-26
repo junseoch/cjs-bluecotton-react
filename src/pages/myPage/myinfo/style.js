@@ -7,13 +7,13 @@ export const FormContainer = styled.div`
 export const Title = styled.h1`
   font-size: 32px;
   font-weight: bold;
-  color: #111111;
+  color: ${({ theme }) => theme.PALLETE.basic};
   margin-bottom: 12px;
 `;
 
 export const Subtitle = styled.p`
   font-size: 18px;
-  color: #111111;
+  color: ${({ theme }) => theme.PALLETE.basic};
   margin-bottom: 40px;
 `;
 
@@ -25,20 +25,20 @@ export const Label = styled.label`
   display: block;
   font-size: 16px;
   font-weight: 600;
-  color: #111111;
+  color: ${({ theme }) => theme.PALLETE.basic};
   margin-bottom: 8px;
 `;
 
 export const Input = styled.input`
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   border-radius: 8px;
   font-size: 16px;
   
   &:focus {
     outline: none;
-    border-color: #0051FF;
+    border-color: ${({ theme }) => theme.PALLETE.primary.main};
   }
 `;
 
@@ -49,8 +49,8 @@ export const ButtonGroup = styled.div`
 
 export const PrimaryButton = styled.button`
   padding: 8px 16px;
-  background-color: #0051FF;
-  color: white;
+  background-color: ${({ theme }) => theme.PALLETE.primary.main};
+  color: ${({ theme }) => theme.PALLETE.white};
   border: none;
   border-radius: 8px;
   font-size: 14px;
@@ -58,7 +58,7 @@ export const PrimaryButton = styled.button`
   cursor: pointer;
   
   &:hover {
-    background-color: #003BBF;
+    background-color: ${({ theme }) => theme.PALLETE.primary.dark};
   }
 `;
 
@@ -70,13 +70,13 @@ export const DateRow = styled.div`
 
 export const Select = styled.select`
   padding: 12px 16px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   border-radius: 8px;
   font-size: 16px;
   
   &:focus {
     outline: none;
-    border-color: #0051FF;
+    border-color: ${({ theme }) => theme.PALLETE.primary.main};
   }
 `;
 
@@ -96,12 +96,12 @@ export const RadioLabel = styled.label`
 export const ImagePreview = styled.div`
   width: 200px;
   height: 200px;
-  border: 2px dashed #E0E0E0;
+  border: 2px dashed ${({ theme }) => theme.PALLETE.grey.greyScale1};
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F9F9F9;
+  background-color: ${({ theme }) => theme.PALLETE.grey.greyScale0};
   margin-bottom: 16px;
 `;
 
@@ -111,7 +111,7 @@ export const FileInput = styled.input`
 
 export const FileInfo = styled.div`
   font-size: 14px;
-  color: #757575;
+  color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
   margin-bottom: 8px;
 `;
 
@@ -124,8 +124,8 @@ export const ActionButtons = styled.div`
 export const SubmitButton = styled.button`
   flex: 1;
   padding: 16px;
-  background-color: #0051FF;
-  color: white;
+  background-color: ${({ theme }) => theme.PALLETE.primary.main};
+  color: ${({ theme }) => theme.PALLETE.white};
   border: none;
   border-radius: 8px;
   font-size: 18px;
@@ -133,15 +133,15 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   
   &:hover {
-    background-color: #003BBF;
+    background-color: ${({ theme }) => theme.PALLETE.primary.dark};
   }
 `;
 
 export const DeleteButton = styled(SubmitButton)`
-  background-color: #FF6B6B;
+  background-color: ${({ theme }) => theme.PALLETE.warning};
   
   &:hover {
-    background-color: #FF5252;
+    opacity: 0.9;
   }
 `;
 
