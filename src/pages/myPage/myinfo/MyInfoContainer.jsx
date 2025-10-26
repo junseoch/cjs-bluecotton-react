@@ -174,7 +174,7 @@ const MyInfoContainer = () => {
             <button type="button" style={{ color: '#0051FF', border: 'none', background: 'none', cursor: 'pointer' }}>+ 파일 추가</button>
             <button type="button" style={{ color: '#FF6B6B', border: 'none', background: 'none', cursor: 'pointer' }}>- 파일 삭제</button>
           </div>
-          <PrimaryButton type="button" style={{ float: 'right' }}>저장</PrimaryButton>
+          <PrimaryButton type="button">저장</PrimaryButton>
         </FormSection>
 
         <ActionButtons>

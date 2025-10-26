@@ -61,7 +61,7 @@ export const LikeHeader = styled.div`
   align-items: center;
   margin-bottom: 12px;
   h3 {
-    font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
+    font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
   }
   .pink {
@@ -128,13 +128,13 @@ export const CommentList = styled.div`
 
 /* ===== 댓글 아이템 ===== */
 export const CommentItem = styled.div`
-  position: relative; /* 좋아요 버튼 기준 */
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   border-bottom: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  padding: 20px 0 40px; /* 하단 여유 */
+  padding: 20px 0;
   margin-left: ${({ indent }) => (indent ? "46px" : "0")};
+  position: relative;
 
   .left {
     display: flex;
@@ -192,6 +192,7 @@ export const CommentItem = styled.div`
         cursor: pointer;
         font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
         transition: 0.15s;
+
         &:hover {
           border-color: ${({ theme }) => theme.PALLETE.primary.main};
           color: ${({ theme }) => theme.PALLETE.primary.main};
@@ -200,12 +201,11 @@ export const CommentItem = styled.div`
     }
   }
 
-  /* ✅ 좋아요 버튼: meta-row 높이 기준으로 고정 */
+  /* ✅ 좋아요 버튼을 상단(신고와 수평)에 맞춤 */
   .right {
-    position: absolute;
-    top: 60px; /* meta-row 수평 맞춤값 (조정 가능: 56~62px) */
-    right: 0;
-
+    position: relative;
+    top: 2px; /* 세밀한 높이 조정 */
+    align-self: flex-start; /* ✅ 위쪽 정렬 */
     .like {
       display: flex;
       align-items: center;
@@ -230,13 +230,15 @@ export const CommentItem = styled.div`
   }
 `;
 
-/* ===== 댓글 입력 ===== */
+
+/* ===== 댓글 입력 (댓글 + 대댓글 공통) ===== */
 export const CommentForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
   margin-top: 6px;
+  width: 100%;
 
   .avatar {
     display: flex;
@@ -257,8 +259,10 @@ export const CommentForm = styled.div`
   }
 
   .input-wrap {
-    width: 98%;
+    width: 100%;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     textarea {
       width: 100%;
@@ -269,6 +273,12 @@ export const CommentForm = styled.div`
       resize: none;
       font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
       box-sizing: border-box;
+
+      /* ✅ 포커스 시 파란색(primary) 강조 */
+      &:focus {
+        border-color: ${({ theme }) => theme.PALLETE.primary.main};
+        outline: none;
+      }
     }
 
     .count {
@@ -289,6 +299,13 @@ export const CommentForm = styled.div`
     border-radius: 4px;
     cursor: pointer;
     font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
+    margin-top: 8px;
+    margin-right: 2px; /* 끝선 맞춤 */
+    transition: 0.15s;
+
+    &:hover {
+      background: ${({ theme }) => theme.PALLETE.primary.dark};
+    }
   }
 `;
 
