@@ -9,15 +9,15 @@ const Login = () => {
       {/* background */}
       <S.BackgroundBox />
 
-      {/* login container */}
+      {/* login box */}
       <S.LoginBox>
         
         {/* logo */}
         <S.Logo>blue cotton</S.Logo>
         
         {/* input */}
-        <S.Input type="text" placeholder="이메일" name="memberEmail" />
-        <S.Input type="password" placeholder="비밀번호" name="memberPassword" />
+        <S.Input type="text" placeholder="이메일을 작성해주세요" name="memberEmail" />
+        <S.Input type="password" placeholder="비밀번호를 작성해주세요" name="memberPassword" />
         
         {/* login button */}
         <S.LoginButton to="/main/som/all">로그인하기</S.LoginButton>
@@ -26,23 +26,28 @@ const Login = () => {
 
         {/* social login */}
         <S.SocialButtons>
+          {/* kakao */}
           <S.SocialButton to="/kakao-login">
             <img
-              src={`${process.env.PUBLIC_URL}/assets/images/kakao.png`}
+              src={`${process.env.PUBLIC_URL}/assets/icons/kakao.png`}
               alt="kakao"
             />
             카카오로 로그인
           </S.SocialButton>
+
+          {/* google */}          
           <S.SocialButton to="/google-login">
             <img
-              src={`${process.env.PUBLIC_URL}/assets/images/google.png`}
+              src={`${process.env.PUBLIC_URL}/assets/icons/google.png`}
               alt="google"
             />
             구글로 로그인
           </S.SocialButton>
+          
+          {/* naver */}          
           <S.SocialButton to="/naver-login">
             <img
-              src={`${process.env.PUBLIC_URL}/assets/images/naver.png`}
+              src={`${process.env.PUBLIC_URL}/assets/icons/naver.png`}
               alt="naver"
             />
             네이버로 로그인

@@ -4,8 +4,6 @@ import {
   basic,
   flexCenterColumn,
   headerLogo,
-  primary,
-  primaryDark,
   smallText3Light,
   smallText3Regular,
   white,
@@ -77,7 +75,7 @@ export const LoginButton = styled(Link)`
   }
 `;
 
-// 구분선
+// Divider
 export const Divider = styled.div`
   width: 320px;
   height: 1px;
@@ -98,14 +96,14 @@ export const Divider = styled.div`
   }
 `;
 
-// 소셜 로그인 버튼 영역
+// social login box
 export const SocialButtons = styled.div`
   ${flexCenterColumn};
   gap: 15px;
   width: 320px;
 `;
 
-// 소셜 로그인
+// social login
 export const SocialButton = styled(Link)`
   text-decoration: none;
   cursor: pointer;
@@ -122,7 +120,7 @@ export const SocialButton = styled(Link)`
   }
 `;
 
-//  비밀번호/아이디 찾기
+//  find id/pwd
 export const FindInfoBox = styled.div`
   display: flex;
   flex-direction: column;
