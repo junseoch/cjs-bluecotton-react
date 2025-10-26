@@ -14,25 +14,30 @@ export const ContentSubtitle = styled.p`
 `;
 
 export const TabContainer = styled.div`
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
   margin-bottom: 32px;
 `;
 
 export const Tab = styled.button`
-  padding: 12px 24px;
+  aspect-ratio: 1;
+  width: 100%;
   border-radius: 8px;
   border: none;
   font-size: 16px;
   font-weight: ${props => props.active ? '700' : '500'};
   cursor: pointer;
   transition: all 0.2s;
-  background-color: ${props => props.active ? '#0051FF' : '#fff'};
+  background-color: ${props => props.active ? '#4263EB' : '#fff'};
   color: ${props => props.active ? '#fff' : '#111111'};
   box-shadow: ${props => props.active ? 'none' : '0 1px 3px rgba(0, 0, 0, 0.1)'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
-    background-color: ${props => props.active ? '#0051FF' : '#F9F9F9'};
+    background-color: ${props => props.active ? '#4263EB' : '#F9F9F9'};
   }
 `;
 
