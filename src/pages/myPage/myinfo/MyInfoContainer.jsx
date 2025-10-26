@@ -292,9 +292,7 @@ const MyInfoContainer = () => {
 
         <FormSection>
           <Label>프로필 이미지 설정</Label>
-          <ImagePreview>
-            첨부
-          </ImagePreview>
+          <ImagePreview>첨부</ImagePreview>
           <FileInput type="file" accept="image/*" />
           <FileInfo>선택된 파일 없음</FileInfo>
           <FileInfo>용량이 50.0M 이하 파일만 업로드 가능</FileInfo>
