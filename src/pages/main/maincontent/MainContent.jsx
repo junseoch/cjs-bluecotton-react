@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React from "react";
+import S from "./style";
+import SomContentList from "../somContentList/SomContentList";
+import PageNumberSelect from "../somNumberSelect/SomNumberSelect";
 
-const MainContent = () => {
-  const {category} = useParams();
-  const [content, setContent] = useState([])
-
-  useEffect(() => {
-    console.log(`http://localhost:10000/api/som/${category}`)
-  }, [category])
-
+const MainContent = ({ somList, pageNumber, setPageNumber }) => {
   return (
-    <div>
-      <div>
-        <div>
-          {category}
-        </div>
-        <div>
-          <Link to={`/main/som/read/${1}`}>1번 게시글</Link>
-        </div>
-      </div>
-    </div>
+    <S.Wrapper>
+      <SomContentList somList={somList} pageNumber={pageNumber} />
+      <PageNumberSelect somList={somList} pageNumber={pageNumber} setPageNumber={setPageNumber} />
+    </S.Wrapper>
   );
 };
 
