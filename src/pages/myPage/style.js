@@ -12,8 +12,8 @@ export const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
-  padding: 30px 16px;
+  width: 280px;
+  padding: 24px 20px;
   background-color: ${({ theme }) => theme.PALLETE.white};
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -23,7 +23,7 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 `;
 
 export const ProfileImageWrapper = styled.div`
