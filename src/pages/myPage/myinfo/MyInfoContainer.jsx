@@ -1,150 +1,24 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-
-const FormContainer = styled.div`
-  max-width: 800px;
-`;
-
-const Title = styled.h1`
-  font-size: 32px;
-  font-weight: bold;
-  color: #111111;
-  margin-bottom: 12px;
-`;
-
-const Subtitle = styled.p`
-  font-size: 18px;
-  color: #111111;
-  margin-bottom: 40px;
-`;
-
-const FormSection = styled.div`
-  margin-bottom: 32px;
-`;
-
-const Label = styled.label`
-  display: block;
-  font-size: 16px;
-  font-weight: 600;
-  color: #111111;
-  margin-bottom: 8px;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #E0E0E0;
-  border-radius: 8px;
-  font-size: 16px;
-  
-  &:focus {
-    outline: none;
-    border-color: #0051FF;
-  }
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  gap: 12px;
-`;
-
-const PrimaryButton = styled.button`
-  padding: 8px 16px;
-  background-color: #0051FF;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: #003BBF;
-  }
-`;
-
-const DateRow = styled.div`
-  display: flex;
-  gap: 12px;
-  align-items: center;
-`;
-
-const Select = styled.select`
-  padding: 12px 16px;
-  border: 1px solid #E0E0E0;
-  border-radius: 8px;
-  font-size: 16px;
-  
-  &:focus {
-    outline: none;
-    border-color: #0051FF;
-  }
-`;
-
-const RadioGroup = styled.div`
-  display: flex;
-  gap: 16px;
-`;
-
-const RadioLabel = styled.label`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  cursor: pointer;
-`;
-
-const ImagePreview = styled.div`
-  width: 200px;
-  height: 200px;
-  border: 2px dashed #E0E0E0;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #F9F9F9;
-  margin-bottom: 16px;
-`;
-
-const FileInput = styled.input`
-  margin-bottom: 8px;
-`;
-
-const FileInfo = styled.div`
-  font-size: 14px;
-  color: #757575;
-  margin-bottom: 8px;
-`;
-
-const ActionButtons = styled.div`
-  display: flex;
-  gap: 16px;
-  margin-top: 40px;
-`;
-
-const SubmitButton = styled.button`
-  flex: 1;
-  padding: 16px;
-  background-color: #0051FF;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: #003BBF;
-  }
-`;
-
-const DeleteButton = styled(SubmitButton)`
-  background-color: #FF6B6B;
-  
-  &:hover {
-    background-color: #FF5252;
-  }
-`;
+import {
+  FormContainer,
+  Title,
+  Subtitle,
+  FormSection,
+  Label,
+  Input,
+  ButtonGroup,
+  PrimaryButton,
+  DateRow,
+  Select,
+  RadioGroup,
+  RadioLabel,
+  ImagePreview,
+  FileInput,
+  FileInfo,
+  ActionButtons,
+  SubmitButton,
+  DeleteButton
+} from './style';
 
 const MyInfoContainer = () => {
   const [formData, setFormData] = useState({

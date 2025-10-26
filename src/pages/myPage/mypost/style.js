@@ -26,7 +26,7 @@ export const Tab = styled.button`
   border-radius: 8px;
   border: none;
   font-size: 16px;
-  font-weight: ${props => props.active ? '700' : '500'};
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
   background-color: ${props => props.active ? '#4263EB' : '#fff'};
