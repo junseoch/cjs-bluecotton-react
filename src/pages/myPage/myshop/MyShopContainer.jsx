@@ -1,29 +1,47 @@
 import React from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { TabContainer, Tab } from './style';
 
 const MyShopContainer = () => {
-  
-  const location = useLocation()
-  const path = location.pathname.replace("/main/my-page/my-shop/", "");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const tabs = [
+    { id: 'like', label: '찜', path: '/main/my-page/my-shop/like' },
+    { id: 'cart', label: '장바구니', path: '/main/my-page/my-shop/cart' },
+    { id: 'review', label: '마이리뷰', path: '/main/my-page/my-shop/review' },
+    { id: 'delivery', label: '배송현황', path: '/main/my-page/my-shop/delivery' },
+    { id: 'order', label: '구매내역', path: '/main/my-page/my-shop/order' }
+  ];
+
+  const getActiveTab = () => {
+    if (location.pathname.includes('/like')) return 'like';
+    if (location.pathname.includes('/cart')) return 'cart';
+    if (location.pathname.includes('/review')) return 'review';
+    if (location.pathname.includes('/delivery')) return 'delivery';
+    if (location.pathname.includes('/order')) return 'order';
+    return 'like';
+  };
+
+  const handleTabClick = (path) => {
+    navigate(path);
+  };
+
   return (
     <div>
-      {path === "like" ? (<p>좋아요 현황</p>)
-        :path === "cart" ? (<p>장바구니 현황</p>)
-          :path === "review" ? (<p>리뷰 현황</p>)
-            :path === "delivery" ? (<p>상품 현황</p>)
-              :path === "order" ? (<p>구매내역</p>)
-                :(<p>잘못된경로</p>)
-      }
-      <div>
-        <Link to={'/main/my-page/my-shop/like'}>찜</Link> | &nbsp;
-        <Link to={'/main/my-page/my-shop/cart'}>장바구니</Link> | &nbsp;
-        <Link to={'/main/my-page/my-shop/review'}>리뷰</Link> | &nbsp;
-        <Link to={'/main/my-page/my-shop/delivery'}>상품 현황</Link> | &nbsp;
-        <Link to={'/main/my-page/my-shop/order'}>구매내역</Link>
-      </div>
-      <div>
-        <Outlet />
-      </div>
+      <TabContainer>
+        {tabs.map(tab => (
+          <Tab
+            key={tab.id}
+            active={getActiveTab() === tab.id}
+            onClick={() => handleTabClick(tab.path)}
+          >
+            {tab.label}
+          </Tab>
+        ))}
+      </TabContainer>
+      
+      <Outlet />
     </div>
   );
 };
