@@ -27,12 +27,12 @@ S.CategoryButton = styled.button`
   transition: all 0.2s;
 
   &.active {
-    background-color: #007bff;
+    background-color: ${({ theme }) => theme.PALLETE.primary.main};
     ${white}
   }
 
   &:hover {
-    background-color: #007bff;
+    background-color: ${({ theme }) => theme.PALLETE.primary.light0};
     ${white}
   }
 `;

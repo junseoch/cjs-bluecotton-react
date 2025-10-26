@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { white } from '../../styles/common';
+import theme from '../../styles/common';
 
 const S = {};
 
@@ -9,7 +9,7 @@ S.Container = styled.div`
   align-items: center;
   padding: 40px 0;
   gap: 40px;
-  background-color: ${white};
+  background-color: ${({theme}) => theme.PALLETE.white};)};
 `;
 
 S.BennerImageArea = styled.div`
