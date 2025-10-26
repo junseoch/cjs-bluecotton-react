@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 /* === 전체 컨테이너 === */
 export const Container = styled.div`
@@ -9,7 +9,7 @@ export const Container = styled.div`
   background-color: #fff;
 `;
 
-/* === 배너 (배경까지 1160px로 제한) === */
+/* === 배너 === */
 export const Banner = styled.div`
   width: 1160px;
   height: 250px;
@@ -17,17 +17,17 @@ export const Banner = styled.div`
   background: url("/postImages/banner.png") center/cover no-repeat;
   display: flex;
   align-items: center;
-  justify-content: center; /* ✅ 중앙 정렬로 내부 배치 */
-  padding: 0; /* 배경은 1160 기준 그대로 */
+  justify-content: center;
+  position: relative;
+  margin-top: 100px; /* ✅ 헤더와의 간격 추가 */
 
-  /* ✅ 내부 컨텐츠를 좌우로 정렬 */
   .banner-inner {
     width: 100%;
     height: 100%;
     padding: 0 40px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* ✅ 세로 중앙 정렬 */
+    justify-content: flex-start; /* ✅ 왼쪽 정렬 */
   }
 
   .text-box {
@@ -47,108 +47,12 @@ export const Banner = styled.div`
       margin-top: 8px;
     }
   }
-
-  .write-btn {
-    width: 168px;
-    height: 40px;
-    border-radius: 4px;
-    background-color: ${({ theme }) => theme.PALLETE.primary.main};
-    color: white;
-    font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
-    font-weight: ${({ theme }) => theme.FONT_WEIGHT["regular"]};
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s ease;
-
-    &:hover {
-      background-color: ${({ theme }) => theme.PALLETE.primary.dark};
-    }
-  }
-`;
-
-
-/* === 카테고리 + 드롭다운 === */
-export const TopBar = styled.div`
-  width: 1160px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 25px;
-`;
-
-export const CategoryList = styled.div`
-  display: flex;
-  gap: 11px;
-  flex-wrap: wrap;
-`;
-
-export const CategoryButton = styled.button`
-  width: 100px;
-  height: 30px;
-  border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale2};
-  background-color: #fff;
-  font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
-  font-weight: ${({ theme }) => theme.FONT_WEIGHT["medium"]};
-  color: ${({ theme }) => theme.PALLETE.basic};
-  cursor: pointer;
-  transition: all 0.15s ease;
-
-  ${({ active, theme }) =>
-    active &&
-    css`
-      background-color: ${theme.PALLETE.primary.main};
-      border-color: ${theme.PALLETE.primary.main};
-      color: #fff;
-    `}
-`;
-
-/* === 드롭다운 === */
-export const FilterBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
-export const FilterSelect = styled.select`
-  width: 90px;
-  height: 30px;
-  border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale2};
-  background-color: #fff;
-  padding: 0 32px 0 10px;
-  font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
-  color: ${({ theme }) => theme.PALLETE.basic};
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23999' height='22' width='22' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 20px;
-
-  &:focus {
-    border-color: ${({ theme }) => theme.PALLETE.primary.main};
-    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.15);
-    outline: none;
-  }
-
-  &:focus-visible {
-    outline: none;
-  }
-
-  &::-ms-expand {
-    display: none;
-  }
 `;
 
 /* === 카드 그리드 === */
 export const Grid = styled.div`
   width: 1160px;
-  margin: 40px auto;
+  margin: 40px auto 20px; /* ✅ 아래쪽 여백 살짝 줄임 → 글쓰기 버튼이 가까워짐 */
   display: grid;
   grid-template-columns: repeat(3, 370px);
   grid-auto-rows: 390px;
@@ -223,6 +127,60 @@ export const Card = styled.div`
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+  }
+`;
+
+/* === 페이지네이션 (글쓰기 버튼 포함) === */
+export const Pagination = styled.div`
+  width: 1160px;
+  margin: 10px auto 100px; /* ✅ 위는 좁게 (카드랑 가깝게), 아래는 넓게 (푸터와 여유있게) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px; /* ✅ 버튼과 페이지 번호 간격 더 멀어짐 */
+
+  .top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .write-btn {
+    width: 168px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: ${({ theme }) => theme.PALLETE.primary.main};
+    color: white;
+    font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
+    font-weight: ${({ theme }) => theme.FONT_WEIGHT["regular"]};
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.PALLETE.primary.dark};
+    }
+  }
+
+  .page-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+
+    button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale2};
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+
+      &.active {
+        background: ${({ theme }) => theme.PALLETE.primary.main};
+        color: #fff;
+        border-color: ${({ theme }) => theme.PALLETE.primary.main};
+      }
     }
   }
 `;
