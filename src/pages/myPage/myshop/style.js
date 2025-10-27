@@ -3,13 +3,13 @@ import styled from 'styled-components';
 export const ContentTitle = styled.h1`
   font-size: 32px;
   font-weight: bold;
-  color: #111111;
+  color: ${({ theme }) => theme.PALLETE.basic};
   margin-bottom: 12px;
 `;
 
 export const ContentSubtitle = styled.p`
   font-size: 18px;
-  color: #111111;
+  color: ${({ theme }) => theme.PALLETE.basic};
   margin-bottom: 32px;
 `;
 
@@ -26,18 +26,18 @@ export const Tab = styled.button`
   border-radius: 8px;
   border: none;
   font-size: 16px;
-  font-weight: ${props => props.active ? '700' : '500'};
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
-  background-color: ${props => props.active ? '#4263EB' : '#fff'};
-  color: ${props => props.active ? '#fff' : '#111111'};
+  background-color: ${props => props.active ? props.theme.PALLETE.primary.main : props.theme.PALLETE.white};
+  color: ${props => props.active ? props.theme.PALLETE.white : props.theme.PALLETE.basic};
   box-shadow: ${props => props.active ? 'none' : '0 1px 3px rgba(0, 0, 0, 0.1)'};
   display: flex;
   align-items: center;
   justify-content: center;
   
   &:hover {
-    background-color: ${props => props.active ? '#4263EB' : '#F9F9F9'};
+    background-color: ${props => props.active ? props.theme.PALLETE.primary.main : props.theme.PALLETE.grey.greyScale0};
   }
 `;
 
@@ -55,18 +55,18 @@ export const FilterButton = styled.button`
   font-weight: ${props => props.active ? '700' : '500'};
   cursor: pointer;
   transition: all 0.2s;
-  background-color: ${props => props.active ? '#0051FF' : '#F9F9F9'};
-  color: ${props => props.active ? '#fff' : '#111111'};
+  background-color: ${props => props.active ? props.theme.PALLETE.primary.main : props.theme.PALLETE.grey.greyScale0};
+  color: ${props => props.active ? props.theme.PALLETE.white : props.theme.PALLETE.basic};
   
   &:hover {
-    background-color: ${props => props.active ? '#0051FF' : '#E0E0E0'};
+    background-color: ${props => props.active ? props.theme.PALLETE.primary.main : props.theme.PALLETE.grey.greyScale1};
   }
 `;
 
 export const ListHeader = styled.div`
   font-size: 18px;
   font-weight: 700;
-  color: #111111;
+  color: ${({ theme }) => theme.PALLETE.basic};
   margin-bottom: 16px;
 `;
 
@@ -78,18 +78,18 @@ export const ListContainer = styled.div`
 
 export const ListItem = styled.div`
   padding: 20px;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   cursor: pointer;
   transition: background-color 0.2s;
   
   &:hover {
-    background-color: #F9F9F9;
+    background-color: ${({ theme }) => theme.PALLETE.grey.greyScale0};
   }
 `;
 
 export const ItemType = styled.span`
   font-size: 14px;
-  color: #0051FF;
+  color: ${({ theme }) => theme.PALLETE.primary.main};
   font-weight: 600;
   margin-right: 8px;
 `;
@@ -97,7 +97,7 @@ export const ItemType = styled.span`
 export const ItemTitle = styled.div`
   font-size: 18px;
   font-weight: 700;
-  color: #111111;
+  color: ${({ theme }) => theme.PALLETE.basic};
   margin: 8px 0;
 `;
 
@@ -106,7 +106,7 @@ export const ItemDetails = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  color: #757575;
+  color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
   flex-wrap: wrap;
   gap: 8px;
 `;
@@ -128,13 +128,13 @@ export const PageButton = styled.button`
   font-size: 16px;
   
   &:hover {
-    color: ${props => props.disabled ? '#BDBDBD' : '#0051FF'};
+    color: ${props => props.disabled ? '#BDBDBD' : '${({ theme }) => theme.PALLETE.primary.main}'};
   }
 `;
 
 export const PageNumber = styled.span`
   font-weight: 700;
-  color: #0051FF;
+  color: ${({ theme }) => theme.PALLETE.primary.main};
 `;
 
 export const ProductGrid = styled.div`
@@ -145,7 +145,7 @@ export const ProductGrid = styled.div`
 `;
 
 export const ProductCard = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.PALLETE.white};
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -160,7 +160,7 @@ export const ProductCard = styled.div`
 export const ProductImage = styled.div`
   width: 100%;
   padding-top: 100%;
-  background-color: #E0E0E0;
+  background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
   position: relative;
   
   img {
@@ -196,14 +196,14 @@ export const ProductInfo = styled.div`
 export const ProductName = styled.div`
   font-size: 16px;
   font-weight: 600;
-  color: #111111;
+  color: ${({ theme }) => theme.PALLETE.basic};
   margin-bottom: 4px;
 `;
 
 export const ProductPrice = styled.div`
   font-size: 18px;
   font-weight: 700;
-  color: #0051FF;
+  color: ${({ theme }) => theme.PALLETE.primary.main};
 `;
 
 export const Label = styled.span`
@@ -213,7 +213,7 @@ export const Label = styled.span`
   font-weight: 600;
   border-radius: 4px;
   margin-right: 4px;
-  background-color: ${props => props.type === 'BEST' ? '#FF6B6B' : '#0051FF'};
+  background-color: ${props => props.type === 'BEST' ? '#FF6B6B' : '${({ theme }) => theme.PALLETE.primary.main}'};
   color: white;
 `;
 
@@ -222,7 +222,7 @@ export const Rating = styled.div`
   align-items: center;
   gap: 4px;
   font-size: 14px;
-  color: #757575;
+  color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
   margin-top: 4px;
 `;
 
@@ -232,6 +232,6 @@ export const Stars = styled.span`
 
 export const Likes = styled.span`
   margin-left: auto;
-  color: #757575;
+  color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
 `;
 
