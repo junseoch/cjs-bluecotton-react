@@ -35,6 +35,7 @@ import MyInfoContainer from "../pages/myPage/myinfo/MyInfoContainer";
 import PostContent from "../pages/post/postcontent/PostContent";
 import PostReadContent from "../pages/post/readcontent/PostReadContent";
 import PostWriteContent from "../pages/post/postwritecontent/PostWriteContent";
+import MySomCheck from "../pages/myPage/mysom/mysomcheck/MySomCheck";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
                 element: <MySomRankContainer />
               },
             ]
+          },
+          {
+            path: "my-som-check",
+            element: <MySomCheck />
           },
           {
             path: "my-shop",

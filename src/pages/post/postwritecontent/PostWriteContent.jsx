@@ -75,11 +75,16 @@ const PostWriteContent = () => {
           <p className="file-info">용량이 50.0M 이하 파일만 업로드 가능</p>
 
           <div className="file-actions">
-            <button type="button">＋ 파일 추가</button>
-            <button type="button">－ 파일 삭제</button>
+            <button type="button" className="add-btn">
+              <img alt="파일 추가" />
+              파일 추가
+            </button>
+            <button type="button" className="remove-btn">
+              <img alt="파일 삭제" />
+              파일 삭제
+            </button>
           </div>
         </S.FileBox>
-
 
         {/* 버튼 */}
         <S.ButtonBox>

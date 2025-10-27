@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { smallText1Regular, primary ,white, secondary} from '../../../styles/common';
+import { smallText3Bold, smallText0Regular, smallText1Regular, primary ,white, secondary} from '../../../styles/common';
 
 const S = {};
 
@@ -37,48 +37,65 @@ S.SomTitleArea = styled.div`
   }
 `;
 
+S.SomTitle = styled.div`
+  ${smallText3Bold}
+`;
+
 S.SomExplanation = styled.div`
   font-size: 14px;
-  color: #555;
   margin-top: 8px;
   display: flex;
   flex-direction: column;
+  span {
+    ${smallText0Regular}
+  }
 `;
 
 S.SomButtonArea = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  gap: 10px;
 `;
 
 S.SomButton = styled.div`
-  border-radius: 4px;
   ${smallText1Regular}
   ${white}
+  border-radius: 4px;
+  width: 122px;
+  height: 32px;
   background-color: ${({ theme }) => theme.PALLETE.primary.main};
   cursor: pointer;
-  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 S.FullSomButton = styled.div`
-  border-radius: 4px;
   ${smallText1Regular}
   ${white}
+  border-radius: 4px;
+  width: 122px;
+  height: 32px;
   background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
   cursor: pointer;
-  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 S.LikeButton = styled.div`
-  display: flex;
-  gap: 5px;
-  border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1 };
-  ${smallText1Regular}
-  ${secondary}
-  background-color: ${({ theme }) => theme.PALLETE.white};
-  cursor: pointer;
-  padding: 10px 15px;
+${smallText1Regular}
+${secondary}
+width: 64px;
+height: 32px;
+gap: 5px;
+border-radius: 4px;
+border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1 };
+background-color: ${({ theme }) => theme.PALLETE.white};
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 S.SomExplantionArea = styled.div`
@@ -89,6 +106,8 @@ S.SomExplantionArea = styled.div`
 S.SomExplanationInfo = styled.div`
   display: flex;
   gap: 5px;
+  
+
 `
 
 export default S;

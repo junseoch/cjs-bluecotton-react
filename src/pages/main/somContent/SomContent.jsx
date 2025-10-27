@@ -15,8 +15,8 @@ const SomContent = ({ content }) => {
   } = content;
 
   const isFullSomButton = somCount == 10 ? 
-    <S.SomButton>참여하기 ({somCount}/10)</S.SomButton> :
-    <S.FullSomButton>참여하기 ({somCount}/10)</S.FullSomButton>
+  <S.FullSomButton>참여 ({somCount}/10)</S.FullSomButton> :
+  <S.SomButton>참여 ({somCount}/10)</S.SomButton> 
   ;
 
   return (
@@ -25,7 +25,7 @@ const SomContent = ({ content }) => {
       <S.SomInfo>
         <S.SomTitleArea>
           <img src={userProfileLocation} alt={userName} />
-          <h3>{somTitle}</h3>
+          <S.SomTitle>{somTitle}</S.SomTitle>
         </S.SomTitleArea>
         <S.SomExplanation>
           <S.SomExplantionArea>
@@ -33,14 +33,18 @@ const SomContent = ({ content }) => {
               <span>icon</span>
               <span>{somAddress}</span>
             </S.SomExplanationInfo>
-            {somStartDate}
+            <span>
+              {somStartDate}
+            </span>
           </S.SomExplantionArea>
           <S.SomExplantionArea>
             <S.SomExplanationInfo>
               <span>icon</span>
               <span>솜 마감일</span>
             </S.SomExplanationInfo>
-            {somEndDate}
+            <span>
+              {somEndDate}
+            </span>
           </S.SomExplantionArea>
         </S.SomExplanation>
       </S.SomInfo>

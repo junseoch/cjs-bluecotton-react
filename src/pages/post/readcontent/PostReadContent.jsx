@@ -9,6 +9,7 @@ const PostReadContent = () => {
   const [showLikes, setShowLikes] = useState(true);
   const [showComments, setShowComments] = useState(true);
   const [comment, setComment] = useState("");
+  const [replyInputs, setReplyInputs] = useState({}); // ✅ 댓글별 답글 입력값 저장
   const [comments, setComments] = useState([
     {
       id: 1,
@@ -61,7 +62,7 @@ const PostReadContent = () => {
     );
   };
 
-  // 댓글 등록
+  // 📝 댓글 등록
   const handleCommentSubmit = () => {
     if (!comment.trim()) return;
     const newComment = {
@@ -78,9 +79,11 @@ const PostReadContent = () => {
     setComment("");
   };
 
-  // 대댓글 등록
-  const handleReplySubmit = (parentId, text) => {
-    if (!text.trim()) return;
+  // 💬 대댓글 등록
+  const handleReplySubmit = (parentId) => {
+    const text = (replyInputs[parentId] || "").trim();
+    if (!text) return;
+
     setComments((prev) =>
       prev.map((c) =>
         c.id === parentId
@@ -98,12 +101,14 @@ const PostReadContent = () => {
                   liked: false,
                 },
               ],
-              replyText: "",
               showReply: false,
             }
           : c
       )
     );
+
+    // 입력값 초기화
+    setReplyInputs((prev) => ({ ...prev, [parentId]: "" }));
   };
 
   return (
@@ -111,8 +116,10 @@ const PostReadContent = () => {
       <S.Title>{id}번 게시글 제목</S.Title>
 
       <S.MetaBox>
-        <div className="writer">준서왔솜</div>
-        <div className="date">2025.09.14</div>
+        <div className="writer">지존준서</div>
+        <span className="divider">|</span>
+        <div className="date">2025.10.26</div>
+        <span className="divider">|</span>
         <div className="view">조회수 : 5,905</div>
       </S.MetaBox>
 
@@ -129,7 +136,16 @@ const PostReadContent = () => {
           <h3>
             게시글에 <span className="pink">좋아요한 솜이</span>
           </h3>
-          <button>{showLikes ? "▲ 접기" : "▼ 펼치기"}</button>
+          <S.ToggleButton $open={showLikes}>
+            <img
+              src={
+                showLikes
+                  ? "/assets/icons/drop_down_acv.svg"
+                  : "/assets/icons/drop_down.svg"
+              }
+              alt="드롭다운"
+            />
+          </S.ToggleButton>
         </S.LikeHeader>
 
         {showLikes && (
@@ -148,9 +164,16 @@ const PostReadContent = () => {
       <S.CommentSection>
         <S.CommentHeader>
           <span>댓글쓰기</span>
-          <button onClick={() => setShowComments(!showComments)}>
-            {showComments ? "▲ 접기" : "▼ 펼치기"}
-          </button>
+          <S.ToggleButton $open={showComments} onClick={() => setShowComments(!showComments)}>
+            <img
+              src={
+                showComments
+                  ? "/assets/icons/drop_down_acv.svg"
+                  : "/assets/icons/drop_down.svg"
+              }
+              alt="드롭다운"
+            />
+          </S.ToggleButton>
         </S.CommentHeader>
 
         {showComments && (
@@ -171,6 +194,7 @@ const PostReadContent = () => {
                         </div>
                         <div className="reply-row">
                           <button
+                            type="button"
                             className="reply"
                             onClick={() =>
                               setComments((prev) =>
@@ -196,68 +220,69 @@ const PostReadContent = () => {
                               <textarea
                                 placeholder="답글을 입력하세요"
                                 maxLength={300}
-                                value={c.replyText || ""}
+                                value={replyInputs[c.id] || ""}
                                 onChange={(e) =>
-                                  setComments((prev) =>
-                                    prev.map((co) =>
-                                      co.id === c.id
-                                        ? { ...co, replyText: e.target.value }
-                                        : co
-                                    )
-                                  )
+                                  setReplyInputs((prev) => ({
+                                    ...prev,
+                                    [c.id]: e.target.value,
+                                  }))
                                 }
                               />
                               <span className="count">
-                                {(c.replyText?.length || 0)}/300
+                                {(replyInputs[c.id]?.length || 0)}/300
                               </span>
                             </div>
                             <button
+                              type="button"
                               className="submit-btn"
-                              onClick={() => handleReplySubmit(c.id, c.replyText || "")}
+                              onClick={() => handleReplySubmit(c.id)}
                             >
                               등록
                             </button>
                           </S.CommentForm>
                         )}
+
+                        {/* 등록된 대댓글 리스트 */}
+                        {c.replies.map((r) => (
+                          <S.CommentItem key={r.id} indent>
+                            <div className="left">
+                              <img src={r.profile} alt="프로필" className="profile" />
+                              <div className="text-box">
+                                <div className="writer">{r.name}</div>
+                                <div className="content">{r.text}</div>
+                                <div className="meta-row">
+                                  <span>{r.date}</span>
+                                  <span>|</span>
+                                  <span className="report">신고</span>
+                                </div>
+                              </div>
+                            </div>
+                          </S.CommentItem>
+                        ))}
                       </div>
                     </div>
 
                     <div className="right">
-                      <button className="like" onClick={() => handleLike(c.id)}>
-                        {c.liked ? "♥" : "♡"} {c.likes}
-                      </button>
+                      <S.LikeButton
+                        $liked={c.liked}
+                        onClick={() => handleLike(c.id)}
+                      >
+                        <img
+                          src={
+                            c.liked
+                              ? "/assets/icons/favorite_acv.svg"
+                              : "/assets/icons/favorite_gray.svg"
+                          }
+                          alt="좋아요"
+                        />
+                        <span>{c.likes}</span>
+                      </S.LikeButton>
                     </div>
                   </S.CommentItem>
-
-                  {c.replies.map((r) => (
-                    <S.CommentItem key={r.id} indent>
-                      <div className="left">
-                        <img src={r.profile} alt="프로필" className="profile" />
-                        <div className="text-box">
-                          <div className="writer">{r.name}</div>
-                          <div className="content">{r.text}</div>
-                          <div className="meta-row">
-                            <span>{r.date}</span>
-                            <span>|</span>
-                            <span className="report">신고</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="right">
-                        <button
-                          className="like"
-                          onClick={() => handleLike(r.id, true, c.id)}
-                        >
-                          {r.liked ? "♥" : "♡"} {r.likes}
-                        </button>
-                      </div>
-                    </S.CommentItem>
-                  ))}
                 </React.Fragment>
               ))}
             </S.CommentList>
 
-            {/* 댓글 작성 */}
             <S.CommentForm>
               <div className="avatar">
                 <img src="/postImages/profile.png" alt="내 프로필" />
@@ -272,13 +297,34 @@ const PostReadContent = () => {
                 />
                 <span className="count">{comment.length}/300</span>
               </div>
-              <button className="submit-btn" onClick={handleCommentSubmit}>
+              <button type="button" className="submit-btn" onClick={handleCommentSubmit}>
                 등록
               </button>
             </S.CommentForm>
           </>
         )}
       </S.CommentSection>
+
+      {/* ✅ 다음 글 / 이전 글 네비게이션 */}
+      <S.NavList>
+        <S.NavItem onClick={goNext} $disabled={!nextId}>
+          <div className="label">
+            <S.NavArrow src="/assets/icons/drop_down.svg" alt="" $up />
+            다음 글
+          </div>
+          <div className="title">{`${nextId}번 게시글 입니다.`}</div>
+        </S.NavItem>
+
+        <S.NavItem onClick={prevId ? goPrev : undefined} $disabled={!prevId}>
+          <div className="label">
+            <S.NavArrow src="/assets/icons/drop_down.svg" alt="" />
+            이전 글
+          </div>
+          <div className="title">
+            {prevId ? `${prevId}번 게시글 입니다.` : "이전 글이 없습니다."}
+          </div>
+        </S.NavItem>
+      </S.NavList>
 
       <S.Divider />
       <S.NavSection>

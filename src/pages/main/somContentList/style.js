@@ -6,4 +6,5 @@ export const Grid = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 85px;
+  
 `;
