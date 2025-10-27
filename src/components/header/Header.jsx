@@ -28,7 +28,7 @@ const Header = () => {
 
     const ShowSom = (
             <>
-            <HeaderStyle.MainLogo>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>blue cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>솜</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
@@ -40,7 +40,7 @@ const Header = () => {
 
     const ShowIntro = (
         <>
-            <HeaderStyle.IntroLogo>blue cotton</HeaderStyle.IntroLogo>
+            <HeaderStyle.IntroLogo to='/'>blue cotton</HeaderStyle.IntroLogo>
             {ShowCategory}
             <HeaderStyle.LoginButton>
                 <img  alt="프로필아이콘" />
@@ -51,7 +51,7 @@ const Header = () => {
 
     const ShowShop = (
             <>
-            <HeaderStyle.MainLogo>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>blue cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>샵</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
@@ -63,7 +63,7 @@ const Header = () => {
 
     const ShowMyPage = (
             <>
-            <HeaderStyle.MainLogo>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>blue cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>마이페이지</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
@@ -75,7 +75,7 @@ const Header = () => {
 
     const ShowPost = (
             <>
-            <HeaderStyle.MainLogo>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>blue cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>오늘의 솜</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
@@ -87,7 +87,7 @@ const Header = () => {
 
     const ShowMap = (
             <>
-            <HeaderStyle.MainLogo>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>bule cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>주변 솜</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
