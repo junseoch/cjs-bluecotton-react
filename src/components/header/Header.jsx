@@ -28,7 +28,7 @@ const Header = () => {
 
     const ShowSom = (
             <>
-            <HeaderStyle.MainLogo to='/'>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>blue cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>솜</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
@@ -51,7 +51,7 @@ const Header = () => {
 
     const ShowShop = (
             <>
-            <HeaderStyle.MainLogo to='/'>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>blue cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>샵</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
@@ -63,7 +63,7 @@ const Header = () => {
 
     const ShowMyPage = (
             <>
-            <HeaderStyle.MainLogo to='/'>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>blue cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>마이페이지</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
@@ -75,7 +75,7 @@ const Header = () => {
 
     const ShowPost = (
             <>
-            <HeaderStyle.MainLogo to='/'>bule cotton</HeaderStyle.MainLogo>
+            <HeaderStyle.MainLogo to='/'>blue cotton</HeaderStyle.MainLogo>
             <HeaderStyle.Bar >|</HeaderStyle.Bar>
             <HeaderStyle.HeaderSome>오늘의 솜</HeaderStyle.HeaderSome>
             <HeaderStyle.LoginButton>
