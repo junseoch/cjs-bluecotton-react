@@ -9,7 +9,7 @@ const Shop = () => {
   <S.Page>
     <S.DetailContainer>
       <S.Left>
-        <S.MainImage><img src="메인 이미지 링크" alt="main" /></S.MainImage>
+        <S.MainImage><img src="/assets/images/shop_som_doll.png" alt="main" /></S.MainImage>
         <S.SubImageArea>
           <S.SubImage><img src="/img/thumb1.jpg" alt="" /></S.SubImage>
           <S.SubImage><img src="/img/thumb2.jpg" alt="" /></S.SubImage>

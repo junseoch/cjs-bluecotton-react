@@ -33,28 +33,37 @@ S.Container = styled.div`
 ────────────────────────────────────────────────────────── */
 S.Banner = styled.section`
   grid-column: 1 / -1;
+  position: relative;
   height: 260px;
   margin: 40px 0 50px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: #FA9BE4;
-  padding: 0 40px;
+  overflow: hidden;
+  border-radius: 4px;
+
+  background: url("/assets/images/shop_banner.png") center/cover no-repeat;
 `;
 
 S.BannerTextBox = styled.div`
-  margin-left: 40px;
+  position: absolute;
+  left: 80px; /* 텍스트 왼쪽 여백 */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000; /* 검정 글씨 */
 `;
 
 S.BannerTitle = styled.h2`
-  ${C.heading5}
+  ${C.heading4}
   ${C.basic}
+  font-weight: 700;
   margin-bottom: 10px;
 `;
 
 S.BannerDesc = styled.p`
   ${C.smallText1Regular}
   ${C.basic}
+  line-height: 1.5;
 `;
 
 /* ──────────────────────────────────────────────────────────
@@ -236,23 +245,37 @@ S.LikeButton = styled.button`
   right: 8px;
   width: 28px;
   height: 28px;
-  border: none;
-  border-radius: 50%;
-  background: url("/assets/img/Vector.png") center / contain no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+  border: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
   cursor: pointer;
+  z-index: 2;
+  background: url("/assets/icons/circle.svg") center / contain no-repeat;
 
-  &:hover {
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.15));
-  }
-
-  img {
+  /* 하트 아이콘 (favorite → like 토글) */
+  &::after {
+    content: "";
     width: 14px;
     height: 14px;
+    -webkit-mask: url("/assets/icons/favorite.svg") no-repeat center / contain;
+    mask: url("/assets/icons/favorite.svg") no-repeat center / contain;
+    background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1}; /* 기본(테두리색) */
+    transition: background-color .2s ease, -webkit-mask-image .2s ease, mask-image .2s ease;
   }
+
+
+  ${({ $active, theme }) =>
+    $active &&
+    `
+      &::after {
+        -webkit-mask-image: url("/assets/icons/like.svg");
+        mask-image: url("/assets/icons/like.svg");
+        background-color: ${theme.PALLETE.secondary.main}; /* 채워진 하트 색상 */
+      }
+    `}
+
+
 `;
 
 /* ──────────────────────────────────────────────────────────
@@ -353,5 +376,37 @@ S.Pagination = styled.div`
   justify-content: center;
   margin: 80px;
 `;
+
+
+// 아이콘
+
+/* ───────── 아이콘 (mask 방식, public 경로 사용) ───────── */
+const IconBase = styled.span`
+  display: inline-block;
+  flex: 0 0 auto;
+  background-color: ${({ theme }) => theme.PALLETE.review}; /* 기본 색 */
+  -webkit-mask: no-repeat center / contain;
+  mask: no-repeat center / contain;
+  transition: background-color .2s ease;
+`;
+
+/* 리뷰 아이콘: 12x12 */
+S.ReviewIcon = styled(IconBase)`
+  width: 12px;
+  height: 12px;
+  -webkit-mask-image: url("/assets/icons/review.svg");
+  mask-image: url("/assets/icons/review.svg");
+`;
+
+/* 하트 아이콘: 14x14  */
+S.HeartIcon = styled(IconBase)`
+  width: 12px;
+  height: 12px; 
+  background-color: ${({ theme }) => theme.PALLETE.secondary.main};
+  -webkit-mask-image: url("/assets/icons/like.svg");
+  mask-image: url("/assets/icons/like.svg");
+`;
+
+
 
 export default S;

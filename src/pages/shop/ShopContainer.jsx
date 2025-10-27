@@ -11,13 +11,13 @@ const ShopContainer = () => {
     <S.Page>
       <S.Container>
         <S.Banner>
-          <img src="" alt="배너 이미지" />
           <S.BannerTextBox>
-            <S.BannerTitle>베스트 아이템</S.BannerTitle>
-            <S.BannerDesc>지금 많은 사랑을 받고 있는 제품들을 만나보세요!</S.BannerDesc>
+            <S.BannerTitle>신제품</S.BannerTitle>
+            <S.BannerDesc>
+              지금 많은 사랑을 받고 있는 제품들을 만나보세요!
+            </S.BannerDesc>
           </S.BannerTextBox>
         </S.Banner>
-
         <S.SortTopLine />
 
         <S.SortBar>
