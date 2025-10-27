@@ -5,6 +5,7 @@ import MainContent from "./maincontent/MainContent";
 import { fetchSomList } from "./api/somAPI";
 import { useParams } from "react-router-dom";
 
+
 const MainContainer = () => {
   const { category } = useParams();
   const [sortBy, setSortBy] = useState("최신순");
