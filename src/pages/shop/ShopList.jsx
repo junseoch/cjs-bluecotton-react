@@ -20,7 +20,6 @@ const ShopList = () => {
         const isActive = liked.has(id);
         return (
           <S.Card key={id}>
-
             <S.LikeButton
               type="button"
               aria-label="찜하기"
@@ -49,11 +48,11 @@ const ShopList = () => {
 
               <S.ProductSubInfo>
                 <S.IconText>
-                  <S.ReviewIcon />
+                  <img src="/assets/icons/review.svg" alt="리뷰 아이콘" />
                   <S.Text>4.8 (22)</S.Text>
                 </S.IconText>
                 <S.IconText>
-                  <S.HeartIcon />
+                  <img src="/assets/icons/like.svg" alt="좋아요 아이콘" />
                   <S.Text>255</S.Text>
                 </S.IconText>
               </S.ProductSubInfo>

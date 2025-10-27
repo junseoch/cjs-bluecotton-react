@@ -1,16 +1,9 @@
 import styled from "styled-components";
-import { 
-  basic, fontGreyScale0, fontGreyScale3, heading1, heading2, heading3, heading4, 
-  paragraphRegular, primary, primaryLight1, secondaryLight, smallText3Regular, 
-  titleBold, white 
-} from "../../styles/common";
 import * as C from "../../styles/common";
 
 const S = {};
 
-/* ──────────────────────────────────────────────────────────
-   1) 페이지 레이아웃 / 그리드
-────────────────────────────────────────────────────────── */
+/* 1) 페이지 레이아웃 / 그리드 */
 S.Page = styled.div`
   width: 100%;
   display: flex;
@@ -24,13 +17,11 @@ S.Container = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 200px 1fr;
-  grid-auto-rows: auto;
   column-gap: 40px;
+  grid-auto-rows: auto;
 `;
 
-/* ──────────────────────────────────────────────────────────
-   2) 배너
-────────────────────────────────────────────────────────── */
+/* 2) 배너 */
 S.Banner = styled.section`
   grid-column: 1 / -1;
   position: relative;
@@ -40,17 +31,15 @@ S.Banner = styled.section`
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  border-radius: 4px;
-
   background: url("/assets/images/shop_banner.png") center/cover no-repeat;
 `;
 
 S.BannerTextBox = styled.div`
   position: absolute;
-  left: 80px; /* 텍스트 왼쪽 여백 */
+  left: 80px;
   top: 50%;
   transform: translateY(-50%);
-  color: #000; /* 검정 글씨 */
+  color: #000;
 `;
 
 S.BannerTitle = styled.h2`
@@ -66,9 +55,7 @@ S.BannerDesc = styled.p`
   line-height: 1.5;
 `;
 
-/* ──────────────────────────────────────────────────────────
-   3) 상단 상품 정렬 (드롭다운 , 상하 구분바)
-────────────────────────────────────────────────────────── */
+/* 3) 상단 정렬 */
 S.SortTopLine = styled.div`
   grid-column: 2;
   height: 1px;
@@ -98,20 +85,17 @@ S.DropdownButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
-S.ArrowIcon = styled.div`
-  width: 10px;
-  height: 5px;
-  display: flex;
+S.ArrowIcon = styled.span`
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 10px;
+  height: 5px;
 
-  img {
-    width: 10px;
-    height: 5px;
-  }
-
+  img { width: 10px; height: 5px; display: block; }
 `;
 
 S.DropdownList = styled.ul`
@@ -119,8 +103,8 @@ S.DropdownList = styled.ul`
   top: 40px;
   width: 120px;
   background: #fff;
-  box-shadow: -3px 3px 12px rgba(0, 0, 0, 0.25);
-  z-index: 1;
+  box-shadow: -3px 3px 12px rgba(0,0,0,0.25);
+  z-index: 10;
 `;
 
 S.DropdownItem = styled.li`
@@ -131,7 +115,7 @@ S.DropdownItem = styled.li`
   ${C.smallText1Light}
   ${C.basic}
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color .15s ease, color .15s ease;
 
   &:hover {
     background-color: ${({ theme }) => theme.PALLETE.primary.main};
@@ -139,13 +123,24 @@ S.DropdownItem = styled.li`
     font-weight: 700;
   }
 
-  ${({ $active, theme }) =>
-    $active &&
-    `
-      background-color: ${theme.PALLETE.primary.main};
-      color: #fff;
-      font-weight: 700;
-    `}
+  ${({ $active, theme }) => $active && `
+    background-color: ${theme.PALLETE.primary.main};
+    color: #fff;
+    font-weight: 700;
+  `}
+`;
+
+S.SortRight = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  ${C.smallText1Regular}
+  ${C.fontGreyScale3}
+`;
+
+S.Total = styled.span`
+  ${C.smallText1Bold}
+  ${C.basic}
 `;
 
 S.SortBottomLine = styled.div`
@@ -155,9 +150,7 @@ S.SortBottomLine = styled.div`
   margin: 10px 0 32px 0;
 `;
 
-/* ──────────────────────────────────────────────────────────
-   4) 왼쪽 필터 영역
-────────────────────────────────────────────────────────── */
+/* 4) 왼쪽 필터 */
 S.LeftFilter = styled.div`
   grid-column: 1;
   grid-row: 2 / span 100;
@@ -198,11 +191,9 @@ S.Checkbox = styled.input.attrs({ type: "checkbox" })`
   border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   background-color: #fff;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all .15s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.PALLETE.primary.main};
-  }
+  &:hover { border-color: ${({ theme }) => theme.PALLETE.primary.main}; }
 
   &:checked {
     background-color: ${({ theme }) => theme.PALLETE.primary.main};
@@ -214,10 +205,9 @@ S.Checkbox = styled.input.attrs({ type: "checkbox" })`
   }
 `;
 
-/* ──────────────────────────────────────────────────────────
-   5) 상품 리스트 
-────────────────────────────────────────────────────────── */
+/* 5) 상품 리스트 */
 S.CardGrid = styled.div`
+  grid-column: 2;
   display: grid;
   grid-template-columns: repeat(4, 218px);
   column-gap: 16px;
@@ -234,11 +224,12 @@ S.ProductImageBox = styled.div`
   width: 218px;
   height: 290px;
   position: relative;
-  background: url("상품이미지.png");
+  background: ${({ $bg }) => `url("/assets/${$bg}") center/cover no-repeat`};
   border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   overflow: hidden;
 `;
 
+/* 좋아요 버튼 (상단 원형) */
 S.LikeButton = styled.button`
   position: absolute;
   top: 8px;
@@ -253,34 +244,26 @@ S.LikeButton = styled.button`
   z-index: 2;
   background: url("/assets/icons/circle.svg") center / contain no-repeat;
 
-  /* 하트 아이콘 (favorite → like 토글) */
   &::after {
     content: "";
     width: 14px;
     height: 14px;
     -webkit-mask: url("/assets/icons/favorite.svg") no-repeat center / contain;
     mask: url("/assets/icons/favorite.svg") no-repeat center / contain;
-    background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1}; /* 기본(테두리색) */
+    background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
     transition: background-color .2s ease, -webkit-mask-image .2s ease, mask-image .2s ease;
   }
 
-
-  ${({ $active, theme }) =>
-    $active &&
-    `
-      &::after {
-        -webkit-mask-image: url("/assets/icons/like.svg");
-        mask-image: url("/assets/icons/like.svg");
-        background-color: ${theme.PALLETE.secondary.main}; /* 채워진 하트 색상 */
-      }
-    `}
-
-
+  ${({ $active, theme }) => $active && `
+    &::after {
+      -webkit-mask-image: url("/assets/icons/like.svg");
+      mask-image: url("/assets/icons/like.svg");
+      background-color: ${theme.PALLETE.secondary.main};
+    }
+  `}
 `;
 
-/* ──────────────────────────────────────────────────────────
-   6) 상품 텍스트 / 상품태그 / 상품가격
-────────────────────────────────────────────────────────── */
+/* 텍스트/태그/가격 */
 S.ProductTitleRow = styled.div`
   display: flex;
   align-items: center;
@@ -293,7 +276,6 @@ S.ProductName = styled.p`
   ${C.basic}
 `;
 
-
 S.ProductPrice = styled.p`
   margin-top: 10px;
   margin-bottom: 10px;
@@ -305,7 +287,7 @@ S.NewTag = styled.span`
   ${C.smallText0Bold}
   padding: 1px 4px;
   display: inline-block;
-  border-radius: none;
+  border-radius: 0;
   color: ${({ theme }) => theme.PALLETE.secondary.main};
   background-color: rgba(248, 59, 170, 0.1);
 `;
@@ -317,13 +299,6 @@ S.BestTag = styled.span`
   border-radius: 0;
   color: ${({ theme }) => theme.PALLETE.primary.main};
   background-color: rgba(0, 81, 255, 0.1);
-`;
-
-S.DetailPrice = styled.div`
-  margin-top: 10px;
-  margin-bottom: 10px;
-  ${C.paragraphStrong}
-  ${C.basic}
 `;
 
 S.ProductSubInfo = styled.div`
@@ -339,74 +314,19 @@ S.IconText = styled.div`
   gap: 6px;
 `;
 
-S.Icon = styled.img`
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-`;
-
 S.Text = styled.span`
   ${C.smallText1Regular}
   ${C.basic}
 `;
 
-/* ──────────────────────────────────────────────────────────
-   7) 정렬 영역 (우측 정보)
-────────────────────────────────────────────────────────── */
-S.SortRight = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  ${C.smallText1Regular}
-  ${C.fontGreyScale3}
-`;
-
-S.Total = styled.span`
-  ${C.smallText1Bold}
-  ${C.basic}
-`;
-
-/* ──────────────────────────────────────────────────────────
-   8) 페이지네이션
-────────────────────────────────────────────────────────── */
+/* 8) 페이지네이션 */
 S.Pagination = styled.div`
+  grid-column: 2;
   display: flex;
   gap: 10px;
   align-items: center;
   justify-content: center;
   margin: 80px;
 `;
-
-
-// 아이콘
-
-/* ───────── 아이콘 (mask 방식, public 경로 사용) ───────── */
-const IconBase = styled.span`
-  display: inline-block;
-  flex: 0 0 auto;
-  background-color: ${({ theme }) => theme.PALLETE.review}; /* 기본 색 */
-  -webkit-mask: no-repeat center / contain;
-  mask: no-repeat center / contain;
-  transition: background-color .2s ease;
-`;
-
-/* 리뷰 아이콘: 12x12 */
-S.ReviewIcon = styled(IconBase)`
-  width: 12px;
-  height: 12px;
-  -webkit-mask-image: url("/assets/icons/review.svg");
-  mask-image: url("/assets/icons/review.svg");
-`;
-
-/* 하트 아이콘: 14x14  */
-S.HeartIcon = styled(IconBase)`
-  width: 12px;
-  height: 12px; 
-  background-color: ${({ theme }) => theme.PALLETE.secondary.main};
-  -webkit-mask-image: url("/assets/icons/like.svg");
-  mask-image: url("/assets/icons/like.svg");
-`;
-
-
 
 export default S;

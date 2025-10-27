@@ -57,7 +57,6 @@ S.MainImage = styled.div`
   width: 680px;
   height: 680px;
   overflow: hidden;
-  border-radius: none;
   background: #f6f6f6;
 
   img {
@@ -78,11 +77,15 @@ S.SubImage = styled.button`
   height: 100px;
   overflow: hidden;
   background: #fff;
+  border: none;
+  padding: 0;
 
   img {
     width: 100px;
     height: 100px;
   }
+
+
 `;
 
 S.Title = styled.h1`
@@ -98,6 +101,12 @@ S.DetailPrice = styled.div`
   ${C.basic}
 `;
 
+S.DetailReviewWrap = styled.div`
+  display: flex;
+  gap: 5px;
+`;
+
+
 /* 아이콘 & 텍스트 */
 S.Icon = styled.img`
   width: 16px;
@@ -108,6 +117,7 @@ S.Icon = styled.img`
 S.Text = styled.span`
   ${C.smallText1Regular}
   ${C.basic}
+  margin-top: 2px;
 `;
 
 S.Divider = styled.div`
@@ -253,6 +263,7 @@ S.CartButton = styled.button`
   flex: 1;
   height: 54px;
   border-radius: 4px;
+  border-color: ${({ theme }) => theme.PALLETE.primary.main};
 `;
 
 S.PurchaseButton = styled.button`
