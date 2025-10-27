@@ -3,7 +3,9 @@ import * as C from "../../styles/common";
 
 const S = {};
 
-/* 1) 페이지 레이아웃 / 그리드 */
+/* ──────────────────────────────────────────────
+   1) 페이지 레이아웃 / 컨테이너
+────────────────────────────────────────────── */
 S.Page = styled.div`
   width: 100%;
   display: flex;
@@ -15,18 +17,20 @@ S.Page = styled.div`
 S.Container = styled.div`
   width: 1160px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  column-gap: 40px;
-  grid-auto-rows: auto;
+  display: flex; 
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px; 
 `;
 
-/* 2) 배너 */
+/* ──────────────────────────────────────────────
+   2) 배너
+────────────────────────────────────────────── */
 S.Banner = styled.section`
-  grid-column: 1 / -1;
+  width: 1160px;
   position: relative;
-  height: 260px;
-  margin: 40px 0 40px;
+  height: 250px;
+  margin: 40px auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -55,16 +59,18 @@ S.BannerDesc = styled.p`
   line-height: 1.5;
 `;
 
-/* 3) 상단 정렬 */
+/* ──────────────────────────────────────────────
+   3) 정렬 바 (드롭다운 등)
+────────────────────────────────────────────── */
 S.SortTopLine = styled.div`
-  grid-column: 2;
+  width: 100%;
   height: 1px;
   background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
 `;
 
 S.SortBar = styled.div`
-  grid-column: 2;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,7 +101,11 @@ S.ArrowIcon = styled.span`
   width: 10px;
   height: 5px;
 
-  img { width: 10px; height: 5px; display: block; }
+  img {
+    width: 10px;
+    height: 5px;
+    display: block;
+  }
 `;
 
 S.DropdownList = styled.ul`
@@ -103,7 +113,7 @@ S.DropdownList = styled.ul`
   top: 40px;
   width: 120px;
   background: #fff;
-  box-shadow: -3px 3px 12px rgba(0,0,0,0.25);
+  box-shadow: -3px 3px 12px rgba(0, 0, 0, 0.25);
   z-index: 10;
 `;
 
@@ -115,7 +125,7 @@ S.DropdownItem = styled.li`
   ${C.smallText1Light}
   ${C.basic}
   cursor: pointer;
-  transition: background-color .15s ease, color .15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 
   &:hover {
     background-color: ${({ theme }) => theme.PALLETE.primary.main};
@@ -123,7 +133,9 @@ S.DropdownItem = styled.li`
     font-weight: 700;
   }
 
-  ${({ $active, theme }) => $active && `
+  ${({ $active, theme }) =>
+    $active &&
+    `
     background-color: ${theme.PALLETE.primary.main};
     color: #fff;
     font-weight: 700;
@@ -144,16 +156,18 @@ S.Total = styled.span`
 `;
 
 S.SortBottomLine = styled.div`
-  grid-column: 2;
+  width: 100%;
   height: 1px;
   background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
   margin: 10px 0 32px 0;
 `;
 
-/* 4) 왼쪽 필터 */
+/* ──────────────────────────────────────────────
+   4) 왼쪽 필터 영역
+────────────────────────────────────────────── */
 S.LeftFilter = styled.div`
-  grid-column: 1;
-  grid-row: 2 / span 100;
+  flex-shrink: 0;
+  width: 200px;
 `;
 
 S.FilterGroup = styled.div`
@@ -170,7 +184,7 @@ S.CatagoryTopBar = styled.div`
   width: 200px;
   height: 1px;
   ${C.backgroundGreyScale1}
-  margin: 0 0 24px 0;
+  margin-bottom: 24px;
 `;
 
 S.Label = styled.label`
@@ -191,9 +205,11 @@ S.Checkbox = styled.input.attrs({ type: "checkbox" })`
   border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   background-color: #fff;
   cursor: pointer;
-  transition: all .15s ease;
+  transition: all 0.15s ease;
 
-  &:hover { border-color: ${({ theme }) => theme.PALLETE.primary.main}; }
+  &:hover {
+    border-color: ${({ theme }) => theme.PALLETE.primary.main};
+  }
 
   &:checked {
     background-color: ${({ theme }) => theme.PALLETE.primary.main};
@@ -205,14 +221,27 @@ S.Checkbox = styled.input.attrs({ type: "checkbox" })`
   }
 `;
 
-/* 5) 상품 리스트 */
+/* ──────────────────────────────────────────────
+   5) 상품 리스트 (오른쪽)
+────────────────────────────────────────────── */
+S.Main = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+
+S.ProductArea = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
 S.CardGrid = styled.div`
-  grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(4, 218px);
-  column-gap: 16px;
-  row-gap: 60px;
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 16px;
+  justify-content: flex-start;
 `;
 
 S.Card = styled.article`
@@ -229,41 +258,43 @@ S.ProductImageBox = styled.div`
   overflow: hidden;
 `;
 
-/* 좋아요 버튼 (상단 원형) */
+/* 찜 하기 버튼 */
 S.LikeButton = styled.button`
   position: absolute;
   top: 8px;
   right: 8px;
   width: 28px;
   height: 28px;
-  border: 0;
+  border: none;
   padding: 0;
-  display: grid;
-  place-items: center;
   cursor: pointer;
   z-index: 2;
-  background: url("/assets/icons/circle.svg") center / contain no-repeat;
+
+  background: url("/assets/icons/circle.svg") center/contain no-repeat;
 
   &::after {
     content: "";
+    display: block;
     width: 14px;
     height: 14px;
-    -webkit-mask: url("/assets/icons/favorite.svg") no-repeat center / contain;
-    mask: url("/assets/icons/favorite.svg") no-repeat center / contain;
-    background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
-    transition: background-color .2s ease, -webkit-mask-image .2s ease, mask-image .2s ease;
+    margin: 0 auto;
+    background: url("/assets/icons/favorite.svg") center/contain no-repeat;
+    transition: background-image 0.2s ease;
   }
 
-  ${({ $active, theme }) => $active && `
+
+  ${({ $active }) =>
+    $active &&
+    `
     &::after {
-      -webkit-mask-image: url("/assets/icons/like.svg");
-      mask-image: url("/assets/icons/like.svg");
-      background-color: ${theme.PALLETE.secondary.main};
+      background: url("/assets/icons/filedlike.svg") center/contain no-repeat;
     }
   `}
 `;
 
-/* 텍스트/태그/가격 */
+/* ──────────────────────────────────────────────
+   6) 상품 텍스트/가격
+────────────────────────────────────────────── */
 S.ProductTitleRow = styled.div`
   display: flex;
   align-items: center;
@@ -287,7 +318,6 @@ S.NewTag = styled.span`
   ${C.smallText0Bold}
   padding: 1px 4px;
   display: inline-block;
-  border-radius: 0;
   color: ${({ theme }) => theme.PALLETE.secondary.main};
   background-color: rgba(248, 59, 170, 0.1);
 `;
@@ -296,7 +326,6 @@ S.BestTag = styled.span`
   ${C.smallText0Bold}
   padding: 1px 4px;
   display: inline-block;
-  border-radius: 0;
   color: ${({ theme }) => theme.PALLETE.primary.main};
   background-color: rgba(0, 81, 255, 0.1);
 `;
@@ -312,6 +341,14 @@ S.IconText = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
+    
+  img {
+    width: 12px;   
+    height: 12px;
+    object-fit: contain;
+    vertical-align: middle; 
+    margin-bottom: 2px;
+  }
 `;
 
 S.Text = styled.span`
@@ -319,14 +356,15 @@ S.Text = styled.span`
   ${C.basic}
 `;
 
-/* 8) 페이지네이션 */
+/* ──────────────────────────────────────────────
+   7) 페이지네이션
+────────────────────────────────────────────── */
 S.Pagination = styled.div`
-  grid-column: 2;
   display: flex;
   gap: 10px;
   align-items: center;
   justify-content: center;
-  margin: 80px;
+  margin: 80px 0;
 `;
 
 export default S;

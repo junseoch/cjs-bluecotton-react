@@ -4,59 +4,20 @@ import ShopList from "./ShopList";
 
 const ShopContainer = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("리뷰 많은 순"); // 라벨만 바꿈
+  const [selected, setSelected] = useState("리뷰 많은 순");
   const options = ["신상품순", "리뷰 많은 순", "낮은 가격 순", "높은 가격 순", "판매순"];
 
   return (
     <S.Page>
+
+      <S.Banner>
+        <S.BannerTextBox>
+          <S.BannerTitle>신제품</S.BannerTitle>
+          <S.BannerDesc>지금 많은 사랑을 받고 있는 제품들을 만나보세요!</S.BannerDesc>
+        </S.BannerTextBox>
+      </S.Banner>
+
       <S.Container>
-        <S.Banner>
-          <S.BannerTextBox>
-            <S.BannerTitle>신제품</S.BannerTitle>
-            <S.BannerDesc>
-              지금 많은 사랑을 받고 있는 제품들을 만나보세요!
-            </S.BannerDesc>
-          </S.BannerTextBox>
-        </S.Banner>
-        <S.SortTopLine />
-
-        <S.SortBar>
-          <S.DropdownWrap>
-            <S.DropdownButton onClick={() => setIsOpen((p) => !p)}>
-              {selected}
-              <S.ArrowIcon>
-                <img src="/assets/icons/arrow_drop_down.png" alt="드롭다운 아이콘" />
-              </S.ArrowIcon>
-            </S.DropdownButton>
-
-            {isOpen && (
-              <S.DropdownList>
-                {options.map((option) => (
-                  <S.DropdownItem
-                    key={option}
-                    $active={option === selected}
-                    onClick={() => {
-                      setSelected(option); 
-                      setIsOpen(false);    
-                    }}
-                  >
-                    {option}
-                  </S.DropdownItem>
-                ))}
-              </S.DropdownList>
-            )}
-          </S.DropdownWrap>
-
-          <S.SortRight>
-            <span>전체</span>
-            <span>›</span>
-            <S.Total>24개 제품</S.Total>
-          </S.SortRight>
-        </S.SortBar>
-
-        <S.SortBottomLine />
-
-        {/* 왼쪽 필터들 */}
         <S.LeftFilter>
           <S.FilterGroup>
             <S.CatagoryTopBar />
@@ -84,7 +45,48 @@ const ShopContainer = () => {
           </S.FilterGroup>
         </S.LeftFilter>
 
-        <ShopList />
+
+        <S.Main>
+          <S.SortTopLine />
+
+          <S.SortBar>
+            <S.DropdownWrap>
+              <S.DropdownButton onClick={() => setIsOpen(p => !p)}>
+                {selected}
+                <S.ArrowIcon>
+                  <img src="/assets/icons/arrow_drop_down.png" alt="드롭다운 아이콘" />
+                </S.ArrowIcon>
+              </S.DropdownButton>
+
+              {isOpen && (
+                <S.DropdownList>
+                  {options.map((option) => (
+                    <S.DropdownItem
+                      key={option}
+                      $active={option === selected}
+                      onClick={() => {
+                        setSelected(option);
+                        setIsOpen(false);
+                      }}
+                    >
+                      {option}
+                    </S.DropdownItem>
+                  ))}
+                </S.DropdownList>
+              )}
+            </S.DropdownWrap>
+
+            <S.SortRight>
+              <span>전체</span>
+              <span>›</span>
+              <S.Total>24개 제품</S.Total>
+            </S.SortRight>
+          </S.SortBar>
+
+          <S.SortBottomLine />
+
+          <ShopList />
+        </S.Main>
       </S.Container>
     </S.Page>
   );

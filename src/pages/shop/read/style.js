@@ -20,9 +20,10 @@ S.Page = styled.div`
 S.DetailContainer = styled.div`
   width: 1160px;
   margin: 60px auto;
-  display: grid;
-  grid-template-columns: 680px 1fr;
-  column-gap: 40px;
+  display: flex;                 
+  align-items: flex-start;      
+  justify-content: space-between;
+  gap: 40px;                  
 `;
 
 S.Left = styled.div``;
@@ -110,13 +111,17 @@ S.DetailPrice = styled.div`
 S.DetailReviewWrap = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px; 
+  line-height: 1; 
+  
 `;
 
 S.Icon = styled.img`
   width: 16px;
   height: 16px;
+  display: block;
   object-fit: contain;
+  margin-bottom: 2px;
 `;
 
 S.Text = styled.span`
@@ -409,8 +414,93 @@ S.CautionText = styled.p`
   ${C.smallText1Regular};
   color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
   line-height: 1.8;
-  white-space: pre-line; /* 개행 유지 */
+  white-space: pre-line; 
   margin: 0;
+`;
+
+
+/* ──────────────────────────────────────────────
+   12) 상품 리뷰 
+────────────────────────────────────────────── */
+S.ReviewSection = styled.section`
+  width: 680px;
+  margin: 60px 0 120px;
+`;
+
+S.ReviewTitle = styled.h3`
+  ${C.subtitleRegular};
+  color: ${({ theme }) => theme.PALLETE.basic};
+  margin-bottom: 28px;
+`;
+
+S.ReviewContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+
+S.ReviewLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+`;
+
+S.ReviewAverage = styled.p`
+  ${C.heading3};
+  color: ${({ theme }) => theme.PALLETE.basic};
+`;
+
+S.ReviewCount = styled.div`
+  ${C.smallText1Light};
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  img {
+    width: 18px;
+    height: 18px;
+  }
+`;
+
+S.ReviewRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+S.ReviewRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+S.ReviewLabel = styled.span`
+  ${C.smallText2Regular};
+  color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
+  width: 16px;
+  text-align: right;
+`;
+
+S.ReviewBar = styled.div`
+  width: 500px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.PALLETE.grey.greyScale0};
+  overflow: hidden;
+`;
+
+S.ReviewFill = styled.div`
+  height: 100%;
+  background-color: ${({ theme }) => theme.PALLETE.review.main};
+  border-radius: 10px;
+  transition: width 0.3s ease;
+`;
+
+S.ReviewCountText = styled.span`
+  ${C.smallText2Regular};
+  color: ${({ theme }) => theme.PALLETE.basic};
+  width: 16px;
+  text-align: right;
 `;
 
 export default S;

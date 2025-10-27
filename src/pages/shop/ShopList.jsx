@@ -52,7 +52,7 @@ const ShopList = () => {
                   <S.Text>4.8 (22)</S.Text>
                 </S.IconText>
                 <S.IconText>
-                  <img src="/assets/icons/like.svg" alt="좋아요 아이콘" />
+                  <img src="/assets/icons/filedlike.svg" alt="찜하기 아이콘" />
                   <S.Text>255</S.Text>
                 </S.IconText>
               </S.ProductSubInfo>
