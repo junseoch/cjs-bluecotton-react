@@ -26,7 +26,7 @@ S.Banner = styled.section`
   grid-column: 1 / -1;
   position: relative;
   height: 260px;
-  margin: 40px 0 50px;
+  margin: 40px 0 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
