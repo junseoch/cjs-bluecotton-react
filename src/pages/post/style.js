@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import * as C from "../../styles/common";
 
 /* === 전체 컨테이너 === */
 export const Container = styled.div`
@@ -11,40 +12,35 @@ export const Container = styled.div`
 
 /* === 배너 === */
 export const Banner = styled.div`
-  width: 1160px;
-  height: 250px;
-  border-radius: 4px;
-  background: url("/assets/postImages/post_banner.png") center/cover no-repeat;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-top: 100px; /* ✅ 헤더와의 간격 추가 */
+  justify-content: center; /* ✅ 중앙 기준으로 정렬 */
+  margin: 40px 0 40px;
+  background: transparent; /* ✅ 혹시나 배경 겹침 방지 */
 
   .banner-inner {
-    width: 100%;
-    height: 100%;
-    padding: 0 40px;
+    width: 1160px; /* ✅ 진짜 배너 폭 고정 */
+    height: 250px;
+    border-radius: 4px;
+    background: url("/assets/postImages/post_banner.png") center/cover no-repeat;
     display: flex;
-    align-items: center; /* ✅ 세로 중앙 정렬 */
-    justify-content: flex-start; /* ✅ 왼쪽 정렬 */
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .text-box {
-    display: flex;
-    flex-direction: column;
+    color: ${({ theme }) => theme.PALLETE.basic};
+    text-align: left;
 
     h1 {
-      font-size: ${({ theme }) => theme.FONT_SIZE["h5"]};
-      font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
-      color: ${({ theme }) => theme.PALLETE.basic};
+      ${({ theme }) => theme.FONT_SIZE["h5"]};
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
     p {
-      font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
-      font-weight: ${({ theme }) => theme.FONT_WEIGHT["light"]};
-      color: ${({ theme }) => theme.PALLETE.basic};
-      margin-top: 8px;
+      ${({ theme }) => theme.FONT_SIZE["smallText2"]};
+      font-weight: 400;
     }
   }
 `;
@@ -52,88 +48,22 @@ export const Banner = styled.div`
 /* === 카드 그리드 === */
 export const Grid = styled.div`
   width: 1160px;
-  margin: 40px auto 20px; /* ✅ 아래쪽 여백 살짝 줄임 → 글쓰기 버튼이 가까워짐 */
+  margin: 0 auto 60px;
   display: grid;
-  grid-template-columns: repeat(3, 370px);
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 390px;
   gap: 25px;
-  justify-content: start;
+  justify-content: center;
 `;
 
-/* === 카드 === */
-export const Card = styled.div`
-  width: 370px;
-  height: 390px;
-  border-radius: 4px;
-  background-color: #fff;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.2s ease;
-  cursor: pointer;
-
-  .thumb {
-    height: 210px;
-    background-color: ${({ theme }) => theme.PALLETE.grey.greyScale0};
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .meta {
-    flex: 1;
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .category {
-      font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
-      font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
-      color: ${({ theme }) => theme.PALLETE.primary.main};
-    }
-
-    .title {
-      font-size: ${({ theme }) => theme.FONT_SIZE["h5"]};
-      font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
-      margin-top: 4px;
-      margin-bottom: 6px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .desc {
-      font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
-      color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
-      line-height: 1.4;
-      height: 2.8em;
-      overflow: hidden;
-    }
-
-    .info {
-      margin-top: 10px;
-      font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
-      color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-  }
-`;
-
-/* === 페이지네이션 (글쓰기 버튼 포함) === */
+/* === 페이지네이션 및 작성 버튼 === */
 export const Pagination = styled.div`
   width: 1160px;
-  margin: 10px auto 100px; /* ✅ 위는 좁게 (카드랑 가깝게), 아래는 넓게 (푸터와 여유있게) */
+  margin: 0 auto 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 35px; /* ✅ 버튼과 페이지 번호 간격 더 멀어짐 */
+  gap: 40px; // pagenation 간격
 
   .top-bar {
     width: 100%;
@@ -146,7 +76,7 @@ export const Pagination = styled.div`
     height: 40px;
     border-radius: 4px;
     background-color: ${({ theme }) => theme.PALLETE.primary.main};
-    color: white;
+    color: #fff;
     font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT["regular"]};
     border: none;
@@ -159,9 +89,10 @@ export const Pagination = styled.div`
   }
 
   .page-buttons {
+    width: 100%;
     display: flex;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
 
     button {
       width: 28px;
@@ -170,10 +101,15 @@ export const Pagination = styled.div`
       border-radius: 4px;
       background: #fff;
       cursor: pointer;
+      transition: all 0.2s ease;
 
       &.active {
         background: ${({ theme }) => theme.PALLETE.primary.main};
         color: #fff;
+        border-color: ${({ theme }) => theme.PALLETE.primary.main};
+      }
+
+      &:hover {
         border-color: ${({ theme }) => theme.PALLETE.primary.main};
       }
     }

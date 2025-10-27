@@ -20,7 +20,7 @@ export const Title = styled.h1`
 export const MetaBox = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   padding: 8px 0 12px;
   border-bottom: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
@@ -31,6 +31,13 @@ export const MetaBox = styled.div`
   .view {
     color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
   }
+
+  /* ✅ 구분선 스타일 */
+  .divider {
+   color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
+  font-weight: ${({ theme }) => theme.FONT_WEIGHT["regular"]};
+  }
+
 `;
 
 export const Content = styled.div`
@@ -61,7 +68,7 @@ export const LikeHeader = styled.div`
   align-items: center;
   margin-bottom: 12px;
   h3 {
-    font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
+    font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
   }
   .pink {
@@ -331,4 +338,115 @@ export const NavButton = styled.button`
   background: #fff;
   color: ${({ theme }) => theme.PALLETE.basic};
   cursor: pointer;
+
 `;
+
+/* ===== 접기/펼치기 토글 버튼 ===== */
+export const ToggleButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+
+  img {
+    width: 18px;
+    height: 18px;
+    display: block;
+    /* 열림 상태에서 회전 주고 싶으면 아래 한 줄 활성화 (JSX에서 $open 전달) */
+    transform: ${({ $open }) => ($open ? "rotate(180deg)" : "rotate(0deg)")};
+    transition: transform 0.2s ease;
+  }
+`;
+
+/* ===== 댓글 좋아요 버튼 (하트 + 숫자 박스형) ===== */
+export const LikeButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 60px;
+  height: 28px;
+  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale2};
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 0 10px;
+
+  /* 기본 텍스트 색상 */
+  color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
+  font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
+  font-weight: ${({ theme }) => theme.FONT_WEIGHT["medium"]};
+
+  img {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.15s ease;
+  }
+
+  &:hover {
+    border-color: ${({ theme }) => theme.PALLETE.primary.main};
+    color: ${({ theme }) => theme.PALLETE.primary.main};
+    img {
+      transform: scale(1.1);
+    }
+  }
+
+  /* 좋아요 상태일 때 */
+  ${({ $liked, theme }) =>
+    $liked &&
+    `
+      border-color: ${theme.PALLETE.primary.main};
+      color: ${theme.PALLETE.primary.main};
+      background: #fff;
+    `}
+`;
+
+/* ===== 이전/다음 글 네비게이션 ===== */
+export const NavList = styled.ul`
+  margin-top: 12px;
+  border-top: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
+  border-bottom: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
+`;
+
+export const NavItem = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
+  &:first-child { border-top: none; }
+
+  opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
+  cursor: ${({ $disabled }) => ($disabled ? "default" : "pointer")};
+
+  .label {
+    width: 72px;
+    color: ${({ theme }) => theme.PALLETE.basic};
+    font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .title {
+    color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
+  }
+
+  &:hover .title {
+    text-decoration: ${({ $disabled }) => ($disabled ? "none" : "underline")};
+  }
+`;
+
+export const NavArrow = styled.img`
+  width: 14px;
+  height: 14px;
+  transform: ${({ $up }) => ($up ? "rotate(180deg)" : "none")};
+  display: block;
+`;
+
+/* 기존 NavSection / NavButton 그대로 사용 */

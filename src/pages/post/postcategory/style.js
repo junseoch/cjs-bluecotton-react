@@ -7,7 +7,7 @@ export const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 25px;
+  margin-bottom: 40px;
 `;
 
 /* === 카테고리 리스트 === */
@@ -24,6 +24,7 @@ export const CategoryLink = styled(Link)`
   justify-content: center;
   width: 100px;
   height: 30px;
+  box-sizing: border-box;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale2};
   background-color: #fff;
@@ -43,7 +44,8 @@ export const CategoryLink = styled(Link)`
     `}
 
   &:hover {
-    background-color: ${({ theme }) => theme.PALLETE.primary.light0};
+    background-color: ${({ theme }) => theme.PALLETE.primary.dark};
+    color: #fff;
   }
 `;
 
@@ -56,7 +58,7 @@ export const FilterBox = styled.div`
 
 /* === 드롭다운 셀렉트 === */
 export const FilterSelect = styled.select`
-  min-width: 120px; /* ✅ 4글자 이상 텍스트 대응 */
+  min-width: 120px;
   height: 30px;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale2};
@@ -66,15 +68,19 @@ export const FilterSelect = styled.select`
   color: ${({ theme }) => theme.PALLETE.basic};
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23999' height='22' width='22' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+
+  /* ▼ 기본 상태: drop_down.svg */
+  background-image: url("/assets/icons/drop_down.svg");
   background-repeat: no-repeat;
   background-position: right 8px center;
-  background-size: 20px;
+  background-size: 12px;
 
+  /* ▼ 드롭다운이 활성화될 때 (focus 상태): drop_down_acv.svg */
   &:focus {
     border-color: ${({ theme }) => theme.PALLETE.primary.main};
-    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.15);
     outline: none;
+    background-image: url("/assets/icons/drop_down_acv.svg");
+    background-size: 12px;
   }
 
   &:focus-visible {

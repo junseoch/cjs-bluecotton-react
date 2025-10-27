@@ -4,6 +4,7 @@ import MainCategory from "./maincategory/MainCategory";
 import MainContent from "./maincontent/MainContent";
 import { fetchSomList } from "./api/somAPI";
 
+
 const MainContainer = () => {
   const [category, setCategory] = useState("전체");
   const [sortBy, setSortBy] = useState("최신순");
