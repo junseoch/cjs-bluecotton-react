@@ -1,28 +1,43 @@
 import React from "react";
 import S from "./style";
+import { useNavigate, useParams } from "react-router-dom";
 
-const categories = ["전체", "학습", "건강", "소셜", "취미", "생활", "루키"];
+const categoryMap = {
+  all: "전체",
+  study: "학습",
+  health: "건강",
+  social: "소셜",
+  hobby: "취미",
+  life: "생활",
+  rookie: "루키",
+};
+
+const reverseMap = Object.fromEntries(
+  Object.entries(categoryMap).map(([k, v]) => [v, k])
+);
+
+const categories = Object.values(categoryMap);
 const sortOptions = ["전체", "인기순", "마감 임박순"];
 
-const MainCategory = ({ category, setCategory, sortBy, setSortBy }) => {
+const MainCategory = ({ sortBy, setSortBy }) => {
+  const { category } = useParams();
+  const navigate = useNavigate();
+
   return (
     <S.Wrapper>
       <S.CategoryList>
         {categories.map((cat) => (
           <S.CategoryButton
             key={cat}
-            className={category === cat ? "active" : ""}
-            onClick={() => setCategory(cat)}
+            className={categoryMap[category] === cat ? "active" : ""}
+            onClick={() => navigate(`/main/som/${reverseMap[cat]}`)}
           >
             {cat}
           </S.CategoryButton>
         ))}
       </S.CategoryList>
 
-      <S.SortBox
-        value={sortBy}
-        onChange={(e) => setSortBy(e.target.value)}
-      >
+      <S.SortBox value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
         {sortOptions.map((opt) => (
           <option key={opt} value={opt}>
             {opt}

@@ -43,7 +43,6 @@ S.SomTitle = styled.div`
 
 S.SomExplanation = styled.div`
   font-size: 14px;
-  color: #555;
   margin-top: 8px;
   display: flex;
   flex-direction: column;
@@ -59,33 +58,44 @@ S.SomButtonArea = styled.div`
 `;
 
 S.SomButton = styled.div`
-  border-radius: 4px;
   ${smallText1Regular}
   ${white}
+  border-radius: 4px;
+  width: 122px;
+  height: 32px;
   background-color: ${({ theme }) => theme.PALLETE.primary.main};
   cursor: pointer;
-  padding: 10px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 S.FullSomButton = styled.div`
-  border-radius: 4px;
   ${smallText1Regular}
   ${white}
+  border-radius: 4px;
+  width: 122px;
+  height: 32px;
   background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
   cursor: pointer;
-  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 S.LikeButton = styled.div`
-  display: flex;
-  gap: 5px;
-  border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1 };
-  ${smallText1Regular}
-  ${secondary}
-  background-color: ${({ theme }) => theme.PALLETE.white};
-  cursor: pointer;
-  padding: 10px 15px;
+${smallText1Regular}
+${secondary}
+width: 64px;
+height: 32px;
+gap: 5px;
+border-radius: 4px;
+border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1 };
+background-color: ${({ theme }) => theme.PALLETE.white};
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 S.SomExplantionArea = styled.div`
