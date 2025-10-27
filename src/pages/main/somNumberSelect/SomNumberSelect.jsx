@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper } from "./style";
+import S from "./style";
 
 const SomNumberSelect = ({ somList, pageNumber, setPageNumber }) => {
   const totalPages = Math.ceil(somList.length / 9); // 실제 totalPages가 있다면 내려받으면 됨.
@@ -11,37 +11,38 @@ const SomNumberSelect = ({ somList, pageNumber, setPageNumber }) => {
   const endPage = Math.min(startPage + groupSize - 1, totalPages);
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       {/* 이전 그룹 */}
-      <button
+      <S.PrevButton
         disabled={startPage === 1}
         onClick={() => setPageNumber(startPage - groupSize)}
       >
-        &lt;
-      </button>
-
-      {/* 페이지 리스트 */}
-      {Array.from({ length: endPage - startPage + 1 }, (_, i) => {
-        const page = startPage + i;
-        return (
-          <button
-            key={page}
-            className={pageNumber === page ? "active" : ""}
-            onClick={() => setPageNumber(page)}
-          >
-            {page}
-          </button>
-        );
-      })}
+        &lt; 이전
+      </S.PrevButton>
+      <S.PageList>
+        {/* 페이지 리스트 */}
+        {Array.from({ length: endPage - startPage + 1 }, (_, i) => {
+          const page = startPage + i;
+          return (
+            <button
+              key={page}
+              className={pageNumber === page ? "active" : ""}
+              onClick={() => setPageNumber(page)}
+            >
+              {page}
+            </button>
+          );
+        })}
+      </S.PageList>
 
       {/* 다음 그룹 */}
-      <button
+      <S.AfterButton
         disabled={endPage >= totalPages}
         onClick={() => setPageNumber(startPage + groupSize)}
       >
-        &gt;
-      </button>
-    </Wrapper>
+        다음 &gt;
+      </S.AfterButton>
+    </S.Wrapper>
   );
 };
 
