@@ -5,20 +5,27 @@ import {borderCSS, shapeCSS, sizeCSS} from "../button/style";
 
 const HeaderStyle = {};
 
+HeaderStyle.HeaderWrap = styled.div `
+    width: 100%;
+`
 HeaderStyle.HeaderContainer = styled.div `
     max-width: 1920px;
     height: 72px;
-    padding: 0 190px 0 165px;
+    margin: 0 auto;
+    padding: 10px 250px 0 190px;
+    box-sizing: border-box;
 `
 
-HeaderStyle.IntroLogo = styled.span `
+HeaderStyle.IntroLogo = styled(Link) `
     ${headerLogo}
     margin-right : 174px;
+    text-decoration: none;
 `
 
-HeaderStyle.MainLogo = styled.span `
+HeaderStyle.MainLogo = styled(Link) `
     ${headerLogo}
     margin-right: 10px;
+    text-decoration: none;
 `
 
 HeaderStyle.HeaderCategory = styled(Link) `
@@ -30,7 +37,7 @@ HeaderStyle.HeaderCategory = styled(Link) `
 HeaderStyle.HeaderSome = styled.span `
     ${headerSubLogo}
     ${secondary}
-    margin-right: 600px;
+    margin-right: 500px;
 `
 
 HeaderStyle.Bar = styled.span `

@@ -12,8 +12,10 @@ IntroStyle.IntroBannerWarp = styled.div `
 `
 
 IntroStyle.IntroBannerContainer = styled.div `
-    width: 1920px;
+    max-width: 1920px;
     margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
     position: relative;
 `
 
@@ -72,16 +74,20 @@ IntroStyle.IntroBannerButton = styled.button `
 // 소개 페이지 (솜이란?)
 IntroStyle.WhatIsSomWrap = styled.div `
     width: 100%;
-    padding: 80px 0 0 200px; 
-    background-color: #E0E0E0;
+    box-sizing: border-box;
+    padding: 80px 0 0 200px;
+    background-color: #E0E0E0; 
+    
 `
 IntroStyle.WhatIsSomContainer = styled.div `
-    max-width: 1920px;
-    margin: 0;
+    max-width: 1200px;
+    height: 500px;
+    margin: 0 auto;
     gap: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+ 
 `
 
 IntroStyle.WhatIsSomImg = styled.img `
@@ -129,8 +135,10 @@ IntroStyle.IntroMapWrap = styled.div `
 ` 
 
 IntroStyle.IntroMapContainer = styled.div `
-    max-width: 1920px;
+    max-width: 1200px;
     height: 1772px;
+    margin: 0 auto;
+    padding: 0 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -176,13 +184,15 @@ IntroStyle.IntroShopWrap = styled.div `
 `
 
 IntroStyle.IntroShopContainer = styled.div `
-    width: 1920px;
+    max-width: 1200px;
     height: 1374px;
+    margin: 0 auto;
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 30px;
-    padding-left: 270px;
+    /* padding-left: 270px; */
 `
 
 IntroStyle.IntroShopText1 = styled.p `
@@ -230,8 +240,10 @@ IntroStyle.IntroGradeWrpper = styled.div `
 `
 
 IntroStyle.IntroGradeContainer = styled.div `
-    width: 1920px;
+    max-width: 1200px;
     height: 1509px;
+    margin: 0 auto;
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -310,10 +322,12 @@ IntroStyle.IntroPostWrapper = styled.div `
 `
 
 IntroStyle.IntroPostContainer = styled.div `
-    width: 1920px;
+    max-width: 1200px;
     height: 1900px;
+    margin: 0 auto;
+    padding: 0 16px;
     display: flex;
-    padding-left: 400px;
+    /* padding-left: 400px; */
 `
 
 IntroStyle.IntroPostTextContainer = styled.div `
@@ -371,10 +385,12 @@ IntroStyle.IntroSomWrpper = styled.div `
 `
 
 IntroStyle.IntroSomContainer1 = styled.div `
-    width: 1920px;
+    max-width: 1200px;
     height: 4250px;
     display: flex;
-    padding-left: 400px;
+    margin: 0 auto;
+    padding: 0 16px;
+    /* padding-left: 400px; */
     
 `
 
@@ -401,7 +417,7 @@ IntroStyle.IntroSomContainer2 = styled.div `
     justify-content: center;
     align-items: center;
     gap: 147px;
-    padding-left: 200px;
+    padding-left: 50px;
     padding-top: 50px;
     
 `
