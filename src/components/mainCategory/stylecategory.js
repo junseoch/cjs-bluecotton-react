@@ -13,7 +13,7 @@ CategoryStyle.Wrapper = styled.div `
 
 CategoryStyle.Container = styled.div `
     max-width: 1920px;
-    margin-left : 168px;
+    margin-left : 190px;
     align-items: center;
 `
 
