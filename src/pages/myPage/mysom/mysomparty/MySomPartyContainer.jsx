@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   ContentTitle,
   ContentSubtitle,
@@ -15,6 +16,7 @@ import {
 } from '../style';
 
 const MySomPartyContainer = () => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('completed');
 
   const challenges = [
@@ -24,7 +26,7 @@ const MySomPartyContainer = () => {
       date: '2025.09.01 ~ 2025.09.07',
       repeat: '[요일반복] [금]',
       progress: '7회/7회',
-      button: '리뷰하기'
+      button: '인증하기'
     },
     {
       type: '파티',
@@ -32,7 +34,7 @@ const MySomPartyContainer = () => {
       date: '2025.09.01 ~ 2025.09.07',
       repeat: '[요일반복] [금]',
       progress: '7회/7회',
-      button: '리뷰하기'
+      button: '인증하기'
     }
   ];
 
@@ -74,16 +76,19 @@ const MySomPartyContainer = () => {
                   <span>{challenge.repeat} {challenge.progress}</span>
                 </ItemDetails>
               </div>
-              <button style={{
-                padding: '8px 16px',
-                backgroundColor: '#0051FF',
-                color: 'white',
-                border: 'none',
-                borderRadius: '6px',
-                cursor: 'pointer',
-                fontSize: '14px',
-                fontWeight: '500'
-              }}>
+              <button 
+                onClick={() => navigate('/main/my-page/my-som-check')}
+                style={{
+                  padding: '8px 16px',
+                  backgroundColor: '#0051FF',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  fontWeight: '500'
+                }}
+              >
                 {challenge.button}
               </button>
             </div>

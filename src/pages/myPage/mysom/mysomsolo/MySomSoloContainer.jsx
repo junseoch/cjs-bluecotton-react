@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   ContentTitle,
   ContentSubtitle,
@@ -15,6 +16,7 @@ import {
 } from '../style';
 
 const MySomSoloContainer = () => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('scheduled');
 
   const challenges = [
@@ -23,14 +25,16 @@ const MySomSoloContainer = () => {
       title: '2km 런닝 뛰기 챌린지!!',
       date: '2025.09.01 ~ 2025.09.31',
       repeat: '[요일반복] [금]',
-      progress: '4회/4회'
+      progress: '4회/4회',
+      button: '인증하기'
     },
     {
       type: '솔로',
       title: '2km 런닝 뛰기 챌린지!!',
       date: '2025.09.01 ~ 2025.09.31',
       repeat: '[요일반복] [금]',
-      progress: '4회/4회'
+      progress: '4회/4회',
+      button: '인증하기'
     }
   ];
 
@@ -63,13 +67,30 @@ const MySomSoloContainer = () => {
       <ListContainer>
         {challenges.map((challenge, index) => (
           <ListItem key={index}>
-            <div>
-              <ItemType>{challenge.type}</ItemType>
-              <ItemTitle>{challenge.title}</ItemTitle>
-              <ItemDetails>
-                <span>{challenge.date}</span>
-                <span>{challenge.repeat} {challenge.progress}</span>
-              </ItemDetails>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+              <div>
+                <ItemType>{challenge.type}</ItemType>
+                <ItemTitle>{challenge.title}</ItemTitle>
+                <ItemDetails>
+                  <span>{challenge.date}</span>
+                  <span>{challenge.repeat} {challenge.progress}</span>
+                </ItemDetails>
+              </div>
+              <button 
+                onClick={() => navigate('/main/my-page/my-som-check')}
+                style={{
+                  padding: '8px 16px',
+                  backgroundColor: '#0051FF',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  fontWeight: '500'
+                }}
+              >
+                {challenge.button}
+              </button>
             </div>
           </ListItem>
         ))}

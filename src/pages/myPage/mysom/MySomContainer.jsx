@@ -27,19 +27,24 @@ const MySomContainer = () => {
     navigate(path);
   };
 
+  // check 경로에서는 탭을 표시하지 않음
+  const isCheckPage = location.pathname.includes('/my-som-check');
+
   return (
     <div>
-      <TabContainer>
-        {tabs.map(tab => (
-          <Tab
-            key={tab.id}
-            active={getActiveTab() === tab.id}
-            onClick={() => handleTabClick(tab.path)}
-          >
-            {tab.label}
-          </Tab>
-        ))}
-      </TabContainer>
+      {!isCheckPage && (
+        <TabContainer>
+          {tabs.map(tab => (
+            <Tab
+              key={tab.id}
+              active={getActiveTab() === tab.id}
+              onClick={() => handleTabClick(tab.path)}
+            >
+              {tab.label}
+            </Tab>
+          ))}
+        </TabContainer>
+      )}
       
       <Outlet />
     </div>
