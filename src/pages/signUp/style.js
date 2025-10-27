@@ -81,7 +81,7 @@ export const AddressInput = styled.input`
   }
 `;
 
-// Small Button (검색 / 확인)
+// Small Button
 export const SmallButton = styled.button`
   width: 85px;
   height: 40px;
