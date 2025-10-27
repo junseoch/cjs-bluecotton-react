@@ -25,7 +25,7 @@ const SomContent = ({ content }) => {
       <S.SomInfo>
         <S.SomTitleArea>
           <img src={userProfileLocation} alt={userName} />
-          <h3>{somTitle}</h3>
+          <S.SomTitle>{somTitle}</S.SomTitle>
         </S.SomTitleArea>
         <S.SomExplanation>
           <S.SomExplantionArea>

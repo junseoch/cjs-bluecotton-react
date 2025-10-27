@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { smallText1Regular, primary ,white, secondary} from '../../../styles/common';
+import { smallText3Bold, smallText0Regular, smallText1Regular, primary ,white, secondary} from '../../../styles/common';
 
 const S = {};
 
@@ -37,18 +37,25 @@ S.SomTitleArea = styled.div`
   }
 `;
 
+S.SomTitle = styled.div`
+  ${smallText3Bold}
+`;
+
 S.SomExplanation = styled.div`
   font-size: 14px;
   color: #555;
   margin-top: 8px;
   display: flex;
   flex-direction: column;
+  span {
+    ${smallText0Regular}
+  }
 `;
 
 S.SomButtonArea = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  gap: 10px;
 `;
 
 S.SomButton = styled.div`
@@ -57,7 +64,7 @@ S.SomButton = styled.div`
   ${white}
   background-color: ${({ theme }) => theme.PALLETE.primary.main};
   cursor: pointer;
-  padding: 10px 30px;
+  padding: 10px 25px;
 `;
 
 S.FullSomButton = styled.div`
@@ -89,6 +96,8 @@ S.SomExplantionArea = styled.div`
 S.SomExplanationInfo = styled.div`
   display: flex;
   gap: 5px;
+  
+
 `
 
 export default S;

@@ -8,7 +8,7 @@ S.Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
 `;
 
 S.CategoryList = styled.div`

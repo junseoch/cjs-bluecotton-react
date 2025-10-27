@@ -1,7 +1,7 @@
 import React from "react";
 import S from "./style";
 
-const categories = ["전체", "학습", "건강", "소셜", "취미", "라이프스타일", "루키"];
+const categories = ["전체", "학습", "건강", "소셜", "취미", "생활", "루키"];
 const sortOptions = ["전체", "인기순", "마감 임박순"];
 
 const MainCategory = ({ category, setCategory, sortBy, setSortBy }) => {

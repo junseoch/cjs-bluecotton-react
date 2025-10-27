@@ -4,6 +4,7 @@ import theme from '../../styles/common';
 const S = {};
 
 S.Container = styled.div`
+  width: 1160px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +15,7 @@ S.Container = styled.div`
 
 S.BennerImageArea = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
 `
 
 S.BennerImage = styled.img`
