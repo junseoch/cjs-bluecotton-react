@@ -35,6 +35,7 @@ import MyInfoContainer from "../pages/myPage/myinfo/MyInfoContainer";
 import PostContent from "../pages/post/postcontent/PostContent";
 import PostReadContent from "../pages/post/readcontent/PostReadContent";
 import PostWriteContent from "../pages/post/postwritecontent/PostWriteContent";
+import PostModifyContent from "../pages/post/postModifyContent/PostModifyContent";
 import MySomCheck from "../pages/myPage/mysom/mysomcheck/MySomCheck";
 
 const router = createBrowserRouter([
@@ -173,6 +174,10 @@ const router = createBrowserRouter([
       {
         path: "post/write",
         element: <PostWriteContent />
+      },
+      {
+        path: "post/modify/:id",
+        element: <PostModifyContent />
       }
     ]
   },

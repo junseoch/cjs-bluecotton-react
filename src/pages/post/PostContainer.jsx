@@ -1,10 +1,11 @@
-import React from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import * as S from "./style";
 import PostCategory from "./postcategory/PostCategory";
 import PostCard from "./postCard/PostCard";
+import PostNumberSelect from "./postNumberSelect/PostNumberSelect";
 
-const dummyPosts = Array.from({ length: 9 }).map((_, i) => ({
+const dummyPosts = Array.from({ length: 45 }).map((_, i) => ({
   id: i + 1,
   thumbnail: "https://via.placeholder.com/486x250",
   category: "건강",
@@ -21,13 +22,17 @@ const dummyPosts = Array.from({ length: 9 }).map((_, i) => ({
 
 const PostContainer = () => {
   const navigate = useNavigate();
+  const [pageNumber, setPageNumber] = useState(1);
+  const postsPerPage = 9;
+
+  const startIndex = (pageNumber - 1) * postsPerPage;
+  const currentPosts = dummyPosts.slice(startIndex, startIndex + postsPerPage);
 
   return (
     <S.Container>
-      <S.Banner>
       {/* === 배너 === */}
-        <div className="banner-inner">
-        </div>
+      <S.Banner>
+        <div className="banner-inner"></div>
       </S.Banner>
 
       {/* === 카테고리/드롭다운 === */}
@@ -35,7 +40,7 @@ const PostContainer = () => {
 
       {/* === 카드형 게시판 === */}
       <S.Grid>
-        {dummyPosts.map((post) => (
+        {currentPosts.map((post) => (
           <PostCard
             key={post.id}
             {...post}
@@ -44,27 +49,22 @@ const PostContainer = () => {
         ))}
       </S.Grid>
 
-      {/* === 글쓰기 버튼 + 페이지네이션 === */}
-      <S.Pagination>
-        <div className="top-bar">
-          <button
-            className="write-btn"
-            onClick={() => navigate("/main/post/write")}
-          >
-            오늘의 솜 작성하기
-          </button>
-        </div>
+      {/* === 글쓰기 버튼 === */}
+      <S.WriteButtonWrapper>
+        <button
+          className="write-btn"
+          onClick={() => navigate("/main/post/write")}
+        >
+          오늘의 솜 작성하기
+        </button>
+      </S.WriteButtonWrapper>
 
-        <div className="page-buttons">
-          <button>{"<"}</button>
-          {[1, 2, 3, 4, 5].map((n) => (
-            <button key={n} className={n === 1 ? "active" : ""}>
-              {n}
-            </button>
-          ))}
-          <button>{">"}</button>
-        </div>
-      </S.Pagination>
+      {/* === 페이지네이션 === */}
+      <PostNumberSelect
+        postList={dummyPosts}
+        pageNumber={pageNumber}
+        setPageNumber={setPageNumber}
+      />
 
       <Outlet />
     </S.Container>
