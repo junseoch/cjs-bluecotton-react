@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import S from "./style";
 import ShopInfo from "./ShopInfo";
 import ShopReview from "./ShopReview";
+import ShopRelated from "./ShopRelated"; 
+import { useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const [selectedImage, setSelectedImage] = useState(
@@ -10,6 +12,7 @@ const Shop = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(255);
   const [activeTab, setActiveTab] = useState("info");
+  const [open, setOpen] = useState(false);  
 
   const subImages = [
     "/assets/images/shop_detailSub_doll.png",
@@ -21,6 +24,8 @@ const Shop = () => {
     setIsLiked((prev) => !prev);
     setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
   };
+
+  const navigate = useNavigate();
 
   return (
     <S.Page>
@@ -39,7 +44,7 @@ const Shop = () => {
             ))}
           </S.SubImageArea>
 
-          {/* 정보 / 리뷰 탭 */}
+          {/* 정보 / 리뷰 */}
           <S.InfoSection>
             <S.InfoTabs>
               <S.InfoTab
@@ -57,7 +62,18 @@ const Shop = () => {
             </S.InfoTabs>
 
             <S.InfoDivider />
-            {activeTab === "info" ? <ShopInfo /> : <ShopReview />}
+
+            {activeTab === "info" ? (
+              <>
+                <ShopInfo />
+                <ShopRelated /> {/* 상품 정보 하단  */}
+              </>
+            ) : (
+              <>
+                <ShopReview />
+                <ShopRelated /> {/* 리뷰 하단 */}
+              </>
+            )}
           </S.InfoSection>
         </S.Left>
 
@@ -72,7 +88,6 @@ const Shop = () => {
           <S.DetailPrice>23,000원</S.DetailPrice>
 
           <S.DetailReviewWrap>
-            {/* 아이콘 경로가 public/assets/icons/ 에 있으므로 절대경로로 접근합니다. */}
             <S.Icon src="/assets/icons/review.svg" alt="리뷰 아이콘" />
             <S.Text>4.8 (22)</S.Text>
           </S.DetailReviewWrap>
@@ -101,25 +116,39 @@ const Shop = () => {
             <S.ProductTotalPrice>23,000원</S.ProductTotalPrice>
           </S.ProductRow>
 
-          {/* 좋아요 / 장바구니 / 구매 */}
+          {/* 찜하기 / 장바구니 / 구매 */}
           <S.ButtonRow>
             <S.ProductLikeButton onClick={handleLikeClick}>
               <img
                 src={
                   isLiked
-                    ? "/assets/icons/filedlike.svg" // process.env.PUBLIC_URL 제거
-                    : "/assets/icons/favorite.svg"  // process.env.PUBLIC_URL 제거
+                    ? "/assets/icons/filedlike.svg"
+                    : "/assets/icons/favorite.svg"
                 }
                 alt="좋아요"
               />
               <span>{likeCount}</span>
             </S.ProductLikeButton>
 
-            <S.CartButton>장바구니</S.CartButton>
-            <S.PurchaseButton>구매하기</S.PurchaseButton>
+              <S.CartButton onClick={() => setOpen(true)}>장바구니</S.CartButton>
+              <S.PurchaseButton>구매하기</S.PurchaseButton>
+
           </S.ButtonRow>
         </S.Right>
       </S.DetailContainer>
+
+       {open && (
+        <S.Overlay onClick={() => setOpen(false)}>
+          <S.Dialog onClick={(e) => e.stopPropagation()}>
+            <S.DialogMsg>장바구니에 상품을 담았습니다.</S.DialogMsg>
+            <S.DialogBtns>
+              <S.DialogBtnGhost onClick={() => setOpen(false)}>닫기</S.DialogBtnGhost>
+              <S.DialogBtnPrimary onClick={() => navigate("/main/my-page/my-shop/cart")}>보러가기</S.DialogBtnPrimary>
+            </S.DialogBtns>
+          </S.Dialog>
+        </S.Overlay>
+      )}
+
     </S.Page>
   );
 };

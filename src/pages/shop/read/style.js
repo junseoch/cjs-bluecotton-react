@@ -15,7 +15,7 @@ S.Page = styled.div`
 `;
 
 /* ──────────────────────────────────────────────
-   2) 상품 상세 그리드
+   2) 상품 상세 페이지 비율
 ────────────────────────────────────────────── */
 S.DetailContainer = styled.div`
   width: 1160px;
@@ -257,7 +257,7 @@ S.CartButton = styled.button`
   flex: 1;
   height: 54px;
   border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.PALLETE.primary.main};
+  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   background: #fff;
   cursor: pointer;
 `;
@@ -365,28 +365,25 @@ S.SpecSection = styled.section`
 `;
 
 S.SpecTitle = styled.h3`
-  ${C.subtitleRegular}; /* 피그마: Subtitle/Subtitle-Regular */
+  ${C.subtitleRegular}; 
   color: ${({ theme }) => theme.PALLETE.basic};
   margin-bottom: 28px;
 `;
 
 S.SpecList = styled.div`
-  display: grid;
-  grid-template-columns: 110px 1fr;          
-  row-gap: 10px;                   
+  display: flex;
+  flex-direction: column;      
+  gap: 10px;                   
 `;
 
 S.SpecRow = styled.div`
-  display: contents; /* grid 셀 배치만 사용 */
+  display: flex;
+  align-items: baseline;
 `;
 
 S.SpecLabel = styled.div`
   ${C.smallText2Regular}; 
   color: ${({ theme }) => theme.PALLETE.basic};
-  &::after {
-    content: "：";
-    margin-left: 4px;
-  }
 `;
 
 S.SpecValue = styled.div`
@@ -420,7 +417,56 @@ S.CautionText = styled.p`
 
 
 /* ──────────────────────────────────────────────
-   12) 상품 리뷰 
+   12) 판매자 정보 섹션
+────────────────────────────────────────────── */
+S.SellerSection = styled.section`
+  width: 680px;
+  margin: 48px 0 40px;
+`;
+
+S.SellerTitle = styled.h3`
+  ${C.subtitleRegular};
+  color: ${({ theme }) => theme.PALLETE.basic};
+  margin-bottom: 24px;
+`;
+
+S.SellerList = styled.div`
+  display: flex;
+  flex-direction: column;   /* 세로로 행 나열 */
+  gap: 12px;                /* 행 간격 통일 */
+  width: 100%;
+`;
+
+S.SellerRow = styled.div`
+  display: flex;
+  align-items: flex-start;  /* 멀티라인 값도 첫 줄 기준 정렬 */
+  min-width: 0;             /* 자식 요소 폭 깨짐 방지 */
+`;
+
+S.SellerLabel = styled.div`
+  ${C.smallText2Regular};
+  color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
+  flex: 0 0 168px;          /* 긴 라벨도 1줄 유지 */
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  position: relative;
+  padding-right: 12px;      /* 라벨-값 간격 */
+  line-height: 1.7;
+
+`;
+
+S.SellerValue = styled.div`
+  ${C.smallText2Regular};
+  color: ${({ theme }) => theme.PALLETE.grey.greyScale6};
+  flex: 1;                  /* 남은 영역 차지 */
+  line-height: 1.7;         /* 좌우 줄높이 동일 */
+  word-break: keep-all;     /* 한글 낱자 줄바꿈 방지 */
+  overflow-wrap: break-word;/* 긴 이메일 등은 자연 줄바꿈 */
+`;
+
+/* ──────────────────────────────────────────────
+   13) 상품 리뷰 
 ────────────────────────────────────────────── */
 S.ReviewSection = styled.section`
   width: 680px;
@@ -501,6 +547,171 @@ S.ReviewCountText = styled.span`
   color: ${({ theme }) => theme.PALLETE.basic};
   width: 16px;
   text-align: right;
+`;
+
+/* ──────────────────────────────────────────────
+   14) 상세정보 토글 버튼
+────────────────────────────────────────────── */
+S.ToggleBox = styled.button`
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 16px;
+  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+`;
+
+S.ToggleText = styled.span`
+  ${C.smallText2Light};
+  ${C.basic};
+  display: inline-block;
+`;
+
+S.ToggleIcon = styled.img`
+  width: 10px;
+  height: 5px;
+  margin-left: 6px;
+  object-fit: contain;
+  transform: rotate(${({ $open }) => ($open ? "180deg" : "0deg")}); 
+  transition: none; 
+  align-self: center;
+`;
+
+
+/* ──────────────────────────────────────────────
+   15) 관련 상품 섹션 (ShopRelated.jsx)
+────────────────────────────────────────────── */
+S.RelatedSection = styled.section`
+  width: 680px;
+  margin: 80px 0 120px;
+`;
+
+S.RelatedTitleRow = styled.div`
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 28px;
+`;
+
+S.BrandLink = styled.span`
+  ${C.subtitleRegular};
+  color: ${({ theme }) => theme.PALLETE.primary.main};
+  margin-right: 4px;
+`;
+
+S.RelatedTitle = styled.h3`
+  ${C.subtitleRegular};
+  color: ${({ theme }) => theme.PALLETE.basic};
+`;
+
+S.RelatedGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+`;
+
+S.RelatedCard = styled.div`
+  width: 158px;
+  display: flex;
+  flex-direction: column;
+`;
+
+S.RelatedThumb = styled.div`
+  width: 158px;
+  height: 211px;
+  background-color: #f6f6f6;
+  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+S.RelatedName = styled.p`
+  ${C.smallText1Bold};
+  ${C.basic};
+  margin-top: 10px;
+`;
+
+S.RelatedPrice = styled.p`
+  ${C.smallText1Regular};
+  ${C.basic};
+  margin-top: 6px;
+`;
+
+/* 장바구니 모달창 */
+S.Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  /* background: ${({ theme }) => theme.PALLETE.grey.greyScale1}; */
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+`;
+
+S.Dialog = styled.div`
+  position: fixed;  
+  z-index: 1100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 160px;
+  max-width: calc(100vw - 48px);
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  padding: 20px 20px 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+S.DialogMsg = styled.p`
+  ${C.subtitleRegular};
+  ${C.basic};
+  margin: 0 0 12px;
+`;
+
+S.DialogBtns = styled.div`
+  display: flex;
+  gap: 8px;
+  justify-content: center
+`;
+
+S.DialogBtnGhost = styled.button`
+  ${C.smallText2Regular};
+  width: 136px;             
+  height: 46px;            
+  border-radius: 4px;
+  display: inline-flex;
+  background: #fff;
+  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
+  cursor: pointer;
+`;
+
+S.DialogBtnPrimary = styled.button`
+  ${C.smallText2Regular};
+  flex: 1; 
+  width: 136px;
+  height: 46px;
+  border-radius: 4px;
+  border: 0;
+  display: inline-flex;
+  background: ${({ theme }) => theme.PALLETE.primary.main};
+  color: #fff;
+  cursor: pointer;
 `;
 
 export default S;
