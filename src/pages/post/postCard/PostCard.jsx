@@ -3,48 +3,47 @@ import * as S from "./style";
 
 const PostCard = ({
   id,
-  thumbnail,
   category,
   challengeDay,
   title,
   excerpt,
-  profile,
-  nickname,
-  date,
+  views,
   comments,
   likes,
-  views,
-  onClick,
+  date,
+  nickname,
+  avatar,
+  imageUrl,
+  onClick, // ✅ navigate 함수 받기
 }) => {
   return (
-    <S.Card onClick={onClick}>
+    <S.Card onClick={onClick} role="button" tabIndex={0}>
       <S.ThumbWrap>
-        <img src={thumbnail} alt="썸네일" />
+        <img src={imageUrl} alt="썸네일" />
       </S.ThumbWrap>
 
       <S.Body>
+        {/* 상단 메타 */}
         <S.MetaTop>
           <span className="category">{category}</span>
-          {challengeDay && (
-            <>
-              <span className="dot">|</span>
-              <span className="challenge">도전 {challengeDay}일</span>
-            </>
-          )}
+          <span className="bar">|</span>
+          <span className="challenge">도전 {challengeDay}일</span>
         </S.MetaTop>
 
+        {/* 제목 */}
         <S.Title>{title}</S.Title>
+
+        {/* 요약 */}
         <S.Excerpt>{excerpt}</S.Excerpt>
 
+        {/* 하단 정보 */}
         <S.MetaBottom>
           <div className="left">
-            <img className="avatar" src={profile} alt="프로필" />
+            <img className="avatar" src={avatar} alt="프로필" />
             <span className="nick">{nickname}</span>
-            <span className="dot">|</span>
+            <span className="bar">|</span>
             <span className="date">{date}</span>
-          </div>
-
-          <div className="right">
+            <span className="bar">|</span>
             <span className="stat">
               <S.IconComment /> {comments}
             </span>
@@ -55,6 +54,7 @@ const PostCard = ({
               <S.IconEye /> {views}
             </span>
           </div>
+          <div className="right">신고</div>
         </S.MetaBottom>
       </S.Body>
     </S.Card>

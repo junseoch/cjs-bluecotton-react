@@ -8,6 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #fff;
+  padding-bottom: 120px; 
 `;
 
 /* === 배너 === */
@@ -22,7 +23,7 @@ export const Banner = styled.div`
     width: 1160px; /* ✅ 진짜 배너 폭 고정 */
     height: 250px;
     border-radius: 4px;
-    background: url("/assets/postImages/post_banner.png") center/cover no-repeat;
+    background: url("/assets/images/post_banner.png") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -64,7 +65,7 @@ export const Pagination = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 40px; // pagenation 간격
-
+  
   .top-bar {
     width: 100%;
     display: flex;
@@ -115,3 +116,29 @@ export const Pagination = styled.div`
     }
   }
 `;
+
+export const WriteButtonWrapper = styled.div`
+  width: 1160px; /* ✅ 그리드 너비에 맞춤 */
+  display: flex;
+  justify-content: flex-end; /* ✅ 우측 끝 정렬 */
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  .write-btn {
+    width: 168px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: ${({ theme }) => theme.PALLETE.primary.main};
+    color: #fff;
+    font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
+    font-weight: ${({ theme }) => theme.FONT_WEIGHT["regular"]};
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.PALLETE.primary.dark};
+    }
+  }
+`;
+

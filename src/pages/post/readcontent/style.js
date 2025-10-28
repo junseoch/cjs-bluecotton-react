@@ -67,13 +67,16 @@ export const LikeHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+
   h3 {
     font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
   }
+
   .pink {
     color: ${({ theme }) => theme.PALLETE.primary.main};
   }
+
   button {
     background: none;
     border: none;
@@ -83,25 +86,48 @@ export const LikeHeader = styled.div`
   }
 `;
 
+/* ✅ 간격 균등 + 닉네임 ellipsis + 높이 일치 */
 export const LikeGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 8px;
+  justify-items: start;
+  align-items: center;
+  gap: 10px 14px;
   border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   border-radius: 6px;
-  padding: 16px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+
   .like-user {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 8px;
+    width: 100%;
+    min-width: 0; /* ellipsis 작동용 */
+    height: 28px; /* ✅ 높이 고정 (정렬 균등) */
+    overflow: hidden;
+
     img {
       width: 22px;
       height: 22px;
       border-radius: 50%;
       background: ${({ theme }) => theme.PALLETE.grey.greyScale1};
+      flex-shrink: 0;
+    }
+
+    .nickname {
+      flex: 1;
+      min-width: 0;
+      font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
+      color: ${({ theme }) => theme.PALLETE.basic};
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 `;
+
 
 /* ===== 댓글 섹션 ===== */
 export const CommentSection = styled.div`
@@ -174,17 +200,26 @@ export const CommentItem = styled.div`
     }
 
     .meta-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: ${({ theme }) => theme.FONT_SIZE["smallText1"]};
-      color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: ${({ theme }) => theme.FONT_SIZE["smallText1"]};
+    color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
 
-      .report {
-        color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
-        cursor: pointer;
-      }
+    /* ✅ 모든 span 공통 설정 (드래그 방지) */
+    span {
+      user-select: none;
     }
+
+    /* ✅ 신고 / 삭제 공통 스타일 */
+    .report,
+    .delete {
+      display: inline-block; /* 인라인 텍스트 커서 방지 */
+      cursor: pointer !important; /* 손가락 포인터 강제 */
+      color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
+      transition: color 0.2s;
+    }
+  }
 
     .reply-row {
       margin-top: 6px;
@@ -449,4 +484,78 @@ export const NavArrow = styled.img`
   display: block;
 `;
 
-/* 기존 NavSection / NavButton 그대로 사용 */
+/* === @닉네임 mention 스타일 === */
+export const Mention = styled.span`
+  color: ${({ theme }) => theme.PALLETE.primary.main};
+  font-style: italic;
+  font-weight: ${({ theme }) => theme.FONT_WEIGHT.medium};
+`;
+
+/* ===== 삭제 확인 모달 ===== */
+export const ModalBackdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+`;
+
+export const ModalBox = styled.div`
+  background: white;
+  border-radius: 8px;
+  padding: 28px 36px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
+  h3 {
+    font-size: ${({ theme }) => theme.FONT_SIZE["paragraph"]};
+    font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
+    font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
+    margin-bottom: 20px;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    button {
+      border: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .cancel {
+      background: ${({ theme }) => theme.PALLETE.grey.greyScale1};
+      color: ${({ theme }) => theme.PALLETE.basic};
+      &:hover {
+        background: ${({ theme }) => theme.PALLETE.grey.greyScale2};
+      }
+    }
+
+    .confirm {
+      background: ${({ theme }) => theme.PALLETE.primary.main};
+      color: white;
+      &:hover {
+        background: ${({ theme }) => theme.PALLETE.primary.dark};
+      }
+    }
+  }
+`;
+
+
+
