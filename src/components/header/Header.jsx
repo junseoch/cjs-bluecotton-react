@@ -1,9 +1,14 @@
 import React from "react";
 import HeaderStyle from "./styleHeader.js";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  }
 
   const isIntroPage = pathname === "/";
   const isSomPage  = pathname.startsWith("/main/som");
@@ -44,9 +49,9 @@ const Header = () => {
             {isIntroPage && Categories}
           </HeaderStyle.CenterGroup>
           <HeaderStyle.RightGroup>
-            <HeaderStyle.LoginButton>
-              <img alt="프로필아이콘" />
-              로그인
+            <HeaderStyle.LoginButton onClick={handleLoginClick}>
+              <span><img style={{width:"25px"}} src="/assets/icons/profile.png" alt="프로필아이콘" /></span>
+              <span>로그인</span>
             </HeaderStyle.LoginButton>
           </HeaderStyle.RightGroup>
         </HeaderStyle.HeaderRow>
