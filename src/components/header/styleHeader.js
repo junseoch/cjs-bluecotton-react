@@ -76,15 +76,18 @@ HeaderStyle.NavLink = styled(Link)`
     text-decoration: none;
 `;
 
-HeaderStyle.LoginButton = styled.button`
+HeaderStyle.LoginButton = styled.div`
     ${sizeCSS.mediumLogin}
     ${borderCSS.primaryLight0}
     ${shapeCSS.small}
-    ${smallText2Regular};
-    /* display: flex;
-    align-items: center; */
+    ${smallText3Regular};
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #FFFFFF;
     cursor: pointer;
+    gap: 10px;
 `;
 
 export default HeaderStyle;
