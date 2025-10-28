@@ -1,16 +1,11 @@
 import styled from "styled-components";
-import { 
-  basic, fontGreyScale0, fontGreyScale3, heading1, heading2, heading3, heading4, 
-  paragraphRegular, primary, primaryLight1, secondaryLight, smallText3Regular, 
-  titleBold, white 
-} from "../../styles/common";
 import * as C from "../../styles/common";
 
 const S = {};
 
-/* ──────────────────────────────────────────────────────────
-   1) 페이지 레이아웃 / 그리드
-────────────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────
+   1) 페이지 레이아웃 / 컨테이너
+────────────────────────────────────────────── */
 S.Page = styled.div`
   width: 100%;
   display: flex;
@@ -22,53 +17,60 @@ S.Page = styled.div`
 S.Container = styled.div`
   width: 1160px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-auto-rows: auto;
-  column-gap: 40px;
+  display: flex; 
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px; 
 `;
 
-/* ──────────────────────────────────────────────────────────
+/* ──────────────────────────────────────────────
    2) 배너
-────────────────────────────────────────────────────────── */
+────────────────────────────────────────────── */
 S.Banner = styled.section`
-  grid-column: 1 / -1;
-  height: 260px;
-  margin: 40px 0 50px;
+  width: 1160px;
+  position: relative;
+  height: 250px;
+  margin: 40px auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: #FA9BE4;
-  padding: 0 40px;
+  overflow: hidden;
+  background: url("/assets/images/shop_banner.png") center/cover no-repeat;
 `;
 
 S.BannerTextBox = styled.div`
-  margin-left: 40px;
+  position: absolute;
+  left: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
 `;
 
 S.BannerTitle = styled.h2`
-  ${C.heading5}
+  ${C.heading4}
   ${C.basic}
+  font-weight: 700;
   margin-bottom: 10px;
 `;
 
 S.BannerDesc = styled.p`
   ${C.smallText1Regular}
   ${C.basic}
+  line-height: 1.5;
 `;
 
-/* ──────────────────────────────────────────────────────────
-   3) 상단 상품 정렬 (드롭다운 , 상하 구분바)
-────────────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────
+   3) 정렬 바 (드롭다운 등)
+────────────────────────────────────────────── */
 S.SortTopLine = styled.div`
-  grid-column: 2;
+  width: 100%;
   height: 1px;
   background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
 `;
 
 S.SortBar = styled.div`
-  grid-column: 2;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -89,24 +91,30 @@ S.DropdownButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
-S.ArrowIcon = styled.div`
-  width: 10px;
-  height: 5px;
-  display: flex;
+S.ArrowIcon = styled.span`
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 10px;
+  height: 5px;
+
+  img {
+    width: 10px;
+    height: 5px;
+    display: block;
+  }
 `;
 
 S.DropdownList = styled.ul`
   position: absolute;
   top: 40px;
   width: 120px;
-  border-radius: 4px;
   background: #fff;
   box-shadow: -3px 3px 12px rgba(0, 0, 0, 0.25);
-  z-index: 1;
+  z-index: 10;
 `;
 
 S.DropdownItem = styled.li`
@@ -116,29 +124,50 @@ S.DropdownItem = styled.li`
   padding: 0 10px;
   ${C.smallText1Light}
   ${C.basic}
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.PALLETE.primary.main};
+    color: #fff;
+    font-weight: 700;
+  }
 
   ${({ $active, theme }) =>
     $active &&
     `
-      background-color: ${theme.PALLETE.primary.main};
-      color: #fff;
-      font-weight: 700;
-    `}
+    background-color: ${theme.PALLETE.primary.main};
+    color: #fff;
+    font-weight: 700;
+  `}
+`;
+
+S.SortRight = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  ${C.smallText1Regular}
+  ${C.fontGreyScale3}
+`;
+
+S.Total = styled.span`
+  ${C.smallText1Bold}
+  ${C.basic}
 `;
 
 S.SortBottomLine = styled.div`
-  grid-column: 2;
+  width: 100%;
   height: 1px;
   background-color: ${({ theme }) => theme.PALLETE.grey.greyScale1};
   margin: 10px 0 32px 0;
 `;
 
-/* ──────────────────────────────────────────────────────────
+/* ──────────────────────────────────────────────
    4) 왼쪽 필터 영역
-────────────────────────────────────────────────────────── */
+────────────────────────────────────────────── */
 S.LeftFilter = styled.div`
-  grid-column: 1;
-  grid-row: 2 / span 100;
+  flex-shrink: 0;
+  width: 200px;
 `;
 
 S.FilterGroup = styled.div`
@@ -155,7 +184,7 @@ S.CatagoryTopBar = styled.div`
   width: 200px;
   height: 1px;
   ${C.backgroundGreyScale1}
-  margin: 0 0 24px 0;
+  margin-bottom: 24px;
 `;
 
 S.Label = styled.label`
@@ -185,22 +214,34 @@ S.Checkbox = styled.input.attrs({ type: "checkbox" })`
   &:checked {
     background-color: ${({ theme }) => theme.PALLETE.primary.main};
     border-color: ${({ theme }) => theme.PALLETE.primary.main};
-    background-image: url("V vector 아이콘 경로");
+    background-image: url("/assets/icons/checkicon.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 11px 9px;
   }
 `;
 
-/* ──────────────────────────────────────────────────────────
-   5) 상품 리스트 
-────────────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────
+   5) 상품 리스트 (오른쪽)
+────────────────────────────────────────────── */
+S.Main = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+
+S.ProductArea = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
 S.CardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 218px);
-  column-gap: 16px;
-  row-gap: 60px;
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 16px;
+  justify-content: flex-start;
 `;
 
 S.Card = styled.article`
@@ -212,11 +253,12 @@ S.ProductImageBox = styled.div`
   width: 218px;
   height: 290px;
   position: relative;
-  background: url("상품이미지.png");
+  background: ${({ $bg }) => `url("/assets/${$bg}") center/cover no-repeat`};
   border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
   overflow: hidden;
 `;
 
+/* 찜 하기 버튼 */
 S.LikeButton = styled.button`
   position: absolute;
   top: 8px;
@@ -224,27 +266,35 @@ S.LikeButton = styled.button`
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: 50%;
-  background: url("/assets/img/Vector.png") center / contain no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+  padding: 0;
   cursor: pointer;
+  z-index: 2;
 
-  &:hover {
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.15));
-  }
+  background: url("/assets/icons/circle.svg") center/contain no-repeat;
 
-  img {
+  &::after {
+    content: "";
+    display: block;
     width: 14px;
     height: 14px;
+    margin: 0 auto;
+    background: url("/assets/icons/favorite.svg") center/contain no-repeat;
+    transition: background-image 0.2s ease;
   }
+
+
+  ${({ $active }) =>
+    $active &&
+    `
+    &::after {
+      background: url("/assets/icons/filedlike.svg") center/contain no-repeat;
+    }
+  `}
 `;
 
-/* ──────────────────────────────────────────────────────────
-   6) 상품 텍스트 / 상품태그 / 상품가격
-────────────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────
+   6) 상품 텍스트/가격
+────────────────────────────────────────────── */
 S.ProductTitleRow = styled.div`
   display: flex;
   align-items: center;
@@ -257,11 +307,17 @@ S.ProductName = styled.p`
   ${C.basic}
 `;
 
+S.ProductPrice = styled.p`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  ${C.smallText1Bold}
+  ${C.basic}
+`;
+
 S.NewTag = styled.span`
   ${C.smallText0Bold}
   padding: 1px 4px;
   display: inline-block;
-  border-radius: none;
   color: ${({ theme }) => theme.PALLETE.secondary.main};
   background-color: rgba(248, 59, 170, 0.1);
 `;
@@ -270,16 +326,8 @@ S.BestTag = styled.span`
   ${C.smallText0Bold}
   padding: 1px 4px;
   display: inline-block;
-  border-radius: 0;
   color: ${({ theme }) => theme.PALLETE.primary.main};
   background-color: rgba(0, 81, 255, 0.1);
-`;
-
-S.DetailPrice = styled.div`
-  margin-top: 10px;
-  margin-bottom: 10px;
-  ${C.paragraphStrong}
-  ${C.basic}
 `;
 
 S.ProductSubInfo = styled.div`
@@ -293,12 +341,14 @@ S.IconText = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
-`;
-
-S.Icon = styled.img`
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
+    
+  img {
+    width: 12px;   
+    height: 12px;
+    object-fit: contain;
+    vertical-align: middle; 
+    margin-bottom: 2px;
+  }
 `;
 
 S.Text = styled.span`
@@ -306,272 +356,15 @@ S.Text = styled.span`
   ${C.basic}
 `;
 
-/* ──────────────────────────────────────────────────────────
-   7) 정렬 영역 (우측 정보)
-────────────────────────────────────────────────────────── */
-S.SortRight = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  ${C.smallText1Regular}
-  ${C.fontGreyScale3}
-`;
-
-S.Total = styled.span`
-  ${C.smallText1Bold}
-  ${C.basic}
-`;
-
-/* ──────────────────────────────────────────────────────────
-   8) 페이지네이션
-────────────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────
+   7) 페이지네이션
+────────────────────────────────────────────── */
 S.Pagination = styled.div`
   display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-  margin: 80px;
-`;
-
-/* ──────────────────────────────────────────────────────────
-   9) 상품 상세 페이지
-────────────────────────────────────────────────────────── */
-S.TagRow = styled.div`
-  gap: 4px;
-  display: flex;
-`;
-
-S.DetailNewTag = styled.span`
-  ${C.smallText0Bold}
-  padding: 1px 4px;
-  display: inline-block;
-  border-radius: none;
-  color: ${({ theme }) => theme.PALLETE.secondary.main};
-  background-color: rgba(248, 59, 170, 0.1);
-`;
-
-S.DetailBestTag = styled.span`
-  ${C.smallText0Bold}
-  padding: 1px 4px;
-  display: inline-block;
-  border-radius: 0;
-  color: ${({ theme }) => theme.PALLETE.primary.main};
-  background-color: rgba(0, 81, 255, 0.1);
-`;
-
-S.DetailContainer = styled.div`
-  width: 1160px;
-  margin: 60px auto;
-  display: grid;
-  grid-template-columns: 680px 1fr;
-  column-gap: 40px;
-`;
-
-S.Left = styled.div``;
-S.Right = styled.div``;
-
-S.MainImage = styled.div`
-  width: 680px;
-  height: 680px;
-  overflow: hidden;
-  border-radius: none;
-  background: #f6f6f6;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-S.SubImageArea = styled.div`
-  display: flex;
   gap: 10px;
-  margin-top: 16px;
-`;
-
-S.SubImage = styled.button`
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  background: #fff;
-
-  img {
-    width: 100px;
-    height: 100px;
-  }
-`;
-
-S.Title = styled.h1`
-  ${C.paragraphStrong}
-  ${C.basic}
-  margin: 16px 0;
-`;
-
-S.ProductPrice = styled.p`
-  margin-top: 10px;
-  margin-bottom: 20px;
-  ${C.basic}
-  ${C.smallText1Bold}
-`;
-
-S.Divider = styled.div`
-  width: 1px;
-  height: 12px;
-  ${C.backgroundGreyScale1}
-`
-
-S.DeliveryRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-`;
-
-S.Delivery = styled.div`
-  ${C.fontGreyScale4};
-`;
-
-S.DeliveryCharge = styled.div`
-`;
-
-S.DeliveryInfo = styled.div`
-  ${C.smallText1Light};
-  ${C.fontGreyScale3}
-  margin-bottom: 14px;
-
-`;
-
-S.DeliveryCount = styled.div`
-  ${C.fontGreyScale4};
-`;
-
-
-/* 상품 수량 선택 박스 */
-S.CountBox = styled.div`
-  width: 99px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  border-radius: 4px;
-`;
-
-/* 수량 전체 영역 (라벨 + 박스) */
-S.CountWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 12px 0 20px;
-`;
-
-S.CountBtn = styled.button`
-  ${C.smallText3Regular};
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  color: ${({ theme }) => theme.PALLETE.basic};
-  display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;       
-  line-height: 0;    
+  margin: 80px 0;
 `;
-
-/* 수량 숫자 */
-S.CountNum = styled.span`
-  ${C.smallText3Regular};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-S.ProductDetailBar = styled.div`
-  width: 440px;
-  height: 1px;
-  ${C.backgroundGreyScale1};
-`;
-
-S.ProductRow = styled.div`
-  width: 440px;                   
-  display: flex;
-  align-items: center;              
-  justify-content: space-between;   
-  margin: 12px 0 20px;
-`;
-
-S.ProductTotalCount = styled.div`
-  ${C.fontGreyScale4};
-  margin-top: 12px;
-`;
-
-S.ProductTotalPrice = styled.div`
-  ${C.basic};
-
-`;
-
-
-
-
-S.ButtonRow = styled.div`
-  display: flex;
-  align-items: center;   
-  justify-content: space-between;
-  gap: 8px;
-  width: 440px;
-  margin-top: 20px;
-`;
-
-S.ProductLikeButton = styled.button`
-  width: 54px;
-  height: 54px;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  border-radius: 4px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  cursor: pointer;
-
-  /* 하트 아이콘 */
-  img {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-    display: block;
-  }
-
-  /* 카운트 숫자 */
-  span {
-    ${C.smallText3Regular};
-    margin-top: 4px;
-    color: #000;
-    line-height: 1;
-    display: block;
-    text-align: center;
-  }
-`;
-
-S.CartButton = styled.button`
-  flex: 1;
-  height: 54px;
-  border-radius: 4px;
-`;
-
-S.PurchaseButton = styled.button`
-  ${C.white}
-  flex: 1;
-  height: 54px;
-  border-radius: 4px;
-  border: none;
-  background: ${({ theme }) => theme.PALLETE.primary.main};
-`;
-
-
 
 export default S;

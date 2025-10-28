@@ -3,57 +3,21 @@ import S from "./style";
 import ShopList from "./ShopList";
 
 const ShopContainer = () => {
-
   const [isOpen, setIsOpen] = useState(false);
-  const selected = "리뷰 많은 순";
+  const [selected, setSelected] = useState("리뷰 많은 순");
   const options = ["신상품순", "리뷰 많은 순", "낮은 가격 순", "높은 가격 순", "판매순"];
 
   return (
     <S.Page>
+
+      <S.Banner>
+        <S.BannerTextBox>
+          <S.BannerTitle>신제품</S.BannerTitle>
+          <S.BannerDesc>지금 많은 사랑을 받고 있는 제품들을 만나보세요!</S.BannerDesc>
+        </S.BannerTextBox>
+      </S.Banner>
+
       <S.Container>
-        {/* 배너 */}
-        <S.Banner>
-          <img src="" alt="배너 이미지" />
-          <S.BannerTextBox>
-            <S.BannerTitle>베스트 아이템</S.BannerTitle>
-            <S.BannerDesc>지금 많은 사랑을 받고 있는 제품들을 만나보세요!</S.BannerDesc>
-          </S.BannerTextBox>
-        </S.Banner>
-
-        <S.SortTopLine />
-
-        <S.SortBar>
-          <S.DropdownWrap>
-            <S.DropdownButton onClick={() => setIsOpen((prev) => !prev)}>
-              {selected}
-              <S.ArrowIcon>
-                <img src="arrowIcon" />
-              </S.ArrowIcon>
-            </S.DropdownButton>
-
-            {/* 펼친 상태에서만 보임 */}
-            {isOpen && (
-              <S.DropdownList>
-                {options.map((option) => (
-                  <S.DropdownItem key={option} $active={option === selected}>
-                    {option}
-                  </S.DropdownItem>
-                ))}
-              </S.DropdownList>
-            )}
-          </S.DropdownWrap>
-
-          <S.SortRight>
-            <span>전체</span>
-            <span>›</span>
-            <S.Total>24개 제품</S.Total>
-          </S.SortRight>
-        </S.SortBar>
-
-        {/* 좌측 카테고리 상단 구분 바 */}
-        <S.SortBottomLine />
-
-        {/* 좌측 카테고리 필터 */}
         <S.LeftFilter>
           <S.FilterGroup>
             <S.CatagoryTopBar />
@@ -80,7 +44,49 @@ const ShopContainer = () => {
             <S.Label><S.Checkbox /> 일반</S.Label>
           </S.FilterGroup>
         </S.LeftFilter>
+
+
+        <S.Main>
+          <S.SortTopLine />
+
+          <S.SortBar>
+            <S.DropdownWrap>
+              <S.DropdownButton onClick={() => setIsOpen(p => !p)}>
+                {selected}
+                <S.ArrowIcon>
+                  <img src="/assets/icons/arrow_drop_down.png" alt="드롭다운 아이콘" />
+                </S.ArrowIcon>
+              </S.DropdownButton>
+
+              {isOpen && (
+                <S.DropdownList>
+                  {options.map((option) => (
+                    <S.DropdownItem
+                      key={option}
+                      $active={option === selected}
+                      onClick={() => {
+                        setSelected(option);
+                        setIsOpen(false);
+                      }}
+                    >
+                      {option}
+                    </S.DropdownItem>
+                  ))}
+                </S.DropdownList>
+              )}
+            </S.DropdownWrap>
+
+            <S.SortRight>
+              <span>전체</span>
+              <span>›</span>
+              <S.Total>24개 제품</S.Total>
+            </S.SortRight>
+          </S.SortBar>
+
+          <S.SortBottomLine />
+
           <ShopList />
+        </S.Main>
       </S.Container>
     </S.Page>
   );
