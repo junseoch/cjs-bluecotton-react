@@ -38,7 +38,7 @@ export const MetaTop = styled.div`
   margin-bottom: 6px;
 
   .category {
-    color: ${({ theme }) => theme.PALLETE.basic};
+    color: ${({ theme }) => theme.PALLETE.secondary.main};
     font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT["bold"]};
   }
@@ -50,7 +50,7 @@ export const MetaTop = styled.div`
   }
 
   .challenge {
-    color: ${({ theme }) => theme.PALLETE.basic};
+    color: ${({ theme }) => theme.PALLETE.primary.main};
     font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT["medium"]};
   }
