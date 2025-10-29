@@ -7,8 +7,8 @@ const categoryMap = {
   study: "학습",
   health: "건강",
   social: "소셜",
-  hobby: "취미",
-  life: "생활",
+  hobbies: "취미",
+  "life-style": "생활",
   rookie: "루키",
 };
 
@@ -17,19 +17,24 @@ const reverseMap = Object.fromEntries(
 );
 
 const categories = Object.values(categoryMap);
-const sortOptions = ["전체", "인기순", "마감 임박순"];
+const sortOptions = [
+  { value: "latest", label: "최신순" },
+  { value: "popular", label: "좋아요순" },
+  { value: "closing", label: "마감 임박순" },
+];
 
 const MainCategory = ({ sortBy, setSortBy }) => {
   const { category } = useParams();
   const navigate = useNavigate();
 
   return (
-    <S.Wrapper>
+    <S.TopBar>
+      {/* 카테고리 버튼 */}
       <S.CategoryList>
         {categories.map((cat) => (
           <S.CategoryButton
             key={cat}
-            className={categoryMap[category] === cat ? "active" : ""}
+            $active={categoryMap[category] === cat}
             onClick={() => navigate(`/main/som/${reverseMap[cat]}`)}
           >
             {cat}
@@ -37,14 +42,20 @@ const MainCategory = ({ sortBy, setSortBy }) => {
         ))}
       </S.CategoryList>
 
-      <S.SortBox value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-        {sortOptions.map((opt) => (
-          <option key={opt} value={opt}>
-            {opt}
-          </option>
-        ))}
-      </S.SortBox>
-    </S.Wrapper>
+      {/* 정렬 선택 */}
+      <S.FilterBox>
+        <S.FilterSelect
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          {sortOptions.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </S.FilterSelect>
+      </S.FilterBox>
+    </S.TopBar>
   );
 };
 
