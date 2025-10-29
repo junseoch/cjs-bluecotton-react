@@ -356,15 +356,12 @@ S.Text = styled.span`
   ${C.basic}
 `;
 
-/* ──────────────────────────────────────────────
-   7) 페이지네이션
-────────────────────────────────────────────── */
 S.Pagination = styled.div`
   display: flex;
-  gap: 10px;
-  align-items: center;
   justify-content: center;
-  margin: 80px 0;
+  margin: 24px 0 80px;
 `;
+
+
 
 export default S;
