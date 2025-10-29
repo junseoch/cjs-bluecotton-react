@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import S from "./style";
 import ShopInfo from "./ShopInfo";
 import ShopReview from "./ShopReview";
-import ShopRelated from "./ShopRelated"; 
+import ShopRelated from "./ShopRelated";
 import { useNavigate } from "react-router-dom";
 
 const Shop = () => {
@@ -12,7 +12,8 @@ const Shop = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(255);
   const [activeTab, setActiveTab] = useState("info");
-  const [open, setOpen] = useState(false);  
+  const [open, setOpen] = useState(false);
+  const [count, setCount] = useState(1);
 
   const subImages = [
     "/assets/images/shop_detailSub_doll.png",
@@ -26,6 +27,14 @@ const Shop = () => {
   };
 
   const navigate = useNavigate();
+
+  const handleCount = (type) => {
+    if (type === "minus" && count > 1) {
+      setCount(count - 1);
+    } else if (type === "plus") {
+      setCount(count + 1);
+    }
+  };
 
   return (
     <S.Page>
@@ -103,17 +112,25 @@ const Shop = () => {
           <S.CountWrap>
             <S.DeliveryCount>수량</S.DeliveryCount>
             <S.CountBox>
-              <S.CountBtn>-</S.CountBtn>
-              <S.CountNum>1</S.CountNum>
-              <S.CountBtn>+</S.CountBtn>
+              <S.CountBtn className="minus"
+                onClick={() => handleCount("minus")}
+                disabled={count === 1}
+                $disabled={count === 1}
+              >
+                -
+              </S.CountBtn>
+              <S.CountNum>{count}</S.CountNum>
+              <S.CountBtn className="plus" onClick={() => handleCount("plus")}>+</S.CountBtn>
             </S.CountBox>
           </S.CountWrap>
 
           <S.ProductDetailBar />
 
           <S.ProductRow>
-            <S.ProductTotalCount>총 1개</S.ProductTotalCount>
-            <S.ProductTotalPrice>23,000원</S.ProductTotalPrice>
+            <S.ProductTotalCount>총 {count}개</S.ProductTotalCount>
+            <S.ProductTotalPrice>
+              {(23000 * count).toLocaleString()}원
+            </S.ProductTotalPrice>
           </S.ProductRow>
 
           {/* 찜하기 / 장바구니 / 구매 */}
@@ -130,25 +147,29 @@ const Shop = () => {
               <span>{likeCount}</span>
             </S.ProductLikeButton>
 
-              <S.CartButton onClick={() => setOpen(true)}>장바구니</S.CartButton>
-              <S.PurchaseButton>구매하기</S.PurchaseButton>
-
+            <S.CartButton onClick={() => setOpen(true)}>장바구니</S.CartButton>
+            <S.PurchaseButton>구매하기</S.PurchaseButton>
           </S.ButtonRow>
         </S.Right>
       </S.DetailContainer>
 
-       {open && (
+      {open && (
         <S.Overlay onClick={() => setOpen(false)}>
           <S.Dialog onClick={(e) => e.stopPropagation()}>
             <S.DialogMsg>장바구니에 상품을 담았습니다.</S.DialogMsg>
             <S.DialogBtns>
-              <S.DialogBtnGhost onClick={() => setOpen(false)}>닫기</S.DialogBtnGhost>
-              <S.DialogBtnPrimary onClick={() => navigate("/main/my-page/my-shop/cart")}>보러가기</S.DialogBtnPrimary>
+              <S.DialogBtnCancel onClick={() => setOpen(false)}>
+                닫기
+              </S.DialogBtnCancel>
+              <S.DialogBtnCart
+                onClick={() => navigate("/main/my-page/my-shop/cart")}
+              >
+                보러가기
+              </S.DialogBtnCart>
             </S.DialogBtns>
           </S.Dialog>
         </S.Overlay>
       )}
-
     </S.Page>
   );
 };
