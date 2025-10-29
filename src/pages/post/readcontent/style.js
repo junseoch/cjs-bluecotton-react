@@ -40,6 +40,7 @@ export const MetaBox = styled.div`
 
 `;
 
+
 export const Content = styled.div`
   position: relative;
   padding: 32px 0 50px;
@@ -556,6 +557,3 @@ export const ModalBox = styled.div`
     }
   }
 `;
-
-
-

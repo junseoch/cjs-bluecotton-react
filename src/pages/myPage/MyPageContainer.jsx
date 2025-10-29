@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { MyPageWrapper, MainContentContainer, SidebarContainer, ProfileContainer, ProfileImageWrapper, ProfileImage, SomBadge, UserName, NavigationList, NavLink } from './style';
+import { MyPageWrapper, MainContentContainer, SidebarContainer, ProfileContainer, ProfileImageWrapper, ProfileImage, SomBadge, UserNameContainer, GradeBadge, UserName, NavigationList, NavLink } from './style';
 import { Link } from 'react-router-dom';
 
 const MyPageContainer = () => {
@@ -20,9 +20,11 @@ const MyPageContainer = () => {
         <ProfileContainer>
           <ProfileImageWrapper>
             <ProfileImage />
-            <SomBadge>S</SomBadge>
           </ProfileImageWrapper>
-          <UserName>zl존준서</UserName>
+          <UserNameContainer>
+            <GradeBadge>S</GradeBadge>
+            <UserName>zl존준서</UserName>
+          </UserNameContainer>
         </ProfileContainer>
         <NavigationList>
           <NavLink active={isActive('/main/my-page/my-som')}>

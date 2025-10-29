@@ -1,8 +1,8 @@
 import React from "react";
 import S from "./style";
 
-const SomNumberSelect = ({ somList, pageNumber, setPageNumber }) => {
-  const totalPages = Math.ceil(somList.length / 9); 
+const ShopNumberSelect = ({ shopList, pageNumber, setPageNumber }) => {
+  const totalPages = Math.ceil(shopList.length / 8); // 실제 totalPages가 있다면 내려받으면 됨.
   const groupSize = 10;
 
   // 현재 페이지 그룹의 시작 번호 계산
@@ -27,10 +27,7 @@ const SomNumberSelect = ({ somList, pageNumber, setPageNumber }) => {
             <button
               key={page}
               className={pageNumber === page ? "active" : ""}
-              onClick={() => {
-                setPageNumber(page)
-                window.scrollTo(0, 0);
-              }}
+              onClick={() => setPageNumber(page)}
             >
               {page}
             </button>
@@ -49,4 +46,4 @@ const SomNumberSelect = ({ somList, pageNumber, setPageNumber }) => {
   );
 };
 
-export default SomNumberSelect;
+export default ShopNumberSelect;

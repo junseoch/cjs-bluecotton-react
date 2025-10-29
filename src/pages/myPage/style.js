@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const MyPageWrapper = styled.div`
+  width: 1160px;
+  margin: 0 auto;
   display: flex;
   gap: 24px;
-  padding: 40px 120px;
-  background-color: ${({ theme }) => theme.PALLETE.grey.greyScale0};
+  padding: 40px 0;
+  background-color: white;
   min-height: calc(100vh - 200px);
 `;
 
@@ -16,7 +18,7 @@ export const SidebarContainer = styled.div`
   padding: 16px 20px;
   background-color: ${({ theme }) => theme.PALLETE.white};
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 `;
 
 export const ProfileContainer = styled.div`
@@ -38,7 +40,7 @@ export const ProfileImageWrapper = styled.div`
 export const ProfileImage = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.PALLETE.basic};
+  background-color: black;
 `;
 
 export const SomBadge = styled.div`
@@ -56,6 +58,25 @@ export const SomBadge = styled.div`
   font-size: 14px;
   font-weight: bold;
   border: 3px solid ${({ theme }) => theme.PALLETE.white};
+`;
+
+export const UserNameContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const GradeBadge = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #C0C0C0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
 `;
 
 export const UserName = styled.div`
@@ -95,7 +116,6 @@ export const MainContentContainer = styled.div`
   flex: 1;
   background-color: ${({ theme }) => theme.PALLETE.white};
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   padding: 40px;
 `;
 

@@ -5,7 +5,7 @@ import { smallText3Bold, smallText0Regular, smallText1Regular, primary ,white, s
 const S = {};
 
 S.Card = styled.div`
-  flex: 0 0 calc((100% - (85px * 2)) / 3); /* ✅ 정확한 3열 유지 */
+  flex: 0 0 calc((100% - (clamp(16px, 5vw, 85px) * 2)) / 3); /* ✅ 정확한 3열 유지 */
   display: flex;
   flex-direction: column;
 `;
@@ -17,7 +17,7 @@ S.SomImage = styled.img`
 `;
 
 S.SomInfo = styled.div`
-  padding: 12px;
+  padding: 12px 0;
 `;
 
 S.SomTitleArea = styled.div`
@@ -68,6 +68,13 @@ S.SomButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.PALLETE.primary.dark};
+    ${white}
+  }
 `;
 
 S.FullSomButton = styled.div`
