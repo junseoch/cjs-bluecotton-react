@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const MyPageWrapper = styled.div`
+  width: 1160px;
+  margin: 0 auto;
   display: flex;
   gap: 24px;
-  padding: 40px 120px;
+  padding: 40px 0;
   background-color: ${({ theme }) => theme.PALLETE.grey.greyScale0};
   min-height: calc(100vh - 200px);
 `;
