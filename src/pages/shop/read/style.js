@@ -171,7 +171,7 @@ S.DeliveryCount = styled.div`
 `;
 
 S.CountBox = styled.div`
-  width: 99px;
+  width: 100px;
   height: 34px;
   display: flex;
   justify-content: space-between;
