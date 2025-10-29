@@ -6,7 +6,7 @@ export const MyPageWrapper = styled.div`
   display: flex;
   gap: 24px;
   padding: 40px 0;
-  background-color: ${({ theme }) => theme.PALLETE.grey.greyScale0};
+  background-color: white;
   min-height: calc(100vh - 200px);
 `;
 
@@ -18,7 +18,7 @@ export const SidebarContainer = styled.div`
   padding: 16px 20px;
   background-color: ${({ theme }) => theme.PALLETE.white};
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 `;
 
 export const ProfileContainer = styled.div`
@@ -97,7 +97,6 @@ export const MainContentContainer = styled.div`
   flex: 1;
   background-color: ${({ theme }) => theme.PALLETE.white};
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   padding: 40px;
 `;
 
