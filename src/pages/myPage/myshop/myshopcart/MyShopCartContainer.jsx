@@ -52,22 +52,38 @@ const ItemName = styled.div`
 const QuantityControl = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  width: 100px;
+  height: 36px;
+  border: 1px solid #E0E0E0;
+  background-color: #fff;
+  border-radius: 6px;
   margin-top: 8px;
+  padding: 0 8px;
 `;
 
 const QuantityButton = styled.button`
-  width: 32px;
-  height: 32px;
-  border: 1px solid #E0E0E0;
-  background-color: #fff;
-  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    color: #333;
+  }
 `;
 
 const Quantity = styled.span`
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
+  color: #333;
 `;
 
 const PriceInfo = styled.div`
