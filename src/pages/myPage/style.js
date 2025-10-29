@@ -40,7 +40,7 @@ export const ProfileImageWrapper = styled.div`
 export const ProfileImage = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.PALLETE.basic};
+  background-color: black;
 `;
 
 export const SomBadge = styled.div`
@@ -58,6 +58,25 @@ export const SomBadge = styled.div`
   font-size: 14px;
   font-weight: bold;
   border: 3px solid ${({ theme }) => theme.PALLETE.white};
+`;
+
+export const UserNameContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const GradeBadge = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #C0C0C0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
 `;
 
 export const UserName = styled.div`
