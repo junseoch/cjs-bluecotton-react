@@ -9,10 +9,12 @@ const IntroStyle = {};
 IntroStyle.IntroBannerWarp = styled.div `
     width: 100%;
     height: 1177px;
+    overflow: hidden;
+    
 `
 
 IntroStyle.IntroBannerContainer = styled.div `
-    max-width: 1920px;
+    max-width: 100vh;
     margin: 0 auto;
     padding: 0 16px;
     box-sizing: border-box;
@@ -21,11 +23,13 @@ IntroStyle.IntroBannerContainer = styled.div `
 
 IntroStyle.IntroBannerImage = styled.img `
     position: absolute;
+    transform: translateX(-50%);
     top: 0;
-    left: 0;
+    left: 50%;
     z-index: 1;
-    width: 100%;
+    width: 1920px;
     height: 1177px;
+    object-fit: cover;
 `
 
 IntroStyle.IntroBannerText1 = styled.div `
@@ -34,9 +38,9 @@ IntroStyle.IntroBannerText1 = styled.div `
     z-index: 2;
 
     position: absolute;
-    top: 50%;
-    left: 29%;
-    transform: translate(0, 115%);
+    top: 20%;
+    left: 15%;
+    transform: translate(0, 120%);
     text-align: center;
 `
 
@@ -50,7 +54,7 @@ IntroStyle.IntroBannerButtonContainer = styled.div `
     width: 100%;
     height: 50px;
     top: 70%; 
-    left: 29%;
+    left: 25%;
     position: absolute;
     transform: translate(12%, 760%);
     z-index: 2;
@@ -200,10 +204,17 @@ IntroStyle.IntroShopText1 = styled.p `
     ${white}
 `
 
+IntroStyle.IntroShopImgcontainer = styled.div `
+    width : 1172px;
+    height : 700px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    background-color: #FFFFFF;
+`
+
 IntroStyle.IntroShopImg = styled.img `
-    width: 1172px;
-    height: 700px;
-    display: block;
+    z-index: 2;
 `
 
 IntroStyle.IntroShopTextContainer = styled.div `
