@@ -11,7 +11,7 @@ import {
   PageButton,
   PageNumber
 } from '../style';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const ItemImage = styled.img`
   width: 60px;
@@ -31,9 +31,13 @@ const ActionButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   margin-left: 8px;
+  transition: all 0.2s;
   
   &:hover {
-    opacity: 0.9;
+    ${props => props.primary 
+      ? css`background-color: #003DB8;`
+      : css`background-color: #F5F5F5;`
+    }
   }
 `;
 
