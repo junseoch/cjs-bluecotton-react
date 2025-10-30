@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const MyPageWrapper = styled.div`
   width: 1160px;
@@ -92,23 +93,20 @@ export const NavigationList = styled.div`
   gap: 4px;
 `;
 
-export const NavLink = styled.div`
+export const NavLink = styled(Link)`
   padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
-  background-color: ${props => props.active ? props.theme.PALLETE.primary.main : 'transparent'};
-  color: ${props => props.active ? props.theme.PALLETE.white : props.theme.PALLETE.basic};
+  background-color: ${props => props.$active ? props.theme.PALLETE.primary.main : 'transparent'};
+  color: ${props => props.$active ? props.theme.PALLETE.white : props.theme.PALLETE.basic};
   font-size: 14px;
-  font-weight: ${props => props.active ? '700' : '500'};
+  font-weight: ${props => props.$active ? '700' : '500'};
   transition: all 0.2s;
+  text-decoration: none;
+  display: block;
 
   &:hover {
-    background-color: ${props => props.active ? props.theme.PALLETE.primary.main : props.theme.PALLETE.grey.greyScale0};
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
+    background-color: ${props => props.$active ? props.theme.PALLETE.primary.main : props.theme.PALLETE.grey.greyScale0};
   }
 `;
 
