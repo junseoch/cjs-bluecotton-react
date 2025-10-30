@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useTheme } from "styled-components";
-import S from "../style";
+import S from "./style";
 
 const ShopReview = () => {
 
@@ -181,11 +181,18 @@ const StarIcon = (props) => (
             <S.UserInfoWrap>
               <S.StarRow>
                 {[...Array(5)].map((_, i) => (
-                  <StarIcon
+                  <img
                     key={i}
-                    width={19}
-                    height={18}
-                    fill={i < rv.rating ? theme.PALLETE.review.main : "#E0E0E0"} 
+                    src="/assets/icons/review.svg"
+                    alt="별점 아이콘"
+                    style={{
+                      width: "19px",
+                      height: "18px",
+                    filter:
+                    i < rv.rating
+                      ? "none"
+                      : "brightness(0) saturate(100%) invert(93%) sepia(4%) saturate(0%) hue-rotate(184deg) brightness(93%) contrast(92%)",
+                    }}
                   />
                 ))}
               </S.StarRow>

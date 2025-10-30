@@ -3,9 +3,7 @@ import * as C from "../../../styles/common";
 
 const S = {};
 
-/* ──────────────────────────────────────────────
-   1) 페이지 레이아웃
-────────────────────────────────────────────── */
+/* 1) 페이지 레이아웃 */
 S.Page = styled.div`
   width: 100%;
   display: flex;
@@ -14,16 +12,14 @@ S.Page = styled.div`
   background-color: #fff;
 `;
 
-/* ──────────────────────────────────────────────
-   2) 상품 상세 페이지 비율
-────────────────────────────────────────────── */
+/* 2) 상품 상세 페이지 비율 */
 S.DetailContainer = styled.div`
   width: 1160px;
   margin: 60px auto;
-  display: flex;                 
-  align-items: flex-start;      
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 40px;                  
+  gap: 40px;
 `;
 
 S.Left = styled.div``;
@@ -35,9 +31,7 @@ S.Right = styled.div`
   height: fit-content;
 `;
 
-/* ──────────────────────────────────────────────
-   3) 메인 / 서브 이미지
-────────────────────────────────────────────── */
+/* 3) 메인 / 서브 이미지 */
 S.MainImage = styled.div`
   width: 680px;
   height: 680px;
@@ -75,9 +69,7 @@ S.SubImage = styled.button`
   }
 `;
 
-/* ──────────────────────────────────────────────
-   4) 상품 정보 (우측)
-────────────────────────────────────────────── */
+/* 4) 상품 정보 (우측) */
 S.TagRow = styled.div`
   display: flex;
   gap: 4px;
@@ -111,8 +103,8 @@ S.DetailPrice = styled.div`
 S.DetailReviewWrap = styled.div`
   display: flex;
   align-items: center;
-  gap: 6px; 
-  line-height: 1; 
+  gap: 6px;
+  line-height: 1;
 `;
 
 S.Icon = styled.img`
@@ -127,9 +119,7 @@ S.Text = styled.span`
   ${C.smallText1Regular};
 `;
 
-/* ──────────────────────────────────────────────
-   5) 배송 정보
-────────────────────────────────────────────── */
+/* 5) 배송 정보 */
 S.DeliveryRow = styled.div`
   display: flex;
   align-items: center;
@@ -155,9 +145,7 @@ S.DeliveryInfo = styled.div`
   margin-bottom: 14px;
 `;
 
-/* ──────────────────────────────────────────────
-   6) 수량 선택
-────────────────────────────────────────────── */
+/* 6) 수량 선택 */
 S.CountWrap = styled.div`
   display: flex;
   justify-content: space-between;
@@ -194,8 +182,8 @@ S.CountBtn = styled.button`
   justify-content: center;
   align-items: center;
 
-  &.minus { left: 16px; }  
-  &.plus  { right: 16px; } 
+  &.minus { left: 16px; }
+  &.plus  { right: 16px; }
 `;
 
 S.CountNum = styled.span`
@@ -205,9 +193,7 @@ S.CountNum = styled.span`
   text-align: center;
 `;
 
-/* ──────────────────────────────────────────────
-   7) 총 상품 금액
-────────────────────────────────────────────── */
+/* 7) 총 상품 금액 */
 S.ProductDetailBar = styled.div`
   width: 440px;
   height: 1px;
@@ -229,9 +215,7 @@ S.ProductTotalPrice = styled.div`
   ${C.basic};
 `;
 
-/* ──────────────────────────────────────────────
-   8) 버튼 영역
-────────────────────────────────────────────── */
+/* 8) 버튼 영역 */
 S.ButtonRow = styled.div`
   display: flex;
   gap: 8px;
@@ -286,9 +270,7 @@ S.PurchaseButton = styled.button`
   cursor: pointer;
 `;
 
-/* ──────────────────────────────────────────────
-   9) 하단 정보/리뷰 탭 (Shop.jsx용)
-────────────────────────────────────────────── */
+/* 9) 하단 정보/리뷰 탭 (Shop.jsx용) */
 S.InfoSection = styled.section`
   width: 680px;
   margin: 60px 0 120px;
@@ -333,456 +315,7 @@ S.InfoDivider = styled.div`
   margin: 4px 0 24px;
 `;
 
-/* ──────────────────────────────────────────────
-   10) 하단 상세 정보 (ShopInfo.jsx용)
-────────────────────────────────────────────── */
-S.InfoTextWrap = styled.div`
-  margin-top: 20px;
-  text-align: left;
-`;
-
-S.InfoKicker = styled.p`
-  ${C.paragraphRegular};
-  color: ${({ theme }) => theme.PALLETE.secondary.main};
-  margin-bottom: 8px;
-`;
-
-S.InfoTitle = styled.h2`
-  ${C.accent};
-  margin-bottom: 12px;
-`;
-
-S.InfoDesc = styled.p`
-  ${C.smallText3Regular};
-  color: ${({ theme }) => theme.PALLETE.basic};
-  margin-bottom: 40px;
-`;
-
-S.InfoImage = styled.div`
-  width: 100%;
-  margin-bottom: 16px;
-
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-`;
-
-/* ──────────────────────────────────────────────
-   11) 상품 정보 섹션 (사진 하단)
-────────────────────────────────────────────── */
-S.SpecSection = styled.section`
-  width: 680px;
-  margin: 60px 0 48px;
-`;
-
-S.SpecTitle = styled.h3`
-  ${C.subtitleRegular}; 
-  color: ${({ theme }) => theme.PALLETE.basic};
-  margin-bottom: 28px;
-`;
-
-S.SpecList = styled.div`
-  display: flex;
-  flex-direction: column;      
-  gap: 10px;                   
-`;
-
-S.SpecRow = styled.div`
-  display: flex;
-  align-items: baseline;
-`;
-
-S.SpecLabel = styled.div`
-  ${C.smallText2Regular}; 
-  color: ${({ theme }) => theme.PALLETE.basic};
-`;
-
-S.SpecValue = styled.div`
-  ${C.smallText2Regular};
-  color: ${({ theme }) => theme.PALLETE.basic};
-`;
-
-/* 유의사항 카드 */
-S.CautionBox = styled.div`
-  width: 100%;
-  margin-top: 32px;
-  padding: 24px;
-  box-sizing: border-box;             
-  background: ${({ theme }) => theme.PALLETE.grey.greyScale0};
-`;
-
-S.CautionTitle = styled.p`
-  ${C.smallText1Bold};
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
-  margin-bottom: 12px;
-`;
-
-S.CautionText = styled.p`
-  ${C.smallText1Regular};
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
-  line-height: 1.8;
-  white-space: pre-line; 
-  margin: 0;
-`;
-
-/* ──────────────────────────────────────────────
-   12) 판매자 정보 섹션
-────────────────────────────────────────────── */
-S.SellerSection = styled.section`
-  width: 680px;
-  margin: 48px 0 40px;
-`;
-
-S.SellerTitle = styled.h3`
-  ${C.subtitleRegular};
-  color: ${({ theme }) => theme.PALLETE.basic};
-  margin-bottom: 24px;
-`;
-
-S.SellerList = styled.div`
-  display: flex;
-  flex-direction: column;   /* 세로로 행 나열 */
-  gap: 12px;                /* 행 간격 통일 */
-  width: 100%;
-`;
-
-S.SellerRow = styled.div`
-  display: flex;
-  align-items: flex-start;  /* 멀티라인 값도 첫 줄 기준 정렬 */
-  min-width: 0;             /* 자식 요소 폭 깨짐 방지 */
-`;
-
-S.SellerLabel = styled.div`
-  ${C.smallText2Regular};
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
-  flex: 0 0 168px;          /* 긴 라벨도 1줄 유지 */
-  display: inline-flex;
-  align-items: baseline;
-  white-space: nowrap;
-  position: relative;
-  padding-right: 12px;      /* 라벨-값 간격 */
-  line-height: 1.7;
-`;
-
-S.SellerValue = styled.div`
-  ${C.smallText2Regular};
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale6};
-  flex: 1;                  /* 남은 영역 차지 */
-  line-height: 1.7;         /* 좌우 줄높이 동일 */
-  word-break: keep-all;     /* 한글 낱자 줄바꿈 방지 */
-  overflow-wrap: break-word;/* 긴 이메일 등은 자연 줄바꿈 */
-`;
-
-/* ──────────────────────────────────────────────
-   13) 상품 리뷰 
-────────────────────────────────────────────── */
-/* 섹션 래퍼 */
-S.ReviewSection = styled.section`
-  width: 680px;
-  margin: 60px 0 120px;
-`;
-
-/* 제목 + 드롭다운 정렬 */
-S.ReviewRatingTitleWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 20px;
-`;
-
-S.ReviewRatingTitle = styled.h3`
-  ${C.subtitleRegular};
-  color: ${({ theme }) => theme.PALLETE.basic};
-  margin: 0;
-`;
-
-/* 드롭다운 */
-S.DropdownArea = styled.div`
-  display: flex;
-  gap: 10px;
-`;
-
-S.Dropdown = styled.div`
-  position: relative;
-  ${C.smallText2Regular};
-  padding: 8px 12px;
-  width: 120px;
-  background: #fff;
-  border: 1px solid
-    ${({ $active, theme }) =>
-      $active ? theme.PALLETE.primary.main : theme.PALLETE.grey.greyScale1};
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-S.ArrowIcon = styled.img`
-  width: 12px;
-  height: 8px;
-`;
-
-S.DropdownList = styled.ul`
-  position: absolute;
-  top: 110%;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.12);
-  z-index: 10;
-  overflow: hidden;
-`;
-
-S.DropdownItem = styled.li`
-  padding: 8px 12px;
-  ${C.smallText2Regular};
-  cursor: pointer;
-  &:hover {
-    background: ${({ theme }) => theme.PALLETE.primary.light0};
-    color: ${({ theme }) => theme.PALLETE.primary.main};
-  }
-`;
-
-/* 상단 통계 */
-S.ReviewContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-`;
-
-S.ReviewLeft = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
-
-S.ReviewAverage = styled.p`
-  ${C.heading3};
-  color: ${({ theme }) => theme.PALLETE.basic};
-`;
-
-S.ReviewCount = styled.div`
-  ${C.smallText1Light};
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  img { width: 18px; height: 18px; }
-`;
-
-S.ReviewRight = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
-
-S.ReviewRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-`;
-
-S.ReviewLabel = styled.span`
-  ${C.smallText2Regular};
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
-  width: 16px;
-  text-align: right;
-`;
-
-S.ReviewBar = styled.div`
-  width: 500px;
-  height: 10px;
-  border-radius: 10px;
-  background-color: ${({ theme }) => theme.PALLETE.grey.greyScale0};
-  overflow: hidden;
-`;
-
-S.ReviewFill = styled.div`
-  height: 100%;
-  width: ${({ percent }) => `${percent}%`};
-  background-color: ${({ theme }) => theme.PALLETE.review.main};
-  border-radius: 10px;
-  transition: width 0.3s ease;
-`;
-
-S.ReviewCountText = styled.span`
-  ${C.smallText2Regular};
-  color: ${({ theme }) => theme.PALLETE.basic};
-  width: 16px;
-  text-align: right;
-`;
-
-/* 리뷰 아이템 */
-S.ReviewItem = styled.div`
-  padding: 24px 0 0;
-`;
-
-S.ReviewHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-`;
-
-S.ProfileImage = styled.img`
-  width: 40px;   /* 40 x 40 */
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-`;
-
-S.UserInfoWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-`;
-
-S.StarRow = styled.div`
-  display: flex;
-  gap: 4px; 
-`;
-
-/* ⭐ 별 아이콘: 채워지지 않은 경우만 회색 톤 적용 */
-S.StarIcon = styled.img`
-  width: 19px;
-  height: 18px;
-  object-fit: contain;
-  ${({ $filled }) =>
-    !$filled &&
-    `
-      filter: grayscale(1) brightness(0.7);
-    `}
-`;
-
-S.UserMeta = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-`;
-
-S.UserName = styled.span`
-  ${C.smallText2Light};
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
-`;
-
-S.Dot = styled.span`
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale2};
-`;
-
-S.ReviewDate = styled.span`
-  ${C.smallText2Light};
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
-`;
-
-S.ReportButton = styled.button`
-  ${C.smallText2Light};
-  color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
-  background: none;
-  border: 0;
-  cursor: pointer;
-`;
-
-/* 리뷰 이미지 & 텍스트 */
-S.ReviewImage = styled.div`
-  margin-top: 12px;
-  width: 145px;   /* 145 x 145 */
-  height: 145px;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  background: #f6f6f6;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-S.ReviewText = styled.p`
-  ${C.smallText3Light};       /* 본문 폰트 */
-  color: ${({ theme }) => theme.PALLETE.basic};
-  margin: 12px 0 0;
-  white-space: pre-line;
-`;
-
-/* 하단(도움돼요) */
-S.ReviewFooter = styled.div`
-  margin-top: 12px;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-S.HelpfulButton = styled.button`
-  ${C.smallText2Light};                 
-  width: 108px;                        
-  height: 38px;
-  border-radius: 4px;
-  border: 1px solid
-    ${({ $active, theme }) =>
-      $active ? theme.PALLETE.primary.main : theme.PALLETE.grey.greyScale1};
-  background: ${({ $active, theme }) =>
-    $active ? theme.PALLETE.primary.main : "#fff"};
-  color: ${({ $active, theme }) => ($active ? "#fff" : theme.PALLETE.basic)};
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  cursor: pointer;
-
-  img {
-    width: 14px;  
-    height: 14px;
-    object-fit: contain;
-    filter: ${({ $active }) => ($active ? "none" : "grayscale(100%)")};
-  }
-`;
-
-S.ReviewDivider = styled.div`
-  width: 100%;
-  height: 1px;
-  background: ${({ theme }) => theme.PALLETE.grey.greyScale1}; 
-  margin-top: 24px;
-`;
-
-/* ──────────────────────────────────────────────
-   14) 상세정보 토글 버튼
-────────────────────────────────────────────── */
-S.ToggleBox = styled.button`
-  width: 100%;
-  padding: 14px 16px;
-  margin-top: 16px;
-  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale1};
-  border-radius: 4px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-`;
-
-S.ToggleText = styled.span`
-  ${C.smallText2Light};
-  ${C.basic};
-  display: inline-block;
-`;
-
-S.ToggleIcon = styled.img`
-  width: 10px;
-  height: 5px;
-  margin-left: 6px;
-  object-fit: contain;
-  transform: rotate(${({ $open }) => ($open ? "180deg" : "0deg")}); 
-  transition: none; 
-  align-self: center;
-`;
-
-/* ──────────────────────────────────────────────
-   15) 관련 상품 섹션 (ShopRelated.jsx)
-────────────────────────────────────────────── */
+/* 15) 관련 상품 섹션 (ShopRelated.jsx) */
 S.RelatedSection = styled.section`
   width: 680px;
   margin: 80px 0 120px;
@@ -848,7 +381,6 @@ S.RelatedPrice = styled.p`
 S.Overlay = styled.div`
   position: fixed;
   inset: 0;
-  /* background: ${({ theme }) => theme.PALLETE.grey.greyScale1}; */
   background: rgba(0, 0, 0, 0.45);
   z-index: 1000;
   align-items: center;
@@ -856,7 +388,7 @@ S.Overlay = styled.div`
 `;
 
 S.Dialog = styled.div`
-  position: fixed;  
+  position: fixed;
   z-index: 1100;
   top: 50%;
   left: 50%;
@@ -887,8 +419,8 @@ S.DialogBtns = styled.div`
 
 S.DialogBtnCancel = styled.button`
   ${C.smallText2Regular};
-  width: 136px;             
-  height: 46px;            
+  width: 136px;
+  height: 46px;
   margin-bottom: 12px;
   border-radius: 4px;
   display: inline-flex;
@@ -904,7 +436,7 @@ S.DialogBtnCart = styled.button`
   justify-content: center;
   align-items: center;
   margin-bottom: 12px;
-  flex: 1; 
+  flex: 1;
   width: 136px;
   height: 46px;
   border-radius: 4px;
