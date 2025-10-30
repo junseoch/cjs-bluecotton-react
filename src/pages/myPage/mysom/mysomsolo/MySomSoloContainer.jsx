@@ -14,6 +14,23 @@ import {
   PageButton,
   PageNumber
 } from '../style';
+import styled from 'styled-components';
+
+const ActionButton = styled.button`
+  padding: 8px 16px;
+  background-color: #0051FF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: #003DB8;
+  }
+`;
 
 const MySomSoloContainer = () => {
   const navigate = useNavigate();
@@ -76,21 +93,11 @@ const MySomSoloContainer = () => {
                   <span>{challenge.repeat} {challenge.progress}</span>
                 </ItemDetails>
               </div>
-              <button 
+              <ActionButton 
                 onClick={() => navigate('/main/my-page/my-som-check')}
-                style={{
-                  padding: '8px 16px',
-                  backgroundColor: '#0051FF',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '6px',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: '500'
-                }}
               >
                 {challenge.button}
-              </button>
+              </ActionButton>
             </div>
           </ListItem>
         ))}
