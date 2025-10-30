@@ -1,0 +1,65 @@
+[
+  {
+    "somId": 1,
+    "userName": "유준혁",
+    "userProfilePath": "/images/user1.png",
+    "userProfileName": "user1.png"
+  },
+  {
+    "somId": 1,
+    "userName": "박서현",
+    "userProfilePath": "/images/user4.png",
+    "userProfileName": "user4.png"
+  },
+  {
+    "somId": 1,
+    "userName": "이예린",
+    "userProfilePath": "/images/user8.png",
+    "userProfileName": "user8.png"
+  },
+
+  {
+    "somId": 2,
+    "userName": "최우빈",
+    "userProfilePath": "/images/user2.png",
+    "userProfileName": "user2.png"
+  },
+  {
+    "somId": 2,
+    "userName": "홍성민",
+    "userProfilePath": "/images/user6.png",
+    "userProfileName": "user6.png"
+  },
+
+  {
+    "somId": 3,
+    "userName": "이하연",
+    "userProfilePath": "/images/user3.png",
+    "userProfileName": "user3.png"
+  },
+  {
+    "somId": 3,
+    "userName": "김소연",
+    "userProfilePath": "/images/user7.png",
+    "userProfileName": "user7.png"
+  },
+
+  {
+    "somId": 5,
+    "userName": "이정훈",
+    "userProfilePath": "/images/user5.png",
+    "userProfileName": "user5.png"
+  },
+  {
+    "somId": 5,
+    "userName": "유준혁",
+    "userProfilePath": "/images/user1.png",
+    "userProfileName": "user1.png"
+  },
+  {
+    "somId": 5,
+    "userName": "이예린",
+    "userProfilePath": "/images/user8.png",
+    "userProfileName": "user8.png"
+  }
+]

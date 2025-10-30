@@ -9,15 +9,15 @@ S.Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  background-color: ${({theme}) => theme.PALLETE.white};)};
-  `;
+  background-color: ${({theme}) => theme.PALLETE.white};
+`
   
 S.Wrap = styled.div`
   width: 1160px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 40px;
   margin-bottom: 220px;
 `
 

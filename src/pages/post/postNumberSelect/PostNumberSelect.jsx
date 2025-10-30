@@ -27,7 +27,10 @@ const PostNumberSelect = ({ postList, pageNumber, setPageNumber }) => {
             <button
               key={page}
               className={pageNumber === page ? "active" : ""}
-              onClick={() => setPageNumber(page)}
+              onClick={() => 
+                {setPageNumber(page);
+                  window.scrollTo(0, 0);
+                }}
             >
               {page}
             </button>
