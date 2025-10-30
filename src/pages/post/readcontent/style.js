@@ -360,6 +360,7 @@ export const CommentForm = styled.div`
   }
 `;
 
+
 /* ===== 구분선 & 네비게이션 ===== */
 export const Divider = styled.div`
   height: 1px;
@@ -431,7 +432,6 @@ export const LikeButton = styled.button`
     height: 16px;
     transition: transform 0.15s ease;
   }
-
 
   /* 좋아요 상태일 때 */
   ${({ $liked, theme }) =>
