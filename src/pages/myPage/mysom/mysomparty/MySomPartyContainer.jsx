@@ -229,7 +229,7 @@ const MySomPartyContainer = () => {
         <PopupModalOverlay>
           <PopupModal>
             <CloseButton onClick={()=>setShowPopup(false)}>×</CloseButton>
-            <PopupTitle>({teamLeaderName})팀장의의 어떤 점이 좋았는지 선택해주세요! <span style={{fontSize:'14px',fontWeight:'normal',color:'#888'}}>최대 3개, 복수선택가능</span></PopupTitle>
+            <PopupTitle>{teamLeaderName}팀장의 어떤 점이 좋았는지 선택해주세요! <span style={{fontSize:'14px',fontWeight:'normal',color:'#222'}}>(최대 3개, 복수선택가능)</span></PopupTitle>
             <div style={{fontSize:'13px',color:'#AAB6BF',margin:'0 0 8px'}}>설문은 익명으로 저장되며 더 나은 소식지를 위해 활용됩니다.</div>
             <OptionGrid>
               {feedbackOptions.map((option, i) => (
