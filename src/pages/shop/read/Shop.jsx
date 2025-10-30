@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import S from "./style";
-import ShopInfo from "./ShopInfo";
-import ShopReview from "./ShopReview";
+import ShopInfo from "./info/ShopInfo";
+import ShopReview from "./review/ShopReview";
 import ShopRelated from "./ShopRelated";
 import { useNavigate } from "react-router-dom";
 

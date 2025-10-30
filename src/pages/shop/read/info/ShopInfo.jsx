@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import S from "./style.js";
+import S from "../style.js";
 
 const ShopInfo = () => {
   const [open, setOpen] = useState(true);

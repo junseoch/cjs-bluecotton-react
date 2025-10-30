@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useTheme } from "styled-components";
-import S from "./style";
+import S from "../style";
 
 const ShopReview = () => {
 
@@ -38,7 +38,6 @@ const StarIcon = (props) => (
   const reviewTypeOptions = ["전체 리뷰", "사진 리뷰"];
   const sortTypeOptions = ["최신순", "별점 높은 순", "별점 낮은 순"];
 
-  /** 개별 리뷰 리스트(백엔드 응답 가정) */
   const reviewList = [
     {
       id: 1,
