@@ -99,10 +99,10 @@ const OptionBtn = styled.button`
   max-width: 33.3%;
   box-sizing: border-box;
   padding: 15px 8px;
-  border-radius: 22px;
+  border-radius: 4px;
   border: 1px solid #ACB5BF;
-  background: ${({selected}) => selected ? '#0051FF' : '#F1F3F6'};
-  color: ${({selected}) => selected ? '#fff' : '#515151'};
+  background: ${({selected})=>selected ?'#0051FF':'#F1F3F6'};
+  color: ${({selected})=>selected?'#fff':'#515151'};
   font-size: 15px;
   margin-bottom: 6px;
   cursor: pointer;
