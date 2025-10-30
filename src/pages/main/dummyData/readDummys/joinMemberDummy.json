@@ -45,13 +45,13 @@
   },
 
   {
-    "somId": 5,
+    "somId": 4,
     "userName": "이정훈",
     "userProfilePath": "/images/user5.png",
     "userProfileName": "user5.png"
   },
   {
-    "somId": 5,
+    "somId": 4,
     "userName": "유준혁",
     "userProfilePath": "/images/user1.png",
     "userProfileName": "user1.png"

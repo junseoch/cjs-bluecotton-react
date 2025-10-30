@@ -143,6 +143,11 @@ const FileInputLabel = styled.label`
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 8px;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: #003DB8;
+  }
 `;
 
 const FileInput = styled.input`

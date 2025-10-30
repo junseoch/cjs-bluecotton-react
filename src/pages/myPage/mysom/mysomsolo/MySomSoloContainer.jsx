@@ -14,6 +14,23 @@ import {
   PageButton,
   PageNumber
 } from '../style';
+import styled from 'styled-components';
+
+const ActionButton = styled.button`
+  padding: 8px 16px;
+  background-color: #0051FF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: #003DB8;
+  }
+`;
 
 const MySomSoloContainer = () => {
   const navigate = useNavigate();
@@ -25,18 +42,30 @@ const MySomSoloContainer = () => {
       title: '2km 런닝 뛰기 챌린지!!',
       date: '2025.09.01 ~ 2025.09.31',
       repeat: '[요일반복] [금]',
-      progress: '4회/4회',
-      button: '인증하기'
+      progress: '4회/4회'
     },
     {
       type: '솔로',
       title: '2km 런닝 뛰기 챌린지!!',
       date: '2025.09.01 ~ 2025.09.31',
       repeat: '[요일반복] [금]',
-      progress: '4회/4회',
-      button: '인증하기'
+      progress: '4회/4회'
     }
   ];
+
+  // ✅ 상태에 따라 버튼 라벨 결정
+  const getButtonLabel = () => {
+    if (activeFilter === 'progress') return '인증하기';
+    if (activeFilter === 'completed') return '리뷰하기';
+    return null; // 진행예정일 경우 버튼 없음
+  };
+
+  // ✅ 상태에 따라 이동 경로 결정
+  const getButtonPath = () => {
+    if (activeFilter === 'progress') return '/main/my-page/my-som-check';
+    if (activeFilter === 'completed') return '/main/my-page/my-som-review';
+    return null;
+  };
 
   return (
     <div>
@@ -76,21 +105,15 @@ const MySomSoloContainer = () => {
                   <span>{challenge.repeat} {challenge.progress}</span>
                 </ItemDetails>
               </div>
-              <button 
-                onClick={() => navigate('/main/my-page/my-som-check')}
-                style={{
-                  padding: '8px 16px',
-                  backgroundColor: '#0051FF',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '6px',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: '500'
-                }}
-              >
-                {challenge.button}
-              </button>
+
+              {/* ✅ 진행예정은 버튼 숨김, 나머지는 상태에 따라 표시 */}
+              {getButtonLabel() && (
+                <ActionButton 
+                  onClick={() => navigate(getButtonPath())}
+                >
+                  {getButtonLabel()}
+                </ActionButton>
+              )}
             </div>
           </ListItem>
         ))}
