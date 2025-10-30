@@ -7,7 +7,7 @@ import {
   PageButton,
   PageNumber
 } from '../style';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const ItemImage = styled.div`
   width: 80px;
@@ -72,9 +72,13 @@ const Button = styled.button`
   border: 1px solid ${props => props.primary ? '#0051FF' : '#E0E0E0'};
   background-color: ${props => props.primary ? '#0051FF' : '#fff'};
   color: ${props => props.primary ? '#fff' : '#111111'};
+  transition: all 0.2s;
   
   &:hover {
-    opacity: 0.9;
+    ${props => props.primary 
+      ? css`background-color: #003DB8; border-color: #003DB8;`
+      : css`background-color: #F5F5F5;`
+    }
   }
 `;
 
