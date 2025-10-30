@@ -7,14 +7,14 @@ export const flexCenter = css`
   align-items: center;
 `
 
-export const flexBeetweenRow = css`
+export const flexBetweenRow = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 `
 
-export const flexBeetweenColumn = css`
+export const flexBetweenColumn = css`
   display: flex;
   justify-content: space-between;
   align-items: center;

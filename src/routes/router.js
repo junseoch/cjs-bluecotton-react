@@ -4,7 +4,7 @@ import Layout from "../pages/layout/Layout";
 import NotFound from "../pages/notFound/NotFound";
 import SignUp from "../pages/signUp/SignUp";
 import Intro from "../pages/intro/Intro";
-import Shop from "../pages/shop/Shop";
+import Shop from "../pages/shop/read/Shop";
 import Login from "../pages/login/Login";
 import ReadContent from "../pages/main/readcontent/ReadContent";
 import MapContainer from "../pages/map/MapContainer";
@@ -35,6 +35,8 @@ import MyInfoContainer from "../pages/myPage/myinfo/MyInfoContainer";
 import PostContent from "../pages/post/postcontent/PostContent";
 import PostReadContent from "../pages/post/readcontent/PostReadContent";
 import PostWriteContent from "../pages/post/postwritecontent/PostWriteContent";
+import PostModifyContent from "../pages/post/postModifyContent/PostModifyContent";
+import MySomCheck from "../pages/myPage/mysom/mysomcheck/MySomCheck";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +88,10 @@ const router = createBrowserRouter([
                 element: <MySomRankContainer />
               },
             ]
+          },
+          {
+            path: "my-som-check",
+            element: <MySomCheck />
           },
           {
             path: "my-shop",
@@ -168,6 +174,10 @@ const router = createBrowserRouter([
       {
         path: "post/write",
         element: <PostWriteContent />
+      },
+      {
+        path: "post/modify/:id",
+        element: <PostModifyContent />
       }
     ]
   },

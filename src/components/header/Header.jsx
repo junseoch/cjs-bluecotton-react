@@ -13,7 +13,7 @@ const Header = () => {
   const isIntroPage = pathname === "/";
   const isSomPage  = pathname.startsWith("/main/som");
   const isShopPage = pathname.startsWith("/main/shop");
-  const isMyPage   = pathname.startsWith("/main/my-page");
+  const isMyPage   = pathname.startsWith("/main/my-page/");
   const isPostPage = pathname.startsWith("/main/post");
   const isMapPage  = pathname.startsWith("/main/map");
 
@@ -21,7 +21,7 @@ const Header = () => {
     isSomPage  ? "솜" :
     isShopPage ? "샵" :
     isMyPage   ? "마이페이지" :
-    isPostPage ? "오늘의 솜" :
+    isPostPage ? "오늘의 솜" :  
     isMapPage  ? "주변 솜" : "";
 
   const Categories = (

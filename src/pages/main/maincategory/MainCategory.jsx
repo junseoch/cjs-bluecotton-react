@@ -1,16 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import S from "./style";
+import { useNavigate, useParams } from "react-router-dom";
 
-const MainCategory = () => {
+const categoryMap = {
+  all: "전체",
+  study: "학습",
+  health: "건강",
+  social: "소셜",
+  hobbies: "취미",
+  "life-style": "생활",
+  rookie: "루키",
+};
+
+const reverseMap = Object.fromEntries(
+  Object.entries(categoryMap).map(([k, v]) => [v, k])
+);
+
+const categories = Object.values(categoryMap);
+const sortOptions = [
+  { value: "latest", label: "최신순" },
+  { value: "popular", label: "좋아요순" },
+  { value: "closing", label: "마감 임박순" },
+];
+
+const MainCategory = ({ sortBy, setSortBy }) => {
+  const { category } = useParams();
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <Link to={"/main/som/all"}>전체</Link> | &nbsp;
-      <Link to={"/main/som/study"}>학습</Link> | &nbsp;
-      <Link to={"/main/som/health"}>건강</Link> | &nbsp;
-      <Link to={"/main/som/social"}>소셜</Link> | &nbsp;
-      <Link to={"/main/som/hobbies"}>취미</Link> | &nbsp;
-      <Link to={"/main/som/life-style"}>생활</Link>
-    </div>
+    <S.TopBar>
+      {/* 카테고리 버튼 */}
+      <S.CategoryList>
+        {categories.map((cat) => (
+          <S.CategoryButton
+            key={cat}
+            $active={categoryMap[category] === cat}
+            onClick={() => navigate(`/main/som/${reverseMap[cat]}`)}
+          >
+            {cat}
+          </S.CategoryButton>
+        ))}
+      </S.CategoryList>
+
+      {/* 정렬 선택 */}
+      <S.FilterBox>
+        <S.FilterSelect
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          {sortOptions.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </S.FilterSelect>
+      </S.FilterBox>
+    </S.TopBar>
   );
 };
 
