@@ -303,7 +303,7 @@ S.InfoTab = styled.button`
     bottom: -4px;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: ${theme.PALLETE.basic};
   }
   `}

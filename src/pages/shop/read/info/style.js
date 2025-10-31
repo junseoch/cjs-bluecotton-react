@@ -67,6 +67,7 @@ S.SpecLabel = styled.div`
 
 S.SpecValue = styled.div`
   ${C.smallText2Regular};
+  padding-left: 4px;
   color: ${({ theme }) => theme.PALLETE.basic};
 `;
 

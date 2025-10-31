@@ -160,6 +160,7 @@ S.ProfileImage = styled.img`
 `;
 
 S.UserInfoWrap = styled.div`
+  margin-top: 52px;
   display: flex;
   flex-direction: column;
   gap: 6px;
