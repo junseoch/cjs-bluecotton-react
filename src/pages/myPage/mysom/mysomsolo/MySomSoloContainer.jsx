@@ -56,14 +56,13 @@ const MySomSoloContainer = () => {
   // ✅ 상태에 따라 버튼 라벨 결정
   const getButtonLabel = () => {
     if (activeFilter === 'progress') return '인증하기';
-    if (activeFilter === 'completed') return '리뷰하기';
-    return null; // 진행예정일 경우 버튼 없음
+    // 진행완료일 때는 버튼 표시 안 함
+    return null;
   };
 
   // ✅ 상태에 따라 이동 경로 결정
   const getButtonPath = () => {
     if (activeFilter === 'progress') return '/main/my-page/my-som-check';
-    if (activeFilter === 'completed') return '/main/my-page/my-som-review';
     return null;
   };
 
@@ -89,14 +88,19 @@ const MySomSoloContainer = () => {
           active={activeFilter === 'completed'}
           onClick={() => setActiveFilter('completed')}
         >
-          진행완료(15개)
+          진행완료 (15개)
         </FilterButton>
       </FilterContainer>
       
       <ListContainer>
         {challenges.map((challenge, index) => (
           <ListItem key={index}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              width: '100%'
+            }}>
               <div>
                 <ItemType>{challenge.type}</ItemType>
                 <ItemTitle>{challenge.title}</ItemTitle>
@@ -106,11 +110,9 @@ const MySomSoloContainer = () => {
                 </ItemDetails>
               </div>
 
-              {/* ✅ 진행예정은 버튼 숨김, 나머지는 상태에 따라 표시 */}
+              {/* ✅ 진행예정은 버튼 숨김, 진행중만 표시 */}
               {getButtonLabel() && (
-                <ActionButton 
-                  onClick={() => navigate(getButtonPath())}
-                >
+                <ActionButton onClick={() => navigate(getButtonPath())}>
                   {getButtonLabel()}
                 </ActionButton>
               )}

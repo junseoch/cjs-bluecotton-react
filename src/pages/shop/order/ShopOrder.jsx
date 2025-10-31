@@ -1,9 +1,10 @@
 import React from 'react';
+import OrderUserInfo from './OrderUserInfo';
 
 const ShopOrder = () => {
   return (
     <div>
-      주문
+      <OrderUserInfo />
     </div>
   );
 };
