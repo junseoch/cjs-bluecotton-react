@@ -3,147 +3,23 @@ import {
   ListHeader,
   FilterContainer,
   FilterButton,
-  ListContainer
+  ListContainer,
+  CartHeader,
+  SelectAll,
+  CartItem,
+  ItemImage,
+  ItemInfo,
+  ItemName,
+  QuantityControl,
+  QuantityButton,
+  Quantity,
+  PriceInfo,
+  PriceRow,
+  PriceValue,
+  OrderSummary,
+  SummaryRow,
+  OrderButton
 } from '../style';
-import styled from 'styled-components';
-
-const CartHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-`;
-
-const SelectAll = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-`;
-
-const CartItem = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  margin-bottom: 16px;
-  gap: 16px;
-`;
-
-const ItemImage = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: #E0E0E0;
-  border-radius: 8px;
-`;
-
-const ItemInfo = styled.div`
-  flex: 1;
-`;
-
-const ItemName = styled.div`
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-`;
-
-const QuantityControl = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100px;
-  height: 36px;
-  border: 1px solid #E0E0E0;
-  background-color: #fff;
-  border-radius: 6px;
-  margin-top: 8px;
-  padding: 0 8px;
-`;
-
-const QuantityButton = styled.button`
-  width: 20px;
-  height: 20px;
-  border: none;
-  background-color: transparent;
-  color: #666;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:hover:not(:disabled) {
-    color: #333;
-  }
-  
-  &:disabled {
-    color: #BDBDBD;
-    cursor: not-allowed;
-  }
-`;
-
-const Quantity = styled.span`
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-`;
-
-const PriceInfo = styled.div`
-  text-align: right;
-`;
-
-const PriceRow = styled.div`
-  font-size: 14px;
-  color: #757575;
-  margin-bottom: 4px;
-`;
-
-const PriceValue = styled.span`
-  margin-left: 8px;
-  font-weight: 600;
-  color: #111111;
-`;
-
-const OrderSummary = styled.div`
-  background-color: #F9F9F9;
-  padding: 24px;
-  border-radius: 8px;
-  margin-top: 32px;
-  margin-bottom: 16px;
-`;
-
-const SummaryRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  font-size: 14px;
-  
-  &:last-child {
-    font-size: 18px;
-    font-weight: 700;
-    color: #0051FF;
-    margin-bottom: 0;
-  }
-`;
-
-const OrderButton = styled.button`
-  width: 100%;
-  padding: 16px;
-  background-color: #0051FF;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: #003BBF;
-  }
-`;
 
 const MyShopCartContainer = () => {
   const items = [

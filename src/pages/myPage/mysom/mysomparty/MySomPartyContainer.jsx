@@ -12,25 +12,16 @@ import {
   ItemDetails,
   Pagination,
   PageButton,
-  PageNumber
+  PageNumber,
+  ActionButton,
+  PopupModalOverlay,
+  PopupModal,
+  CloseButton,
+  PopupTitle,
+  OptionGrid,
+  OptionBtn,
+  PopupFooter
 } from '../style';
-import styled from 'styled-components';
-
-const ActionButton = styled.button`
-  padding: 8px 16px;
-  background-color: #0051FF;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.2s;
-  
-  &:hover {
-    background-color: #003DB8;
-  }
-`;
 
 const feedbackOptions = [
   '챌린지 난이도가 적당했어요',
@@ -54,68 +45,6 @@ const feedbackOptions = [
   '팀장이 규칙을 잘 안내해줘요',
   '팀장이 팀원 참여율을 잘 관리해줘요',
 ];
-
-const PopupModalOverlay = styled.div`
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(33, 33, 33, 0.45);
-  z-index: 1010;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const PopupModal = styled.div`
-  background: #fff;
-  max-width: 800px;
-  width: 98vw;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
-  padding: 36px 38px 28px 38px;
-  position: relative;
-`;
-const CloseButton = styled.button`
-  position: absolute;
-  top: 16px; right: 20px;
-  border: none;
-  background: none;
-  font-size: 32px;
-  color: #888;
-  cursor: pointer;
-`;
-const PopupTitle = styled.h3`
-  font-size: 20px;
-  margin: 0 0 12px 0;
-  font-weight: bold;
-`;
-const OptionGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 12px 0 22px 0;
-`;
-const OptionBtn = styled.button`
-  flex: 1 1 30%;
-  min-width: 32%;
-  max-width: 33.3%;
-  box-sizing: border-box;
-  padding: 15px 8px;
-  border-radius: 4px;
-  border: 1px solid #ACB5BF;
-  background: ${({selected})=>selected ?'#0051FF':'#F1F3F6'};
-  color: ${({selected})=>selected?'#fff':'#515151'};
-  font-size: 15px;
-  margin-bottom: 6px;
-  cursor: pointer;
-  transition: background .15s, color .15s;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-`;
-const PopupFooter = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-`;
 
 const MySomPartyContainer = () => {
   const navigate = useNavigate();

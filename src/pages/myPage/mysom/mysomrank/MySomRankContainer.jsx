@@ -1,90 +1,19 @@
 import React from 'react';
 import {
   ContentTitle,
-  ContentSubtitle
+  ContentSubtitle,
+  StatusBox,
+  StatusText,
+  StatusTitle,
+  StatusValue,
+  StatusLabel,
+  RequirementBox,
+  RankTableHeader,
+  InfoSection,
+  InfoTitle,
+  InfoList,
+  BulletList
 } from '../style';
-import styled from 'styled-components';
-
-const StatusBox = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 24px;
-  background-color: #F9F9F9;
-  border-radius: 8px;
-  margin-bottom: 40px;
-  gap: 32px;
-`;
-
-const StatusText = styled.div`
-  flex: 1;
-`;
-
-const StatusTitle = styled.div`
-  font-size: 16px;
-  color: #757575;
-  margin-bottom: 8px;
-`;
-
-const StatusValue = styled.div`
-  font-size: 32px;
-  font-weight: 700;
-  color: #111111;
-`;
-
-const StatusLabel = styled.div`
-  font-size: 14px;
-  color: #757575;
-  margin-top: 4px;
-`;
-
-const RequirementBox = styled.div`
-  padding: 20px;
-  background-color: #0051FF;
-  color: white;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-`;
-
-const TableHeader = styled.div`
-  font-size: 18px;
-  font-weight: 700;
-  color: #111111;
-  margin-bottom: 16px;
-`;
-
-const InfoSection = styled.div`
-  margin-top: 40px;
-`;
-
-const InfoTitle = styled.div`
-  font-size: 16px;
-  font-weight: 700;
-  color: #111111;
-  margin-bottom: 16px;
-`;
-
-const InfoList = styled.ol`
-  padding-left: 24px;
-  font-size: 14px;
-  color: #111111;
-  line-height: 1.8;
-  
-  li {
-    margin-bottom: 8px;
-  }
-`;
-
-const BulletList = styled.ul`
-  padding-left: 24px;
-  font-size: 14px;
-  color: #111111;
-  line-height: 1.8;
-  
-  li {
-    margin-bottom: 8px;
-  }
-`;
 
 const MySomRankContainer = () => {
   return (
@@ -103,7 +32,7 @@ const MySomRankContainer = () => {
         </RequirementBox>
       </StatusBox>
 
-      <TableHeader>회원 레벨 기준</TableHeader>
+      <RankTableHeader>회원 레벨 기준</RankTableHeader>
       <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '32px' }}>
         <thead>
           <tr style={{ backgroundColor: '#F9F9F9' }}>

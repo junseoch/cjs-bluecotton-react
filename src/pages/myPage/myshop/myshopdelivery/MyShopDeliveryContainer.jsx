@@ -9,37 +9,10 @@ import {
   ItemTitle,
   Pagination,
   PageButton,
-  PageNumber
+  PageNumber,
+  DeliveryItemImage,
+  ActionButton
 } from '../style';
-import styled, { css } from 'styled-components';
-
-const ItemImage = styled.img`
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  background-color: #E0E0E0;
-  margin-right: 16px;
-`;
-
-const ActionButton = styled.button`
-  padding: 10px 16px;
-  border-radius: 8px;
-  border: ${props => props.primary ? 'none' : '1px solid #E0E0E0'};
-  background-color: ${props => props.primary ? '#0051FF' : '#fff'};
-  color: ${props => props.primary ? '#fff' : '#111111'};
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  margin-left: 8px;
-  transition: all 0.2s;
-  
-  &:hover {
-    ${props => props.primary 
-      ? css`background-color: #003DB8;`
-      : css`background-color: #F5F5F5;`
-    }
-  }
-`;
 
 const MyShopDeliveryContainer = () => {
   const [activeFilter, setActiveFilter] = useState('completed');
@@ -81,7 +54,7 @@ const MyShopDeliveryContainer = () => {
         {items.map(item => (
           <ListItem key={item.id}>
             <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-              <ItemImage />
+              <DeliveryItemImage />
               <ItemDetails style={{ flex: 1 }}>
                 <div>상품</div>
                 <ItemTitle>{item.name}</ItemTitle>
