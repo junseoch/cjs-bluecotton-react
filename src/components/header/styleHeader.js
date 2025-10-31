@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
-import {headerLogo, subtitle, headerSubLogo, secondary, fontGreyScale1, smallText2Regular, smallText3Regular} from "../../styles/common";
+import {headerLogo, subtitle, headerSubLogo, secondary, fontGreyScale1, smallText2Regular, smallText3Regular, basic} from "../../styles/common";
 import { borderCSS, shapeCSS, sizeCSS } from "../button/style";
 
 const HeaderStyle = {};
@@ -44,7 +44,7 @@ HeaderStyle.CenterGroup = styled.nav`
     align-items: center;
     gap: 110px;    
     justify-self: center;
-    white-space: none;
+    white-space: nowrap;
 `;
 
 HeaderStyle.RightGroup = styled.div`
@@ -73,23 +73,39 @@ HeaderStyle.SectionName = styled.span`
 
 HeaderStyle.NavLink = styled(NavLink)`
     ${subtitle}
+    ${basic}
     text-decoration: none;
     position: relative;
     color: ${secondary};
+
+    &::after {
+        content: "";
+        position: absolute;
+        background:#F83BAA;
+    }
+
+    &:hover {
+        color: #F83BAA;
+    }
+
+    &.active {
+        color: #F83BAA;
+    }
 `;
 
 HeaderStyle.LoginButton = styled.div`
-    ${sizeCSS.mediumLogin}
+    width: 96px;
+    height: 36px;
     border: solid 1px #E0E0E0;
-    ${shapeCSS.small}
     ${smallText3Regular};
     padding: 0 6px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #FFFFFF;
     cursor: pointer;
-    gap: 10px;
+    gap: 8px;
 `;
 
 export default HeaderStyle;

@@ -10,38 +10,43 @@ IntroStyle.IntroBannerWarp = styled.div `
     width: 100%;
     height: 1177px;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
+    background: url("/assets/images/intro_main.png") center/cover no-repeat;
     
 `
 
 IntroStyle.IntroBannerContainer = styled.div `
-    max-width: 100vh;
+    max-width: 1920px;
+    height: 100%;
     margin: 0 auto;
     padding: 0 16px;
     box-sizing: border-box;
     position: relative;
+    z-index: 1;
 `
 
-IntroStyle.IntroBannerImage = styled.img `
-    position: absolute;
-    transform: translateX(-50%);
-    top: 0;
-    left: 50%;
-    z-index: 1;
-    width: 1920px;
-    height: 1177px;
-    object-fit: cover;
-`
+// IntroStyle.IntroBannerImage = styled.img `
+//     position: absolute;
+//     /* transform: translateX(-50%); */
+//     top: 0;
+//     left: 50%;
+//     z-index: 1;
+//     width: 1920px;
+//     height: 1177px;
+//     object-fit: cover;
+// `
 
 IntroStyle.IntroBannerText1 = styled.div `
     ${heading2}
     ${basic}
     z-index: 2;
-
     position: absolute;
-    top: 20%;
-    left: 15%;
-    transform: translate(0, 120%);
+    top: 15%;
+    left: 29%;
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 `
 
 IntroStyle.IntroBannerText2 = styled.span `
@@ -53,10 +58,9 @@ IntroStyle.IntroBannerText2 = styled.span `
 IntroStyle.IntroBannerButtonContainer = styled.div `
     width: 100%;
     height: 50px;
-    top: 70%; 
-    left: 25%;
+    top: 33%; 
+    left: 42%;
     position: absolute;
-    transform: translate(12%, 760%);
     z-index: 2;
     gap: 10px;
     display: flex;
@@ -79,12 +83,11 @@ IntroStyle.IntroBannerButton = styled.button `
 IntroStyle.WhatIsSomWrap = styled.div `
     width: 100%;
     box-sizing: border-box;
-    padding: 80px 0 0 200px;
     background-color: #E0E0E0; 
     
 `
 IntroStyle.WhatIsSomContainer = styled.div `
-    max-width: 1200px;
+    max-width: 1920px;
     height: 500px;
     margin: 0 auto;
     gap: 100px;
@@ -100,7 +103,6 @@ IntroStyle.WhatIsSomImg = styled.img `
 `
 
 IntroStyle.WhatIsSomTextContainer = styled.div `
-    /* width: 800px; */
     display: flex;
     flex-direction: column;
     gap: 26px;

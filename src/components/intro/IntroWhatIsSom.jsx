@@ -17,7 +17,8 @@ const IntroWhatIsSom = () => {
                     </IntroStyle.WhatIsSomText2>
                     <IntroStyle.WhatIsSomBlueText3>
                         작은 열정들이 모여 서로를 감싸고 다독이는 순간,
-                        <p>그 힘은 목표를 향해 나아가는 에너지가 됩니다. 따뜻한 과정을 우리는 '솜'이라고 합니다.</p>
+                        <p>그 힘은 목표를 향해 나아가는 에너지가 됩니다.</p>
+                        <p>따뜻한 과정을 우리는 '솜'이라고 합니다.</p>
                     </IntroStyle.WhatIsSomBlueText3>
                 </IntroStyle.WhatIsSomTextContainer>
             </IntroStyle.WhatIsSomContainer>
