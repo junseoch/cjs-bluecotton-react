@@ -281,7 +281,16 @@ export const CommentForm = styled.div`
   align-items: flex-start;
   gap: 8px;
   margin-top: 6px;
-  width: 100%;
+
+  /* ✅ depth별 폭 자동 조절 */
+  ${({ $indent, $nested }) => {
+    if ($nested) return `width: calc(100% - 138px); margin-left: 92px;`; // 대댓글의 답글
+    if ($indent) return `width: calc(100% - 46px); margin-left: 46px;`; // 댓글의 답글
+    return `width: 100%; margin-left: 0;`; // 일반 댓글 입력
+  }}
+
+  align-self: flex-start;
+  box-sizing: border-box;
 
   .avatar {
     display: flex;
@@ -317,7 +326,6 @@ export const CommentForm = styled.div`
       font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
       box-sizing: border-box;
 
-      /* ✅ 포커스 시 파란색(primary) 강조 */
       &:focus {
         border-color: ${({ theme }) => theme.PALLETE.primary.main};
         outline: none;
@@ -343,7 +351,7 @@ export const CommentForm = styled.div`
     cursor: pointer;
     font-size: ${({ theme }) => theme.FONT_SIZE["smallText3"]};
     margin-top: 8px;
-    margin-right: 2px; /* 끝선 맞춤 */
+    margin-right: 2px;
     transition: 0.15s;
 
     &:hover {
@@ -351,6 +359,7 @@ export const CommentForm = styled.div`
     }
   }
 `;
+
 
 /* ===== 구분선 & 네비게이션 ===== */
 export const Divider = styled.div`
@@ -424,20 +433,11 @@ export const LikeButton = styled.button`
     transition: transform 0.15s ease;
   }
 
-  &:hover {
-    border-color: ${({ theme }) => theme.PALLETE.primary.main};
-    color: ${({ theme }) => theme.PALLETE.primary.main};
-    img {
-      transform: scale(1.1);
-    }
-  }
-
   /* 좋아요 상태일 때 */
   ${({ $liked, theme }) =>
     $liked &&
     `
-      border-color: ${theme.PALLETE.primary.main};
-      color: ${theme.PALLETE.primary.main};
+      color: ${theme.PALLETE.basic};
       background: #fff;
     `}
 `;
