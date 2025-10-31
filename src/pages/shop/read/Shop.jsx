@@ -148,7 +148,7 @@ const Shop = () => {
             </S.ProductLikeButton>
 
             <S.CartButton onClick={() => setOpen(true)}>장바구니</S.CartButton>
-            <S.PurchaseButton>구매하기</S.PurchaseButton>
+            <S.PurchaseButton onClick={() => navigate("/main/shop/order")}>구매하기</S.PurchaseButton>
           </S.ButtonRow>
         </S.Right>
       </S.DetailContainer>
