@@ -51,7 +51,7 @@ const Header = () => {
           </HeaderStyle.CenterGroup>
           <HeaderStyle.RightGroup>
             <HeaderStyle.LoginButton onClick={handleLoginClick}>
-              <span><img style={{width:"24px", marginTop:"5px"}} src="/assets/icons/login_profile.png" alt="프로필아이콘" /></span>
+              <span><img style={{width:"21px", height:"24px", marginTop:"5px"}} src="/assets/icons/login.svg" alt="프로필아이콘" /></span>
               <span style={{color:"#0051FF"}}>로그인</span>
             </HeaderStyle.LoginButton>
           </HeaderStyle.RightGroup>

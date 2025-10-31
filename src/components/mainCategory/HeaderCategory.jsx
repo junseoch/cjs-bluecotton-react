@@ -15,10 +15,10 @@ const HeaderCategory = () => {
             <CategoryStyle.Container>
                 <CategoryStyle.CategoryBar>
                     <CategoryStyle.CategoryLink to="/main/som/all" className={isSomActive ? "active" : ""}>홈</CategoryStyle.CategoryLink>
-                    <CategoryStyle.CategoryLink to="/main/my-page/my-som/auth" className={isMyPageActive ? "active" : ""}>마이페이지</CategoryStyle.CategoryLink>
-                    <CategoryStyle.CategoryLink to="/main/shop">블루코튼 샵</CategoryStyle.CategoryLink>
-                    <CategoryStyle.CategoryLink to="/main/post/all" className={isPostActive ? "active" :""}>오늘의 솜</CategoryStyle.CategoryLink>
                     <CategoryStyle.CategoryLink to="/main/map">주변 솜</CategoryStyle.CategoryLink>
+                    <CategoryStyle.CategoryLink to="/main/post/all" className={isPostActive ? "active" :""}>오늘의 솜</CategoryStyle.CategoryLink>
+                    <CategoryStyle.CategoryLink to="/main/shop">블루코튼 샵</CategoryStyle.CategoryLink>
+                    <CategoryStyle.CategoryLink to="/main/my-page/my-som/auth" className={isMyPageActive ? "active" : ""}>마이페이지</CategoryStyle.CategoryLink>
                 </CategoryStyle.CategoryBar>
             </CategoryStyle.Container>
         </CategoryStyle.Wrapper>
