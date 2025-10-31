@@ -12,25 +12,9 @@ import {
   ItemDetails,
   Pagination,
   PageButton,
-  PageNumber
+  PageNumber,
+  ActionButton
 } from '../style';
-import styled from 'styled-components';
-
-const ActionButton = styled.button`
-  padding: 8px 16px;
-  background-color: #0051FF;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.2s;
-  
-  &:hover {
-    background-color: #003DB8;
-  }
-`;
 
 const MySomSoloContainer = () => {
   const navigate = useNavigate();

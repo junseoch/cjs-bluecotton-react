@@ -235,3 +235,253 @@ export const Likes = styled.span`
   color: ${({ theme }) => theme.PALLETE.grey.greyScale4};
 `;
 
+export const CartHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+`;
+
+export const SelectAll = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+`;
+
+export const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 16px;
+  gap: 16px;
+`;
+
+export const ItemImage = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: #E0E0E0;
+  border-radius: 8px;
+`;
+
+export const ItemInfo = styled.div`
+  flex: 1;
+`;
+
+export const ItemName = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+`;
+
+export const QuantityControl = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 36px;
+  border: 1px solid #E0E0E0;
+  background-color: #fff;
+  border-radius: 6px;
+  margin-top: 8px;
+  padding: 0 8px;
+`;
+
+export const QuantityButton = styled.button`
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover:not(:disabled) {
+    color: #333;
+  }
+  
+  &:disabled {
+    color: #BDBDBD;
+    cursor: not-allowed;
+  }
+`;
+
+export const Quantity = styled.span`
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+`;
+
+export const PriceInfo = styled.div`
+  text-align: right;
+`;
+
+export const PriceRow = styled.div`
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 4px;
+`;
+
+export const PriceValue = styled.span`
+  margin-left: 8px;
+  font-weight: 600;
+  color: #111111;
+`;
+
+export const OrderSummary = styled.div`
+  background-color: #F9F9F9;
+  padding: 24px;
+  border-radius: 8px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+`;
+
+export const SummaryRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  
+  &:last-child {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0051FF;
+    margin-bottom: 0;
+  }
+`;
+
+export const OrderButton = styled.button`
+  width: 100%;
+  padding: 16px;
+  background-color: #0051FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #003BBF;
+  }
+`;
+
+export const DeliveryItemImage = styled.img`
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #E0E0E0;
+  margin-right: 16px;
+`;
+
+export const ActionButton = styled.button`
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: ${props => props.primary ? 'none' : '1px solid #E0E0E0'};
+  background-color: ${props => props.primary ? '#0051FF' : '#fff'};
+  color: ${props => props.primary ? '#fff' : '#111111'};
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: ${props => props.primary ? '#003DB8' : '#F5F5F5'};
+  }
+`;
+
+export const OrderItemImage = styled.div`
+  width: 80px;
+  height: 80px;
+  background-color: #E0E0E0;
+  border-radius: 8px;
+  margin-right: 16px;
+`;
+
+export const ItemContent = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+export const OrderProductName = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+`;
+
+export const PurchaseDate = styled.div`
+  font-size: 14px;
+  color: #757575;
+`;
+
+export const OrderActionButton = styled.button`
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #0051FF;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #003BBF;
+  }
+`;
+
+export const ReviewProductInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+export const ReviewStars = styled.span`
+  color: #FFD700;
+  font-size: 20px;
+`;
+
+export const ReviewDate = styled.div`
+  font-size: 14px;
+  color: #757575;
+  margin-top: 4px;
+`;
+
+export const ReviewText = styled.div`
+  font-size: 16px;
+  color: #111111;
+  margin-top: 8px;
+`;
+
+export const ReviewActionButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const ReviewButton = styled.button`
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid ${props => props.primary ? '#0051FF' : '#E0E0E0'};
+  background-color: ${props => props.primary ? '#0051FF' : '#fff'};
+  color: ${props => props.primary ? '#fff' : '#111111'};
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: ${props => props.primary ? '#003DB8' : '#F5F5F5'};
+    border-color: ${props => props.primary ? '#003DB8' : '#E0E0E0'};
+  }
+`;
+
