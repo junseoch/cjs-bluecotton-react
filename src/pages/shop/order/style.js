@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { backgroundGreyScale1, basic, fontGreyScale4, smallText0Light, smallText1Regular, smallText3Regular } from "../../../styles/common";
-import { style } from "framer-motion/client";
+import { motion } from "framer-motion/client";
 
 const OrderStyle = {};
 

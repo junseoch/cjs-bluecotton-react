@@ -26,7 +26,7 @@ const MapContainer = () => {
     { address: "서울 강남구 테헤란로 134 P&S TOWER (역삼동)" },
   ];
 
-  useEffect(() => {
+  useEffect(() => {                                                      
     // geocoder객체 생성 -> 주소를 위도와 경도로 바꿔줌
     const geocoder = new window.kakao.maps.services.Geocoder();
 
@@ -73,9 +73,6 @@ const MapContainer = () => {
     });
   }, []); // address 고정, center 재설정 X
 
-  // =====================================================================
-  // 로딩 전 처리 (지도 로딩 중일 때)
-  // =====================================================================
   if (!isLoaded || !center) return <div>지도 불러오는 중...</div>;
 
   return (
@@ -86,7 +83,7 @@ const MapContainer = () => {
 
           {/* 왼쪽 지도 영역 */}
           <S.MapBox>
-            {/* ✅ 여러 마커 렌더링 */}
+            {/* 여러 마커 렌더링 */}
             <S.Map center={center} level={5}>
               {markers.map((marker, i) => (
                 <MapMarker
