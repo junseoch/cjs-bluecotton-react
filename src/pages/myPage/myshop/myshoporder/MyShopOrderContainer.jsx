@@ -5,50 +5,13 @@ import {
   ListItem,
   Pagination,
   PageButton,
-  PageNumber
+  PageNumber,
+  OrderItemImage,
+  ItemContent,
+  OrderProductName,
+  PurchaseDate,
+  OrderActionButton
 } from '../style';
-import styled from 'styled-components';
-
-const ItemImage = styled.div`
-  width: 80px;
-  height: 80px;
-  background-color: #E0E0E0;
-  border-radius: 8px;
-  margin-right: 16px;
-`;
-
-const ItemContent = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-`;
-
-const ProductName = styled.div`
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 4px;
-`;
-
-const PurchaseDate = styled.div`
-  font-size: 14px;
-  color: #757575;
-`;
-
-const ActionButton = styled.button`
-  padding: 10px 16px;
-  border-radius: 8px;
-  border: none;
-  background-color: #0051FF;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: #003BBF;
-  }
-`;
 
 const MyShopOrderContainer = () => {
   const orders = [
@@ -67,14 +30,14 @@ const MyShopOrderContainer = () => {
         {orders.map(order => (
           <ListItem key={order.id}>
             <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-              <ItemImage />
+              <OrderItemImage />
               <ItemContent>
                 <div>상품</div>
-                <ProductName>{order.name}</ProductName>
+                <OrderProductName>{order.name}</OrderProductName>
                 <div>구매 일자</div>
                 <PurchaseDate>{order.date}</PurchaseDate>
               </ItemContent>
-              <ActionButton>리뷰하기</ActionButton>
+              <OrderActionButton>리뷰하기</OrderActionButton>
             </div>
           </ListItem>
         ))}
