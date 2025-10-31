@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { MyPageWrapper, MainContentContainer, SidebarContainer, ProfileContainer, ProfileImageWrapper, ProfileImage, SomBadge, UserNameContainer, GradeBadge, UserName, NavigationList, NavLink } from './style';
-import { Link } from 'react-router-dom';
 
 const MyPageContainer = () => {
   const location = useLocation();
@@ -27,17 +26,17 @@ const MyPageContainer = () => {
           </UserNameContainer>
         </ProfileContainer>
         <NavigationList>
-          <NavLink active={isActive('/main/my-page/my-som')}>
-            <Link to="/main/my-page/my-som/auth">마이 솜</Link>
+          <NavLink to="/main/my-page/my-som/auth" $active={isActive('/main/my-page/my-som')}>
+            마이 솜
           </NavLink>
-          <NavLink active={isActive('/main/my-page/my-shop')}>
-            <Link to="/main/my-page/my-shop/like">마이샵</Link>
+          <NavLink to="/main/my-page/my-shop/like" $active={isActive('/main/my-page/my-shop')}>
+            마이샵
           </NavLink>
-          <NavLink active={isActive('/main/my-page/my-post')}>
-            <Link to="/main/my-page/my-post/write">게시판</Link>
+          <NavLink to="/main/my-page/my-post/write" $active={isActive('/main/my-page/my-post')}>
+            게시판
           </NavLink>
-          <NavLink active={isActive('/main/my-page/my-info')}>
-            <Link to="/main/my-page/my-info">회원관리</Link>
+          <NavLink to="/main/my-page/my-info" $active={isActive('/main/my-page/my-info')}>
+            회원관리
           </NavLink>
         </NavigationList>
       </SidebarContainer>

@@ -1,8 +1,11 @@
 import React from "react";
 import S from "./style";
+import { useNavigate } from "react-router-dom";
 
 const SomContent = ({ content }) => {
+  const nav = useNavigate();
   const {
+    id,
     somTitle,
     somImageLocation,
     somAddress,
@@ -14,16 +17,19 @@ const SomContent = ({ content }) => {
     userProfileLocation
   } = content;
 
-  const isFullSomButton = somCount == 10 ? 
-  <S.FullSomButton>참여 ({somCount}/10)</S.FullSomButton> :
-  <S.SomButton>참여 ({somCount}/10)</S.SomButton> 
+  const isFull = somCount == 10;
+  const isFullOnClick = isFull ? () => { alert("인원 초과입니다.") } : () => nav(`/main/som/read/${id}`);
+
+  const isFullSomButton = isFull ? 
+  <S.FullSomButton onClick={isFullOnClick}>참여 ({somCount}/10)</S.FullSomButton> :
+  <S.SomButton onClick={isFullOnClick}>참여 ({somCount}/10)</S.SomButton> 
   ;
 
   return (
     <S.Card>
-      <S.SomImage src={somImageLocation} alt={somTitle} />
+      <S.SomImage onClick={isFullOnClick} src={somImageLocation} alt={somTitle} />
       <S.SomInfo>
-        <S.SomTitleArea>
+        <S.SomTitleArea onClick={isFullOnClick}>
           <img src={userProfileLocation} alt={userName} />
           <S.SomTitle>{somTitle}</S.SomTitle>
         </S.SomTitleArea>
