@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {headerLogo, subtitle, headerSubLogo, secondary, fontGreyScale1, smallText2Regular, smallText3Regular} from "../../styles/common";
 import { borderCSS, shapeCSS, sizeCSS } from "../button/style";
 
@@ -71,9 +71,11 @@ HeaderStyle.SectionName = styled.span`
     ${secondary}
 `;
 
-HeaderStyle.NavLink = styled(Link)`
+HeaderStyle.NavLink = styled(NavLink)`
     ${subtitle}
     text-decoration: none;
+    position: relative;
+    color: ${secondary};
 `;
 
 HeaderStyle.LoginButton = styled.div`
