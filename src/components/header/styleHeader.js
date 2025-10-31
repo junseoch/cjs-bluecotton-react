@@ -80,7 +80,7 @@ HeaderStyle.NavLink = styled(NavLink)`
 
 HeaderStyle.LoginButton = styled.div`
     ${sizeCSS.mediumLogin}
-    ${borderCSS.primaryLight0}
+    border: solid 1px #E0E0E0;
     ${shapeCSS.small}
     ${smallText3Regular};
     padding: 0 6px;
