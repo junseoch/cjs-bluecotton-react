@@ -1,6 +1,6 @@
-import { h1 } from "framer-motion/client";
 import React from "react";
 import OrderStyle from "./style";
+
 
 const OrderUserInfo = () => {
 
