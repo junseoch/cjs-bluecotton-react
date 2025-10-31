@@ -9,7 +9,9 @@ const IntroShop = () => {
                 <IntroStyle.IntroShopText1>
                     캔디샵
                 </IntroStyle.IntroShopText1>
-                <IntroStyle.IntroShopImg src="" alt="캔디샵 이미지" />
+                <IntroStyle.IntroShopImgcontainer>
+                    <IntroStyle.IntroShopImg src="/assets/images/intro_shop.png" alt="캔디샵 이미지" />
+                </IntroStyle.IntroShopImgcontainer>
                 <IntroStyle.IntroShopTextContainer>
                     <IntroStyle.IntroShopText2>
                         <p>챌린지를 완료해 캔디를 모아</p>
