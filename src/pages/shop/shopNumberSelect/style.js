@@ -43,7 +43,7 @@ S.PrevButton = styled.button`
     opacity: 0.4;
   }
 
-  /* ✅ 오른쪽 구분선 */
+ 
   &::after {
     content: "";
     position: absolute;
@@ -69,11 +69,11 @@ S.AfterButton = styled.button`
     opacity: 0.4;
   }
 
-  /* ✅ 왼쪽 구분선 */
+
   &::before {
     content: "";
     position: absolute;
-    left: -20px; /* ← 버튼과 선 간 간격 */
+    left: -20px; 
     top: 50%;
     transform: translateY(-50%);
     width: 1px;

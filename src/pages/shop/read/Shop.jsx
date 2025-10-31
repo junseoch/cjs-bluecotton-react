@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import S from "./style";
-import ShopInfo from "./ShopInfo";
-import ShopReview from "./ShopReview";
+import ShopInfo from "./info/ShopInfo";
+import ShopReview from "./review/ShopReview";
 import ShopRelated from "./ShopRelated";
 import { useNavigate } from "react-router-dom";
 
@@ -148,7 +148,7 @@ const Shop = () => {
             </S.ProductLikeButton>
 
             <S.CartButton onClick={() => setOpen(true)}>장바구니</S.CartButton>
-            <S.PurchaseButton>구매하기</S.PurchaseButton>
+            <S.PurchaseButton onClick={() => navigate("/main/shop/order")}>구매하기</S.PurchaseButton>
           </S.ButtonRow>
         </S.Right>
       </S.DetailContainer>

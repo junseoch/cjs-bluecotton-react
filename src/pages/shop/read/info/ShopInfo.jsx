@@ -34,15 +34,15 @@ const ShopInfo = () => {
             <S.SpecTitle>상품정보</S.SpecTitle>
             <S.SpecList>
               <S.SpecRow>
-                <S.SpecLabel>무게</S.SpecLabel>
+                <S.SpecLabel>무게:</S.SpecLabel>
                 <S.SpecValue>330g</S.SpecValue>
               </S.SpecRow>
               <S.SpecRow>
-                <S.SpecLabel>제품 크기</S.SpecLabel>
+                <S.SpecLabel>제품 크기:</S.SpecLabel>
                 <S.SpecValue>270 × 350 × 200 (mm)</S.SpecValue>
               </S.SpecRow>
               <S.SpecRow>
-                <S.SpecLabel>재질</S.SpecLabel>
+                <S.SpecLabel>재질:</S.SpecLabel>
                 <S.SpecValue>POLYESTER, COTTON</S.SpecValue>
               </S.SpecRow>
             </S.SpecList>
