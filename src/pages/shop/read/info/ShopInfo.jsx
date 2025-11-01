@@ -7,18 +7,18 @@ const ShopInfo = () => {
   return (
     <>
 
+      <S.InfoTextWrap>
+        <S.InfoKicker>따뜻하고 포근한 솜이 인형</S.InfoKicker>
+        <S.InfoTitle>솜이 인형</S.InfoTitle>
+        <S.InfoDesc>따뜻하고 포근함을 주는 귀여운 솜이 인형을 소개합니다.</S.InfoDesc>
+      </S.InfoTextWrap>
+
       <S.InfoImage>
         <img src="/assets/images/shop_detailSub_doll.png" alt="상품 상세 이미지" />
       </S.InfoImage>
 
       {open && (
         <>
-          <S.InfoTextWrap>
-            <S.InfoKicker>따뜻하고 포근한 솜이 인형</S.InfoKicker>
-            <S.InfoTitle>솜이 인형</S.InfoTitle>
-            <S.InfoDesc>따뜻하고 포근함을 주는 귀여운 솜이 인형을 소개합니다.</S.InfoDesc>
-          </S.InfoTextWrap>
-
           <S.InfoImage>
             <img src="/assets/images/shop_detailSub_doll2.png" alt="상품 상세 이미지2" />
           </S.InfoImage>

@@ -50,7 +50,7 @@ const Shop = () => {
               <S.SubImage key={i} onClick={() => setSelectedImage(src)}>
                 <img src={src} alt={`서브 이미지 ${i + 1}`} />
               </S.SubImage>
-            ))}
+            ))} 
           </S.SubImageArea>
 
           {/* 정보 / 리뷰 */}
@@ -58,15 +58,11 @@ const Shop = () => {
             <S.InfoTabs>
               <S.InfoTab
                 $active={activeTab === "info"}
-                onClick={() => setActiveTab("info")}
-              >
-                정보
+                onClick={() => setActiveTab("info")}>정보
               </S.InfoTab>
               <S.InfoTab
                 $active={activeTab === "review"}
-                onClick={() => setActiveTab("review")}
-              >
-                리뷰 22
+                onClick={() => setActiveTab("review")}>리뷰 22
               </S.InfoTab>
             </S.InfoTabs>
 

@@ -1,9 +1,9 @@
+// ✅ src/pages/shop/read/ShopReview.jsx
 import React, { useMemo, useState } from "react";
 import { useTheme } from "styled-components";
 import S from "./style";
 
 const ShopReview = () => {
-
   const theme = useTheme();
 
   const ratingBuckets = [
@@ -17,26 +17,10 @@ const ShopReview = () => {
     () => ratingBuckets.reduce((s, r) => s + r.count, 0),
     [ratingBuckets]
   );
-  const avgScore = 4.6; 
+  const avgScore = 4.6;
 
-const StarIcon = (props) => (
-  <svg width="19" height="18" viewBox="0 0 24 24" aria-hidden="true" {...props}>
-    <polygon
-      fill="currentColor"
-      points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"
-    />
-  </svg>
-);
-
-
-  // 드롭다운
-  const [reviewTypeOpen, setReviewTypeOpen] = useState(false);
-  const [sortTypeOpen, setSortTypeOpen] = useState(false);
-  const [selectedReviewType, setSelectedReviewType] = useState("전체 리뷰");
-  const [selectedSortType, setSelectedSortType] = useState("최신순");
-
-  const reviewTypeOptions = ["전체 리뷰", "사진 리뷰"];
-  const sortTypeOptions = ["최신순", "별점 높은 순", "별점 낮은 순"];
+  const [sort, setSort] = useState("latest");
+  const [type, setType] = useState("all");
 
   const reviewList = [
     {
@@ -78,76 +62,26 @@ const StarIcon = (props) => (
 
   return (
     <S.ReviewSection>
-      {/* 제목 + 드롭다운 */}
+
       <S.ReviewRatingTitleWrap>
         <S.ReviewRatingTitle>상품 리뷰</S.ReviewRatingTitle>
 
-        <S.DropdownArea>
-          {/* 첫 번째 드롭다운: 전체/사진 */}
-          <S.Dropdown
-            $active={reviewTypeOpen}
-            onClick={() => {
-              setReviewTypeOpen((p) => !p);
-              setSortTypeOpen(false);
-            }}
-          >
-            {selectedReviewType}
-            <S.ArrowIcon
-              src="/assets/icons/drop_down.svg"
-              alt="리뷰 유형 선택"
-            />
-            {reviewTypeOpen && (
-              <S.DropdownList>
-                {reviewTypeOptions.map((opt) => (
-                  <S.DropdownItem
-                    key={opt}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedReviewType(opt);
-                      setReviewTypeOpen(false);
-                    }}
-                  >
-                    {opt}
-                  </S.DropdownItem>
-                ))}
-              </S.DropdownList>
-            )}
-          </S.Dropdown>
+        <S.ReviewFilters>
+          {/* 리뷰 유형 선택 */}
+          <S.ReviewSelect value={type} onChange={(e) => setType(e.target.value)}>
+            <option value="all">전체 리뷰</option>
+            <option value="photo">사진 리뷰</option>
+          </S.ReviewSelect>
 
-          {/* 두 번째 드롭다운: 정렬 */}
-          <S.Dropdown
-            $active={sortTypeOpen}
-            onClick={() => {
-              setSortTypeOpen((p) => !p);
-              setReviewTypeOpen(false);
-            }}
-          >
-            {selectedSortType}
-            <S.ArrowIcon
-              src="/assets/icons/drop_down.svg"
-              alt="정렬 옵션 선택"
-            />
-            {sortTypeOpen && (
-              <S.DropdownList>
-                {sortTypeOptions.map((opt) => (
-                  <S.DropdownItem
-                    key={opt}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedSortType(opt);
-                      setSortTypeOpen(false);
-                    }}
-                  >
-                    {opt}
-                  </S.DropdownItem>
-                ))}
-              </S.DropdownList>
-            )}
-          </S.Dropdown>
-        </S.DropdownArea>
+          {/* 정렬 기준 선택 */}
+          <S.ReviewSelect value={sort} onChange={(e) => setSort(e.target.value)}>
+            <option value="latest">최신순</option>
+            <option value="ratingHigh">별점 높은 순</option>
+            <option value="ratingLow">별점 낮은 순</option>
+          </S.ReviewSelect>
+        </S.ReviewFilters>
       </S.ReviewRatingTitleWrap>
 
-      {/* 상단 리뷰 통계(평균 + 분포 바) */}
       <S.ReviewContainer>
         <S.ReviewLeft>
           <S.ReviewAverage>{avgScore}</S.ReviewAverage>
@@ -158,22 +92,22 @@ const StarIcon = (props) => (
         </S.ReviewLeft>
 
         <S.ReviewRight>
-          {ratingBuckets.map((r) => {
-            const percent = totalCount ? (r.count / totalCount) * 100 : 0;
+          {ratingBuckets.map(({ rating, count }) => {
+            // 퍼센트(정수) 계산: (개수 / 총합) * 100
+            const percent = totalCount ? Math.round((count / totalCount) * 100) : 0;
             return (
-              <S.ReviewRow key={r.rating}>
-                <S.ReviewLabel>{r.rating}</S.ReviewLabel>
+              <S.ReviewRow key={rating}>
+                <S.ReviewLabel>{rating}</S.ReviewLabel>
                 <S.ReviewBar>
                   <S.ReviewFill percent={percent} />
                 </S.ReviewBar>
-                <S.ReviewCountText>{r.count}</S.ReviewCountText>
+                <S.ReviewCountText>{percent}%</S.ReviewCountText>
               </S.ReviewRow>
             );
           })}
         </S.ReviewRight>
       </S.ReviewContainer>
 
-      {/* 리뷰 리스트 */}
       {reviewList.map((rv) => (
         <S.ReviewItem key={rv.id}>
           <S.ReviewHeader>
@@ -188,10 +122,10 @@ const StarIcon = (props) => (
                     style={{
                       width: "19px",
                       height: "18px",
-                    filter:
-                    i < rv.rating
-                      ? "none"
-                      : "brightness(0) saturate(100%) invert(93%) sepia(4%) saturate(0%) hue-rotate(184deg) brightness(93%) contrast(92%)",
+                      filter:
+                        i < rv.rating
+                          ? "none"
+                          : "brightness(0) saturate(100%) invert(93%) sepia(4%) saturate(0%) hue-rotate(184deg) brightness(93%) contrast(92%)",
                     }}
                   />
                 ))}
@@ -217,17 +151,8 @@ const StarIcon = (props) => (
           <S.ReviewFooter>
             <S.HelpfulButton
               $active={helpfulState[rv.id]?.active}
-              onClick={() => toggleHelpful(rv.id)}
-            >
-              <img
-                src={
-                  helpfulState[rv.id]?.active
-                    ? "/assets/icons/smile_white.svg"
-                    : "/assets/icons/smile_gray.svg"
-                }
-                alt="도움돼요"
-              />
-              도움돼요 {helpfulState[rv.id]?.count ?? 0}
+              onClick={() => toggleHelpful(rv.id)}>
+              <img src="/assets/icons/shop_smile.svg" alt="도움돼요" /> 도움돼요 {helpfulState[rv.id]?.count ?? 0}
             </S.HelpfulButton>
           </S.ReviewFooter>
 

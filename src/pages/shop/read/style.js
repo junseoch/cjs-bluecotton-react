@@ -90,14 +90,15 @@ S.DetailBestTag = styled.span`
 `;
 
 S.Title = styled.h1`
-  ${C.paragraphStrong};
+  ${C.paragraphRegular};
   ${C.basic};
-  margin: 16px 0;
+  margin-top: 16px;
+  margin-bottom: 8px;
 `;
 
 S.DetailPrice = styled.div`
-  ${C.paragraphStrong};
-  margin: 10px 0;
+  ${C.titleBold};
+  margin-bottom: 5px;
 `;
 
 S.DetailReviewWrap = styled.div`
@@ -116,7 +117,8 @@ S.Icon = styled.img`
 `;
 
 S.Text = styled.span`
-  ${C.smallText1Regular};
+  ${C.smallText2Light};
+  
 `;
 
 /* 5) 배송 정보 */
@@ -268,9 +270,16 @@ S.PurchaseButton = styled.button`
   border: none;
   background: ${({ theme }) => theme.PALLETE.primary.main};
   cursor: pointer;
+  
+
+  &:hover {
+    background-color: #003DB8;
+    border-color: #003DB8;
+  }
+  
 `;
 
-/* 9) 하단 정보/리뷰 탭 (Shop.jsx용) */
+/* 9) 정보/리뷰 탭 */
 S.InfoSection = styled.section`
   width: 680px;
   margin: 60px 0 120px;
@@ -282,6 +291,7 @@ S.InfoTabs = styled.div`
   display: flex;
   gap: 140px;
   justify-content: center;
+  margin-bottom: 0px;
 `;
 
 S.InfoTab = styled.button`
@@ -290,7 +300,9 @@ S.InfoTab = styled.button`
   border: none;
   cursor: pointer;
   position: relative;
+  gap: 14px;
   padding-bottom: 4px;
+  padding-bottom: 14px;
   color: ${({ $active, theme }) =>
     $active ? theme.PALLETE.basic : theme.PALLETE.grey.greyScale3};
 

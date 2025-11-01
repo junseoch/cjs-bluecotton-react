@@ -3,7 +3,6 @@ import * as C from "../../../../styles/common";
 
 const S = {};
 
-/* 13) 상품 리뷰 */
 S.ReviewSection = styled.section`
   width: 680px;
   margin: 60px 0 120px;
@@ -73,7 +72,6 @@ S.DropdownItem = styled.li`
   }
 `;
 
-/* 상단 통계 */
 S.ReviewContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -116,6 +114,7 @@ S.ReviewLabel = styled.span`
   color: ${({ theme }) => theme.PALLETE.grey.greyScale3};
   width: 16px;
   text-align: right;
+  margin-right: 7px; 
 `;
 
 S.ReviewBar = styled.div`
@@ -128,8 +127,8 @@ S.ReviewBar = styled.div`
 
 S.ReviewFill = styled.div`
   height: 100%;
-  width: ${({ percent }) => `${percent}%`};
-  background-color: ${({ theme }) => theme.PALLETE.review.main};
+  width: ${({ percent }) => percent + "%"};
+  background-color: ${({ theme }) => theme.PALLETE.review};
   border-radius: 10px;
   transition: width 0.3s ease;
 `;
@@ -139,6 +138,7 @@ S.ReviewCountText = styled.span`
   color: ${({ theme }) => theme.PALLETE.basic};
   width: 16px;
   text-align: right;
+  min-width: 40px;
 `;
 
 /* 리뷰 아이템 */
@@ -171,7 +171,6 @@ S.StarRow = styled.div`
   gap: 4px;
 `;
 
-/* ⭐ 별 아이콘 */
 S.StarIcon = styled.img`
   width: 19px;
   height: 18px;
@@ -211,7 +210,6 @@ S.ReportButton = styled.button`
   cursor: pointer;
 `;
 
-/* 리뷰 이미지 & 텍스트 */
 S.ReviewImage = styled.div`
   margin-top: 12px;
   width: 145px;
@@ -243,6 +241,7 @@ S.ReviewFooter = styled.div`
 
 S.HelpfulButton = styled.button`
   ${C.smallText2Light};
+  font-family: 'Daeojamjil', sans-serif;
   width: 108px;
   height: 38px;
   border-radius: 4px;
@@ -262,7 +261,8 @@ S.HelpfulButton = styled.button`
     width: 14px;
     height: 14px;
     object-fit: contain;
-    filter: ${({ $active }) => ($active ? "none" : "grayscale(100%)")};
+    filter: ${({ $active }) => ($active ? "invert(1) brightness(1.8)" : "none")};
+    transition: filter 0.2s ease;
   }
 `;
 
@@ -271,6 +271,40 @@ S.ReviewDivider = styled.div`
   height: 1px;
   background: ${({ theme }) => theme.PALLETE.grey.greyScale1};
   margin-top: 24px;
+`;
+
+S.ReviewFilters = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+S.ReviewSelect = styled.select`
+  min-width: 80px;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid ${({ theme }) => theme.PALLETE.grey.greyScale2};
+  background-color: #fff;
+  padding: 0 32px 0 10px;
+  font-size: ${({ theme }) => theme.FONT_SIZE["smallText2"]};
+  color: ${({ theme }) => theme.PALLETE.basic};
+  cursor: pointer;
+  appearance: none;
+
+  background-image: url("/assets/icons/drop_down.svg");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 10px 5px;
+
+  &:focus {
+    border-color: ${({ theme }) => theme.PALLETE.primary.main};
+    outline: none;
+    background-image: url("/assets/icons/drop_down_acv.svg");
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
 `;
 
 export default S;
