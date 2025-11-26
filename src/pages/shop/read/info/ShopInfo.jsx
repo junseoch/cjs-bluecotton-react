@@ -34,12 +34,6 @@ const ShopInfo = () => {
       }
     );
 
-
-      if (!res.ok) {
-        console.error("응답 에러:", res.status);
-        return;
-      }
-
       const body = await res.json(); 
       const data = body?.data;
 

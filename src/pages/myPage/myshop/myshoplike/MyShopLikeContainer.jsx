@@ -55,7 +55,6 @@ const MyShopLikeContainer = () => {
         
       } catch (err) {
         setError(err.message);
-        console.error("찜 목록 fetch 실패:", err);
       } finally {
         setLoading(false);
       }
@@ -103,7 +102,7 @@ const MyShopLikeContainer = () => {
 
       <S.LikeGrid>
         {paginatedItems.map((item) => {
-          //  항상 찜한 상태(active=true)
+
           const active = true;
 
           return (
