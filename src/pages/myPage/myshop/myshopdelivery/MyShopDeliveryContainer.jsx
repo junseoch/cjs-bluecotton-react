@@ -1,4 +1,3 @@
-// src/pages/.../mypage/myshop/MyShopDeliveryContainer.jsx
 import React, { useMemo, useState, useEffect } from "react";
 import S from "../style";
 import ReviewModal from "../review/ReviewModal";
@@ -14,8 +13,8 @@ const formatDotDate = (str) => {
 };
 
 const toClient = (dto) => ({
-  id: dto.orderId, // ✅ [수정] deliveryId(NULL 가능) 대신 orderId(고유값)를 id로 사용
-  orderId: dto.orderId, // 주문 ID는 별도 보관
+  id: dto.orderId, 
+  orderId: dto.orderId,
   productId: dto.productId, // 상품 ID
   name: dto.productName || "상품명 없음",
   date: dto.orderCreateAt, // YYYY-MM-DD
@@ -168,7 +167,7 @@ const MyShopDeliveryContainer = () => {
             throw new Error(errorData.message || "구매 취소에 실패했습니다.");
           }
 
-          // ✅ orderId로 필터링해서 해당 주문 row 제거
+          // orderId로 필터링해서 해당 주문 row 제거
           setAllItems((prev) => prev.filter((it) => it.orderId !== orderId));
         } catch (e) {
           alert(e.message);
@@ -269,7 +268,7 @@ const MyShopDeliveryContainer = () => {
 
           return (
             <S.ListItem
-              key={item.id} // ✅ 이제 deliveryId라서 중복 없음
+              key={item.id} 
               onClick={() => navigate(`/main/shop/read/${item.productId}`)}
             >
               <div
@@ -295,7 +294,6 @@ const MyShopDeliveryContainer = () => {
                     <S.ActionButton
                       onClick={(e) => {
                         e.stopPropagation();
-                        // ✅ 주문 ID 기준으로 취소
                         handleCancel(item.orderId);
                       }}
                     >

@@ -24,7 +24,7 @@ const MyShopLikeContainer = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const itemsPerPage = 12; // 그리드 레이아웃이므로 12개씩
+  const itemsPerPage = 12; 
 
   const { currentUser, isLogin } = useSelector((state) => state.user);
   const memberId = currentUser?.id ?? null;  

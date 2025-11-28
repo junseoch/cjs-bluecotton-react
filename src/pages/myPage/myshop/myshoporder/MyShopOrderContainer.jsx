@@ -101,16 +101,11 @@ const MyShopOrderContainer = () => {
     const hasPaymentStatus = orders.some((o) => o.paymentStatus != null);
 
     if (!hasPaymentStatus) {
-      console.warn(
-        "[MyShopOrder] paymentStatus 필드가 없어서 전체 주문을 그대로 사용합니다. (백엔드에서 결제 상태 내려주도록 수정 필요)"
-      );
+
       return orders; 
     }
 
     const filtered = orders.filter((o) => o.paymentStatus === "COMPLETED");
-
-    console.log("----------------------------------------------------");
-    console.log("[MyShopOrder] completedOrders 개수:", filtered.length);
 
     return filtered;
   }, [orders]);
@@ -118,7 +113,7 @@ const MyShopOrderContainer = () => {
  
   const productIds = useMemo(() => {
     const ids = [...new Set(completedOrders.map((o) => o.productId))];
-    console.log("[MyShopOrder] review 체크용 productIds:", ids);
+
     return ids;
   }, [completedOrders]);
 
@@ -148,7 +143,7 @@ const MyShopOrderContainer = () => {
                 Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
               },
             });
-            console.log("테스트");
+
             console.log(res);
 
             if (!res.ok) {
