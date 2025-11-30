@@ -29,7 +29,7 @@ const MyShopLikeContainer = () => {
   const { currentUser, isLogin } = useSelector((state) => state.user);
   const memberId = currentUser?.id ?? null;  
 
-  // 찜 목록 
+
   useEffect(() => {
     const fetchMyLikes = async () => {
       setLoading(true);
@@ -86,7 +86,6 @@ const MyShopLikeContainer = () => {
 
 
 
-  // 페이지네이션된 데이터 계산
   const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
   const startIndex = (pageNumber - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;

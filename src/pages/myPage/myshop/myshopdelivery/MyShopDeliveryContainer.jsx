@@ -15,9 +15,9 @@ const formatDotDate = (str) => {
 const toClient = (dto) => ({
   id: dto.orderId, 
   orderId: dto.orderId,
-  productId: dto.productId, // 상품 ID
+  productId: dto.productId, 
   name: dto.productName || "상품명 없음",
-  date: dto.orderCreateAt, // YYYY-MM-DD
+  date: dto.orderCreateAt, 
   status: dto.deliveryStatus.toLowerCase(),
   imageUrl: resolveUrl(dto.productMainImageUrl) || "/assets/images/abc.png",
 });
@@ -39,10 +39,8 @@ const MyShopDeliveryContainer = () => {
   const navigate = useNavigate();
   const { openModal } = useModal();
 
-  // key: productId, value: true(이미 리뷰 있음) / false(리뷰 없음)
   const [reviewExists, setReviewExists] = useState({});
 
-  // 배송 목록 조회
   useEffect(() => {
     const fetchDeliveries = async () => {
       if (!isLogin || !currentUser?.id) {
@@ -77,7 +75,7 @@ const MyShopDeliveryContainer = () => {
         const sortedData = transformedData.sort((a, b) => {
           const dateA = a.date ? new Date(a.date) : new Date(0);
           const dateB = b.date ? new Date(b.date) : new Date(0);
-          return dateB - dateA; // 최신순 (내림차순)
+          return dateB - dateA; 
         });
         setAllItems(sortedData);
       } catch (err) {
@@ -120,7 +118,6 @@ const MyShopDeliveryContainer = () => {
             });
 
             if (!res.ok) {
-              // 실패하면 일단 "리뷰 없음"으로 처리
               return [productId, false];
             }
 
@@ -144,7 +141,7 @@ const MyShopDeliveryContainer = () => {
     fetchReviewExists();
   }, [allItems, isLogin, currentUser?.id]);
 
-  // ⚠️ 여기 수정: orderId 기준으로 삭제
+  // orderId 기준으로 삭제
   const handleCancel = (orderId) => {
     openModal({
       title: "구매를 취소하시겠습니까?",
@@ -167,7 +164,6 @@ const MyShopDeliveryContainer = () => {
             throw new Error(errorData.message || "구매 취소에 실패했습니다.");
           }
 
-          // orderId로 필터링해서 해당 주문 row 제거
           setAllItems((prev) => prev.filter((it) => it.orderId !== orderId));
         } catch (e) {
           alert(e.message);
@@ -193,13 +189,11 @@ const MyShopDeliveryContainer = () => {
     closeReview();
   };
 
-  // 현재 탭(activeFilter)에 해당하는 항목만 필터
   const filteredItems = useMemo(
     () => allItems.filter((it) => it.status === activeFilter),
     [activeFilter, allItems]
   );
 
-  // 필터 변경 시 페이지를 1로 리셋
   useEffect(() => {
     setPageNumber(1);
   }, [activeFilter]);

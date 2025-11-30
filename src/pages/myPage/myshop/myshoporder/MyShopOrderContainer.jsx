@@ -21,7 +21,6 @@ const MyShopOrderContainer = () => {
 
   const [reviewExists, setReviewExists] = useState({});
 
-  // 모달
   const [open, setOpen] = useState(false);
   const [target, setTarget] = useState(null);
 
@@ -79,7 +78,7 @@ const MyShopOrderContainer = () => {
         const sortedList = list.sort((a, b) => {
           const dateA = a.orderCreateAt ? new Date(a.orderCreateAt) : new Date(0);
           const dateB = b.orderCreateAt ? new Date(b.orderCreateAt) : new Date(0);
-          return dateB - dateA; // 최신순 (내림차순)
+          return dateB - dateA; 
         });
 
         setOrders(sortedList);
